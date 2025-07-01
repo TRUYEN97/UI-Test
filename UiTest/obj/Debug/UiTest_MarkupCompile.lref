@@ -1,9 +1,14 @@
 ﻿
 FD:\C#\UiTest\UiTest\App.xaml;;
+FD:\C#\UiTest\UiTest\Resources\DataTemplates.xaml;;
+FD:\C#\UiTest\UiTest\Resources\TabItemDataTemplates.xaml;;
 FD:\C#\UiTest\UiTest\Themes\Generic.xaml;;
-FD:\C#\UiTest\UiTest\View\LabeledStatusBox.xaml;;
+FD:\C#\UiTest\UiTest\View\Component\LabeledStatusBox.xaml;;
 FD:\C#\UiTest\UiTest\View\MainWindow.xaml;;
-FD:\C#\UiTest\UiTest\View\MyCombobox.xaml;;
-FD:\C#\UiTest\UiTest\View\TestSingleUnitView.xaml;;
-FD:\C#\UiTest\UiTest\View\MyListBox.xaml;;
+FD:\C#\UiTest\UiTest\View\Component\MyCombobox.xaml;;
+FD:\C#\UiTest\UiTest\View\Component\MyListBox.xaml;;
+FD:\C#\UiTest\UiTest\View\ModeView\MultiUnitModelView.xaml;;
+FD:\C#\UiTest\UiTest\View\ModeView\SingleUnitModeView.xaml;;
+FD:\C#\UiTest\UiTest\View\TabItemView\TabLoggerView.xaml;;
+FD:\C#\UiTest\UiTest\View\TestUnitView.xaml;;
 

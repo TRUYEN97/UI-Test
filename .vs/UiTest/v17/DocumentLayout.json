@@ -3,36 +3,32 @@
   "WorkspaceRootPath": "D:\\C#\\UiTest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\view\\labeledstatusbox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\view\\labeledstatusbox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\view\\testunitview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\view\\testunitview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\themes\\generic.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\themes\\generic.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\view\\mylistbox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\view\\mylistbox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\view\\mylistbox.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\view\\mylistbox.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\view\\mycombobox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\view\\mycombobox.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\view\\mycombobox.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\view\\mycombobox.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\modelview\\testunitviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\modelview\\testunitviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\modelview\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\modelview\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\unitlogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\unitlogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\modelview\\tabitemviewmodel\\tabloggerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\modelview\\tabitemviewmodel\\tabloggerviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\model\\testunitmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\model\\testunitmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\testunitdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\testunitdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -47,100 +43,91 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "LabeledStatusBox.xaml",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\View\\LabeledStatusBox.xaml",
-              "RelativeDocumentMoniker": "UiTest\\View\\LabeledStatusBox.xaml",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\View\\LabeledStatusBox.xaml",
-              "RelativeToolTip": "UiTest\\View\\LabeledStatusBox.xaml",
+              "Title": "TestUnitView.xaml",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\View\\TestUnitView.xaml",
+              "RelativeDocumentMoniker": "UiTest\\View\\TestUnitView.xaml",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\View\\TestUnitView.xaml",
+              "RelativeToolTip": "UiTest\\View\\TestUnitView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-28T10:32:15.826Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Generic.xaml",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Themes\\Generic.xaml",
-              "RelativeDocumentMoniker": "UiTest\\Themes\\Generic.xaml",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Themes\\Generic.xaml",
-              "RelativeToolTip": "UiTest\\Themes\\Generic.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-28T10:29:23.251Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "MainViewModel.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\ModelView\\MainViewModel.cs",
-              "RelativeDocumentMoniker": "UiTest\\ModelView\\MainViewModel.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\ModelView\\MainViewModel.cs",
-              "RelativeToolTip": "UiTest\\ModelView\\MainViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAA2AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T10:17:52.274Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MyCombobox.xaml.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\View\\MyCombobox.xaml.cs",
-              "RelativeDocumentMoniker": "UiTest\\View\\MyCombobox.xaml.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\View\\MyCombobox.xaml.cs",
-              "RelativeToolTip": "UiTest\\View\\MyCombobox.xaml.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAABwAAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T10:15:57.499Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MyListBox.xaml.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\View\\MyListBox.xaml.cs",
-              "RelativeDocumentMoniker": "UiTest\\View\\MyListBox.xaml.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\View\\MyListBox.xaml.cs",
-              "RelativeToolTip": "UiTest\\View\\MyListBox.xaml.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAgwBoAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-28T10:15:54.77Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MyCombobox.xaml",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\View\\MyCombobox.xaml",
-              "RelativeDocumentMoniker": "UiTest\\View\\MyCombobox.xaml",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\View\\MyCombobox.xaml",
-              "RelativeToolTip": "UiTest\\View\\MyCombobox.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-28T10:13:48.859Z",
+              "WhenOpened": "2025-07-01T13:21:20.399Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MyListBox.xaml",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\View\\MyListBox.xaml",
-              "RelativeDocumentMoniker": "UiTest\\View\\MyListBox.xaml",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\View\\MyListBox.xaml",
-              "RelativeToolTip": "UiTest\\View\\MyListBox.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-28T10:13:42.344Z",
+              "Title": "MainViewModel.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\ModelView\\MainViewModel.cs",
+              "RelativeDocumentMoniker": "UiTest\\ModelView\\MainViewModel.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\ModelView\\MainViewModel.cs",
+              "RelativeToolTip": "UiTest\\ModelView\\MainViewModel.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAIAwwBEAAABDAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T13:18:46.469Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UnitLogger.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\UnitLogger.cs",
+              "RelativeDocumentMoniker": "UiTest\\Service\\UnitLogger.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\UnitLogger.cs",
+              "RelativeToolTip": "UiTest\\Service\\UnitLogger.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAgwBwAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T13:13:41.131Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "TabLoggerViewModel.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\ModelView\\TabItemViewModel\\TabLoggerViewModel.cs",
+              "RelativeDocumentMoniker": "UiTest\\ModelView\\TabItemViewModel\\TabLoggerViewModel.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\ModelView\\TabItemViewModel\\TabLoggerViewModel.cs",
+              "RelativeToolTip": "UiTest\\ModelView\\TabItemViewModel\\TabLoggerViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAA2AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T13:11:54.267Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TestUnitViewModel.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\ModelView\\TestUnitViewModel.cs",
+              "RelativeDocumentMoniker": "UiTest\\ModelView\\TestUnitViewModel.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\ModelView\\TestUnitViewModel.cs",
+              "RelativeToolTip": "UiTest\\ModelView\\TestUnitViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T13:08:08.955Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\View\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "UiTest\\View\\MainWindow.xaml",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\View\\MainWindow.xaml",
-              "RelativeToolTip": "UiTest\\View\\MainWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-06-28T10:11:42.123Z",
+              "Title": "TestUnitData.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\TestUnitData.cs",
+              "RelativeDocumentMoniker": "UiTest\\Service\\TestUnitData.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\TestUnitData.cs",
+              "RelativeToolTip": "UiTest\\Service\\TestUnitData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T13:06:06.499Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "TestUnitModel.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Model\\TestUnitModel.cs",
+              "RelativeDocumentMoniker": "UiTest\\Model\\TestUnitModel.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Model\\TestUnitModel.cs",
+              "RelativeToolTip": "UiTest\\Model\\TestUnitModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-01T13:05:51.207Z",
               "EditorCaption": ""
             }
           ]

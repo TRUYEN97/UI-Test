@@ -34,6 +34,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>icons8-testing-64.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -55,29 +58,70 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviors\MouseLeftClickCommandBehavior.cs" />
+    <Compile Include="Behaviors\MouseDoubleClickCommandBehavior.cs" />
+    <Compile Include="Common\FileUtil.cs" />
     <Compile Include="Common\PcInfo.cs" />
     <Compile Include="Common\ProgramInfo.cs" />
-    <Compile Include="Common\Util.cs" />
+    <Compile Include="Common\DependencyUtil.cs" />
+    <Compile Include="Config\ModeConfig.cs" />
     <Compile Include="Controls\ReusableFieldBox.cs" />
-    <Compile Include="ModelView\TestSingleUnitViewModel.cs" />
+    <Compile Include="ModelView\TabItemViewModel\BaseTabItemViewModel.cs" />
+    <Compile Include="ModelView\TabItemViewModel\TabLoggerViewModel.cs" />
+    <Compile Include="ModelView\TestUnitViewModel.cs" />
+    <Compile Include="Model\TestUnitModel.cs" />
+    <Compile Include="Service\TestUnitData.cs" />
+    <Compile Include="Mode\BaseMode.cs" />
+    <Compile Include="Mode\ModelManagement.cs" />
+    <Compile Include="Relay\WindowStateCommands.cs" />
     <Compile Include="Service\RelayCommand.cs" />
-    <Compile Include="View\LabeledStatusBox.xaml.cs">
+    <Compile Include="Service\UnitLogger.cs" />
+    <Compile Include="View\Component\LabeledStatusBox.xaml.cs">
       <DependentUpon>LabeledStatusBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MyCombobox.xaml.cs">
+    <Compile Include="View\Component\MyCombobox.xaml.cs">
       <DependentUpon>MyCombobox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\MyListBox.xaml.cs">
+    <Compile Include="View\Component\MyListBox.xaml.cs">
       <DependentUpon>MyListBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TestSingleUnitView.xaml.cs">
-      <DependentUpon>TestSingleUnitView.xaml</DependentUpon>
+    <Compile Include="View\ModeView\MultiUnitModelView.xaml.cs">
+      <DependentUpon>MultiUnitModelView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ModeView\SingleUnitModeView.xaml.cs">
+      <DependentUpon>SingleUnitModeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TabItemView\TabLoggerView.xaml.cs">
+      <DependentUpon>TabLoggerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TestUnitView.xaml.cs">
+      <DependentUpon>TestUnitView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Resources\DataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\TabItemDataTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\LabeledStatusBox.xaml">
+    <Page Include="Style\RoundedWindowButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Shadows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Component\LabeledStatusBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -95,15 +139,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\MyCombobox.xaml">
+    <Page Include="View\Component\MyCombobox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\MyListBox.xaml">
+    <Page Include="View\Component\MyListBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\TestSingleUnitView.xaml">
+    <Page Include="View\ModeView\MultiUnitModelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ModeView\SingleUnitModeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TabItemView\TabLoggerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TestUnitView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,6 +191,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons8-testing-64.ico" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

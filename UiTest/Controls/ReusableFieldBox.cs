@@ -36,9 +36,9 @@ namespace UiTest.Controls
             get => (Brush)GetValue(ShadowBackgroundProperty);
             set => SetValue(ShadowBackgroundProperty, value);
         }
-        public static readonly DependencyProperty LabelProperty = Util.CreateDependencyProperty(nameof(Label), typeof(ReusableFieldBox), string.Empty);
-        public static readonly DependencyProperty CornerRadiusProperty = Util.CreateDependencyProperty(nameof(CornerRadius), typeof(ReusableFieldBox), new CornerRadius(10));
-        public static readonly DependencyProperty InnerPaddingProperty = Util.CreateDependencyProperty(nameof(InnerPadding), typeof(ReusableFieldBox), new Thickness(10, 0, 10, 0));
-        public static readonly DependencyProperty ShadowBackgroundProperty = Util.CreateDependencyProperty(nameof(ShadowBackground), typeof(ReusableFieldBox),new SolidColorBrush(Color.FromArgb(100, 255, 255, 255)));
+        public static readonly DependencyProperty LabelProperty = DependencyUtil.RegisterDependencyProperty(nameof(Label), typeof(ReusableFieldBox), string.Empty);
+        public static readonly DependencyProperty CornerRadiusProperty = DependencyUtil.RegisterDependencyProperty(nameof(CornerRadius), typeof(ReusableFieldBox), new CornerRadius(10));
+        public static readonly DependencyProperty InnerPaddingProperty = DependencyUtil.RegisterDependencyProperty(nameof(InnerPadding), typeof(ReusableFieldBox), new Thickness(10, 0, 10, 0));
+        public static readonly DependencyProperty ShadowBackgroundProperty = DependencyUtil.RegisterDependencyProperty(nameof(ShadowBackground), typeof(ReusableFieldBox),new SolidColorBrush(Color.FromArgb(100, 50, 50, 50)));
     }
 }
