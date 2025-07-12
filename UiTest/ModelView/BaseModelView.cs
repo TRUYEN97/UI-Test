@@ -9,7 +9,7 @@ using UiTest.Common;
 
 namespace UiTest.ModelView
 {
-    internal abstract class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseViewModel : INotifyPropertyChanged
     {
         protected BaseViewModel() { }
         public event PropertyChangedEventHandler PropertyChanged;

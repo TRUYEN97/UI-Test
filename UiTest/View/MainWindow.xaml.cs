@@ -2,6 +2,7 @@
 using System.Windows.Input;
 using System.Windows.Media;
 using UiTest.ModelView;
+using UiTest.Service;
 
 namespace UiTest.View
 {
@@ -14,7 +15,8 @@ namespace UiTest.View
         {
             InitializeComponent();
             Background = Brushes.Transparent;
-            var _viewModel = new MainViewModel();
+            Core.Instance.Update();
+            var _viewModel = new MainViewModel(Core.Instance);
             DataContext = _viewModel;
         }
     }

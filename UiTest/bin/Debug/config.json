@@ -1,0 +1,30 @@
+{
+  "ProgramInfo": {
+    "Product": "",
+    "Station": "",
+    "FwVersion": "",
+    "FcdVersion": "",
+    "FtuVersion": "",
+    "BomVersion": "",
+    "MeBomVersion": ""
+  },
+  "ProgramSetting": {
+    "Column": 1,
+    "Row": 1,
+    "View": "TestUnitViewModel",
+    "Local_log": "../UI Test logs",
+    "ShowMissingErrorCode": false
+  },
+  "Modes": {
+    "Production": {
+      "IsOnSFO": false,
+      "StepFunctions": [],
+      "GroupItem": null
+    },
+    "Debug": {
+      "IsOnSFO": false,
+      "StepFunctions": [],
+      "GroupItem": null
+    }
+  }
+}

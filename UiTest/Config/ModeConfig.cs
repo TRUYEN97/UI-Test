@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace UiTest.Config
 {
-    internal class ModeConfig
+    public class ModeConfig
     {
+        public bool IsOnSFO {  get; set; }
+        public List<StepFunction> StepFunctions { get; set; } = new List<StepFunction>();
+        public string GroupItem { get; set; }
     }
 }

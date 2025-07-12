@@ -38,8 +38,48 @@
     <ApplicationIcon>icons8-testing-64.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.5.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=8.0.0.2, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.8.0.2\lib\net462\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Logging.Abstractions, Version=8.0.0.3, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Logging.Abstractions.8.0.3\lib\net462\Microsoft.Extensions.Logging.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Renci.SshNet, Version=2025.0.0.1, Culture=neutral, PublicKeyToken=1cee9f8bde3db106, processorArchitecture=MSIL">
+      <HintPath>..\packages\SSH.NET.2025.0.0\lib\net462\Renci.SshNet.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Formats.Asn1, Version=8.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Formats.Asn1.8.0.2\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,20 +102,59 @@
     <Compile Include="Behaviors\MouseDoubleClickCommandBehavior.cs" />
     <Compile Include="Common\FileUtil.cs" />
     <Compile Include="Common\PcInfo.cs" />
-    <Compile Include="Common\ProgramInfo.cs" />
+    <Compile Include="Common\AppInfo.cs" />
     <Compile Include="Common\DependencyUtil.cs" />
+    <Compile Include="Common\Util.cs" />
+    <Compile Include="Config\ConfigLoader.cs" />
     <Compile Include="Config\ModeConfig.cs" />
-    <Compile Include="Controls\ReusableFieldBox.cs" />
+    <Compile Include="Config\ProgramConfig.cs" />
+    <Compile Include="Config\ProgramInfo.cs" />
+    <Compile Include="Config\ProgramSetting.cs" />
+    <Compile Include="Config\StepFunction.cs" />
+    <Compile Include="ModelView\BaseSubModelView.cs" />
+    <Compile Include="Model\Cell\CellProperties.cs" />
+    <Compile Include="Service\Cell\CellTest.cs" />
+    <Compile Include="Service\Cell\CellTimer.cs" />
+    <Compile Include="Service\Communicate\BaseCommunicate.cs" />
+    <Compile Include="Service\Communicate\BaseInOutStream.cs" />
+    <Compile Include="Service\Communicate\BaseProcess.cs" />
+    <Compile Include="Service\Communicate\Implement\CmdProcess.cs" />
+    <Compile Include="Service\Communicate\Implement\PingProcess.cs" />
+    <Compile Include="Service\Communicate\Implement\Serial.cs" />
+    <Compile Include="Service\Communicate\InOutStream\DynamicTextReader.cs" />
+    <Compile Include="Service\Communicate\InOutStream\StringStreamReader.cs" />
+    <Compile Include="Service\Communicate\InOutStream\StringWriter.cs" />
+    <Compile Include="Service\Communicate\Interface\IConnectable.cs" />
+    <Compile Include="Service\Communicate\Interface\IReceiver.cs" />
+    <Compile Include="Service\Communicate\Interface\IWriter.cs" />
+    <Compile Include="Service\Errorcode\ErrorCodeAnalysis.cs" />
+    <Compile Include="Service\Errorcode\ErrorCodeMapper.cs" />
+    <Compile Include="Service\Errorcode\ErrorCodeMapperConfig.cs" />
+    <Compile Include="Service\Errorcode\ErrorCodeModel.cs" />
+    <Compile Include="Service\Errorcode\LoadErrorCodeConfig.cs" />
+    <Compile Include="Service\Errorcode\SpecialErrorCode.cs" />
+    <Compile Include="Service\Interface\IUpdate.cs" />
+    <Compile Include="Service\Managements\CellManagement.cs" />
+    <Compile Include="Service\MySftp.cs" />
+    <Compile Include="Config\SftpConfig.cs" />
+    <Compile Include="Service\Timer\Interfcae\IStopwatch.cs" />
+    <Compile Include="Service\Timer\Stopwatch.cs" />
+    <Compile Include="Service\ViewBuilder.cs" />
+    <Compile Include="Style\Controls\ReusableFieldBox.cs" />
+    <Compile Include="Service\Factory\BaseFactory.cs" />
+    <Compile Include="Service\Factory\ViewModelFactory.cs" />
     <Compile Include="ModelView\TabItemViewModel\BaseTabItemViewModel.cs" />
     <Compile Include="ModelView\TabItemViewModel\TabLoggerViewModel.cs" />
-    <Compile Include="ModelView\TestUnitViewModel.cs" />
-    <Compile Include="Model\TestUnitModel.cs" />
-    <Compile Include="Service\TestUnitData.cs" />
-    <Compile Include="Mode\BaseMode.cs" />
-    <Compile Include="Mode\ModelManagement.cs" />
-    <Compile Include="Relay\WindowStateCommands.cs" />
-    <Compile Include="Service\RelayCommand.cs" />
-    <Compile Include="Service\UnitLogger.cs" />
+    <Compile Include="ModelView\SubModelView\TestUnitViewModel.cs" />
+    <Compile Include="Model\Cell\TestData.cs" />
+    <Compile Include="Config\ItemGroup.cs" />
+    <Compile Include="Service\Core.cs" />
+    <Compile Include="Model\Cell\CellData.cs" />
+    <Compile Include="Config\TestMode.cs" />
+    <Compile Include="Service\Managements\ModelManagement.cs" />
+    <Compile Include="Service\Relay\WindowStateCommands.cs" />
+    <Compile Include="Service\Relay\RelayCommand.cs" />
+    <Compile Include="Service\Logger\UnitLogger.cs" />
     <Compile Include="View\Component\LabeledStatusBox.xaml.cs">
       <DependentUpon>LabeledStatusBox.xaml</DependentUpon>
     </Compile>
@@ -85,16 +164,13 @@
     <Compile Include="View\Component\MyListBox.xaml.cs">
       <DependentUpon>MyListBox.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\ModeView\MultiUnitModelView.xaml.cs">
+    <Compile Include="View\SubView\MultiUnitModelView.xaml.cs">
       <DependentUpon>MultiUnitModelView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\ModeView\SingleUnitModeView.xaml.cs">
-      <DependentUpon>SingleUnitModeView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TabItemView\TabLoggerView.xaml.cs">
       <DependentUpon>TabLoggerView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\TestUnitView.xaml.cs">
+    <Compile Include="View\SubView\TestUnitView.xaml.cs">
       <DependentUpon>TestUnitView.xaml</DependentUpon>
     </Compile>
     <Page Include="Resources\DataTemplates.xaml">
@@ -105,11 +181,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\Colors.xaml">
+    <Page Include="Style\Themes\Colors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\Generic.xaml">
+    <Page Include="Style\Themes\Generic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -117,7 +193,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\Shadows.xaml">
+    <Page Include="Style\Themes\Shadows.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -147,11 +223,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\ModeView\MultiUnitModelView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\ModeView\SingleUnitModeView.xaml">
+    <Page Include="View\SubView\MultiUnitModelView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,7 +231,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\TestUnitView.xaml">
+    <Page Include="View\SubView\TestUnitView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -184,6 +256,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\C#\UiTest\UiTest\App.xaml
-14-1639195235
+131294332129
 
-34-1362987911
-13-38814620
-Resources\DataTemplates.xaml;Resources\TabItemDataTemplates.xaml;Themes\Colors.xaml;Themes\Generic.xaml;Style\RoundedWindowButton.xaml;Themes\Shadows.xaml;View\Component\LabeledStatusBox.xaml;View\MainWindow.xaml;View\Component\MyCombobox.xaml;View\Component\MyListBox.xaml;View\ModeView\MultiUnitModelView.xaml;View\ModeView\SingleUnitModeView.xaml;View\TabItemView\TabLoggerView.xaml;View\TestUnitView.xaml;
+722054622073
+271189299539
+Resources\DataTemplates.xaml;Resources\TabItemDataTemplates.xaml;Style\Themes\Colors.xaml;Style\Themes\Generic.xaml;Style\RoundedWindowButton.xaml;Style\Themes\Shadows.xaml;View\Component\LabeledStatusBox.xaml;View\MainWindow.xaml;View\Component\MyCombobox.xaml;View\Component\MyListBox.xaml;View\SubView\MultiUnitModelView.xaml;View\TabItemView\TabLoggerView.xaml;View\SubView\TestUnitView.xaml;
 
 False
 

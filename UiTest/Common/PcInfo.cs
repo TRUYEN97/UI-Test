@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 
-namespace UiStore.Common
+namespace UiTest.Common
 {
     public static class PcInfo
     {
