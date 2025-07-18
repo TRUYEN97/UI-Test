@@ -7,7 +7,7 @@ namespace UiTest.Config
     public class ConfigLoader
     {
         private static readonly Lazy<ConfigLoader> _instance = new Lazy<ConfigLoader>(() => new ConfigLoader());
-        public static ConfigLoader Instance => _instance.Value;
+        private static ConfigLoader Instance => _instance.Value;
         private ProgramConfig _programConfig;
         public static string CfPath { get; } = "./config.json";
         public ConfigLoader() 

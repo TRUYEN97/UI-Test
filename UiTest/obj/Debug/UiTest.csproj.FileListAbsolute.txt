@@ -60,3 +60,5 @@ D:\C#\UiTest\UiTest\bin\Debug\System.Numerics.Vectors.xml
 D:\C#\UiTest\UiTest\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 D:\C#\UiTest\UiTest\bin\Debug\System.Threading.Tasks.Extensions.xml
 D:\C#\UiTest\UiTest\bin\Debug\System.ValueTuple.xml
+D:\C#\UiTest\UiTest\obj\Debug\View\Component\MyTextBox.g.cs
+D:\C#\UiTest\UiTest\obj\Debug\View\Component\MyTextBox.baml

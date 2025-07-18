@@ -8,11 +8,14 @@
              x:Name="root"
              Height="auto" Width="auto">
     <ui:ReusableFieldBox Label="{Binding Label,ElementName=root}"
+                         BorderThickness="2"
                          Padding="{Binding Padding,ElementName=root}"
                          FontSize="{Binding LabelFontSize,ElementName=root}">
         <ComboBox
             ItemsSource="{Binding ItemsSource, ElementName=root}"
             SelectedItem="{Binding SelectedItem, ElementName=root, Mode=TwoWay}"
+            BorderThickness="0"
+            Margin="1"
             FontSize="{Binding FontSize, ElementName=root}"
             FontWeight="{Binding FontWeight, ElementName=root}"/>
     </ui:ReusableFieldBox>

@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using UiTest.ModelView.TabItemViewModel;
-using UiTest.Service.Cell;
+using UiTest.Service.CellService;
 
 namespace UiTest.ModelView.SubModelView
 {
     public class TestUnitViewModel : BaseSubModelView
     {
         private readonly TabLoggerViewModel tabLoggerViewModel;
+        private int _progressValue;
+        private int _progressMaximum;
+        private string _progressPercent;
 
         public TestUnitViewModel() : base()
         {
@@ -21,22 +24,38 @@ namespace UiTest.ModelView.SubModelView
         public ObservableCollection<BaseTabItemViewModel> Tabs { get; }
         public BaseTabItemViewModel SelectedTab { get; set; }
 
-        protected override bool UpdateView()
+        public int ProgressValue
         {
-            return true;
+            get => _progressValue;
+            set
+            {
+                if (_progressValue != value)
+                _progressValue = value > ProgressMaximum ? ProgressMaximum : value;
+                OnPropertyChanged();
+                UpdateProcessPercent();
+            }
         }
-
-        protected override void UpdateCellData(CellTest Cell)
+        public int ProgressMaximum
         {
-            UpdataCellData(Cell);
+            get => _progressMaximum;
+            set
+            {
+                _progressMaximum = value;
+                OnPropertyChanged();
+                UpdateProcessPercent();
+            }
         }
+        public string ProgressPercent => _progressPercent;
 
-        private void UpdataCellData(CellTest Cell)
+        private void UpdateProcessPercent()
+        {
+            _progressPercent = $"{ProgressValue / ProgressMaximum * 100}%";
+            OnPropertyChanged(nameof(ProgressPercent));
+        }
+        protected override void UpdateCellData(Cell Cell)
         {
             var cellData = Cell?.CellData;
             if (cellData == null) return;
-            cellData.UnitLogger.AddWriteActionCallback(log => tabLoggerViewModel.AddLog(log));
-            cellData.UnitLogger.AddClearCallback(() => tabLoggerViewModel.Clear());
         }
     }
 }

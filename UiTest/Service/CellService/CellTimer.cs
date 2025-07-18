@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace UiTest.Service.Cell
+namespace UiTest.Service.CellService
 {
     public class CellTimer
     {
         private readonly Stopwatch stopwatch;
         private readonly List<Action<TimeSpan>> timeTicks;
-        private System.Timers.Timer timer;
+        private readonly System.Timers.Timer timer;
         public CellTimer()
         {
             stopwatch = new Stopwatch();
@@ -21,6 +21,10 @@ namespace UiTest.Service.Cell
             timer.Elapsed += (s, e) =>
             {
                 CallBack();
+                if (!stopwatch.IsRunning)
+                {
+                    timer.Stop();
+                }
             };
         }
 
@@ -36,6 +40,7 @@ namespace UiTest.Service.Cell
         public string StringTestTime => $"{stopwatch.Elapsed:dd\\.hh\\:mm\\:ss}";
 
         public long TestTime => (long) stopwatch.Elapsed.TotalMilliseconds;
+        public TimeSpan Elapsed => stopwatch.Elapsed;
 
         public void AddTimeTick(Action<TimeSpan> action)
         {
@@ -46,14 +51,12 @@ namespace UiTest.Service.Cell
         public void Start()
         {
             timer.Start();
-            stopwatch.Start();
+            stopwatch.Restart();
         }
 
         public void Stop() 
         {
-            timer.Stop();
             stopwatch.Stop();
-            CallBack();
         }
     }
 }

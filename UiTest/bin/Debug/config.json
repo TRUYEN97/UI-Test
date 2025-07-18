@@ -1,18 +1,18 @@
 {
   "ProgramInfo": {
-    "Product": "",
-    "Station": "",
-    "FwVersion": "",
-    "FcdVersion": "",
-    "FtuVersion": "",
-    "BomVersion": "",
-    "MeBomVersion": ""
+    "Product": "UCP",
+    "Station": "PT",
+    "FwVersion": "123",
+    "FcdVersion": "456",
+    "FtuVersion": "789",
+    "BomVersion": "0001",
+    "MeBomVersion": "0002"
   },
   "ProgramSetting": {
     "Column": 1,
-    "Row": 1,
+    "Row": 2,
     "View": "TestUnitViewModel",
-    "Local_log": "../UI Test logs",
+    "Local_log": "D:/UI Test logs",
     "ShowMissingErrorCode": false
   },
   "Modes": {

@@ -1,13 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using UiTest.Config;
 
 namespace UiTest.Model.Cell
 {
     public class CellProperties
     {
-        public CellProperties() { }
+        public readonly ProgramInfo ProgramInfo;
+        public CellProperties(string name) 
+        {
+            Name = name;
+            ProgramInfo = ConfigLoader.ProgramConfig.ProgramInfo;
+        }
+        public string Name { get; private set; }
     }
 }

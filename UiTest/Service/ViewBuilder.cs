@@ -28,17 +28,17 @@ namespace UiTest.Service
         {
             try
             {
-                Setting(this.programSetting.Row, this.programSetting.Column, this.programSetting.View);
+                Setting(programSetting.Row, programSetting.Column, programSetting.View);
                 cellManagement.Clear();
-                if (this.programSetting.IsSingleView)
+                if (programSetting.IsSingleView)
                 {
-                    cellManagement.AddCell(ViewName, "Main");
+                    cellManagement.AddCell(ViewName);
                 }
                 else
                 {
                     for (int i = 0; i < Rows * Columns; i++)
                     {
-                        cellManagement.AddCell(ViewName, $"Slot-{i}");
+                        cellManagement.AddCell(ViewName);
                     }
                 }
                 return true;

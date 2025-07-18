@@ -1,16 +1,20 @@
 ﻿using System;
+using System.Reflection;
+using System.Windows;
 using UiTest.Config;
+using UiTest.Service.CellService;
 using UiTest.Service.Interface;
+using UiTest.Service.Logger;
 using UiTest.Service.Managements;
 
 namespace UiTest.Service
 {
-    internal class Core:IUpdate
+    public class Core : IUpdate
     {
         private static readonly Lazy<Core> _instace = new Lazy<Core>(() => new Core());
         public static Core Instance = _instace.Value;
-        private Core() 
-        { 
+        private Core()
+        {
             ProgramConfig = ConfigLoader.ProgramConfig;
             CellManagement = new CellManagement();
             ModelManagement = new ModelManagement(ProgramConfig, CellManagement);
@@ -39,6 +43,33 @@ namespace UiTest.Service
             catch (Exception)
             {
                 return false;
+            }
+        }
+
+        public void Start(string input)
+        {
+            StartTest(input, 0);
+        }
+        public void Start(string input, string index)
+        {
+            if (int.TryParse(index, out int id))
+            {
+                StartTest(input, id);
+            }
+            else
+            {
+                ProgramLogger.AddError($"Index invalid: {index}");
+            }
+        }
+        private void StartTest(string input, int index)
+        {
+            if (this.CellManagement.TryGetCell(index, out Cell cell))
+            {
+                cell.StartTest(input);
+            }
+            else
+            {
+                ProgramLogger.AddError($"Index: {index} not exists!");
             }
         }
     }

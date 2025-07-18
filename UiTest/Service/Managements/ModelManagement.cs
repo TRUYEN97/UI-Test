@@ -2,10 +2,11 @@
 using System.Collections.ObjectModel;
 using UiTest.Config;
 using UiTest.Service.Interface;
+using UiTest.Service.Logger;
 
 namespace UiTest.Service.Managements
 {
-    internal class ModelManagement:IUpdate
+    public class ModelManagement:IUpdate
     {
         private readonly ProgramConfig programConfig;
         private readonly ObservableCollection<TestMode> _modes;
@@ -19,7 +20,6 @@ namespace UiTest.Service.Managements
         }
         public ObservableCollection<TestMode> Modes => _modes;
         public TestMode SelectedMode { get => _selectedMode; set => UpdateMode(value); }
-
         public bool Update()
         {
             try
@@ -34,8 +34,9 @@ namespace UiTest.Service.Managements
                 }
                 return UpdateMode(Modes[0]);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                ProgramLogger.AddError(ex.Message);
                 return false;
             }
         }

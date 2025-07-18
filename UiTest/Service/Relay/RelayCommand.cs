@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace UiTest.Service.Relay
 {
-    internal class RelayCommand : ICommand
+    public class RelayCommand : ICommand
     {
         private readonly Action<object> _execute;
         private readonly Func<object, bool> _canExecute;

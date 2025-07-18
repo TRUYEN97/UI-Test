@@ -7,12 +7,8 @@ namespace UiTest.Common
     {
         public static void WriteAllText(string filePath, string text, bool append = false)
         {
-            string dir = Path.GetDirectoryName(filePath);
-            if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
-            {
-                Directory.CreateDirectory(dir);
-            }
-            if (append) 
+            CreateDirectory(filePath);
+            if (append)
             {
                 File.AppendAllText(filePath, text);
             }
@@ -23,12 +19,8 @@ namespace UiTest.Common
         }
         public static void WriteAllText(string filePath, ISerializable text, bool append = false)
         {
-            string dir = Path.GetDirectoryName(filePath);
-            if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
-            {
-                Directory.CreateDirectory(dir);
-            }
-            if (append) 
+            CreateDirectory(filePath);
+            if (append)
             {
                 File.AppendAllText(filePath, text?.ToString());
             }
@@ -37,9 +29,23 @@ namespace UiTest.Common
                 File.WriteAllText(filePath, text?.ToString());
             }
         }
+        public static void CopyFile(string fileSource, string fileTaget)
+        {
+            CreateDirectory(fileTaget);
+            File.Copy(fileSource, fileTaget);
+        }
 
-        public static string ReadAllText(string filePath) 
-        { 
+        private static void CreateDirectory(string fileTaget)
+        {
+            string dir = Path.GetDirectoryName(fileTaget);
+            if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
+            {
+                Directory.CreateDirectory(dir);
+            }
+        }
+
+        public static string ReadAllText(string filePath)
+        {
             if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
             {
                 return null;
@@ -47,8 +53,8 @@ namespace UiTest.Common
             return File.ReadAllText(filePath);
         }
 
-        public static string[] ReadAllLines(string filePath) 
-        { 
+        public static string[] ReadAllLines(string filePath)
+        {
             if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
             {
                 return null;
@@ -56,8 +62,8 @@ namespace UiTest.Common
             return File.ReadAllLines(filePath);
         }
 
-        public static byte[] ReadAllByte(string filePath) 
-        { 
+        public static byte[] ReadAllByte(string filePath)
+        {
             if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
             {
                 return null;

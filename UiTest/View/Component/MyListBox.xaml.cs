@@ -13,6 +13,8 @@ namespace UiTest.View.Component
         public MyListBox()
         {
             InitializeComponent();
+            FontSize = 16;
+            Padding = new Thickness(0, 2, 3, 0);
         }
         public string Label
         {

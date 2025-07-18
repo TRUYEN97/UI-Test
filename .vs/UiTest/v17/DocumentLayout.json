@@ -3,24 +3,24 @@
   "WorkspaceRootPath": "D:\\C#\\UiTest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\cell\\celltimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\cell\\celltimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|D:\\C#\\UiTest\\uitest\\service\\logger\\celllogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\logger\\celllogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\modelview\\basesubmodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\modelview\\basesubmodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\common\\fileutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\common\\fileutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\cell\\celltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\cell\\celltest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\common\\util.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\common\\util.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\modelview\\submodelview\\testunitviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\modelview\\submodelview\\testunitviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\common\\registryutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\common\\registryutil.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\model\\cell\\celldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\model\\cell\\celldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|D:\\C#\\UiTest\\uitest\\service\\cellservice\\celltester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\cellservice\\celltester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,68 +34,67 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CellData.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Model\\Cell\\CellData.cs",
-              "RelativeDocumentMoniker": "UiTest\\Model\\Cell\\CellData.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Model\\Cell\\CellData.cs",
-              "RelativeToolTip": "UiTest\\Model\\Cell\\CellData.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-12T10:18:45.388Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "BaseSubModelView.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\ModelView\\BaseSubModelView.cs",
-              "RelativeDocumentMoniker": "UiTest\\ModelView\\BaseSubModelView.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\ModelView\\BaseSubModelView.cs",
-              "RelativeToolTip": "UiTest\\ModelView\\BaseSubModelView.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAUwBIAAAAJAAAAAAAAAA==",
+              "Title": "FileUtil.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Common\\FileUtil.cs",
+              "RelativeDocumentMoniker": "UiTest\\Common\\FileUtil.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Common\\FileUtil.cs",
+              "RelativeToolTip": "UiTest\\Common\\FileUtil.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-12T09:27:13.449Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "TestUnitViewModel.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\ModelView\\SubModelView\\TestUnitViewModel.cs",
-              "RelativeDocumentMoniker": "UiTest\\ModelView\\SubModelView\\TestUnitViewModel.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\ModelView\\SubModelView\\TestUnitViewModel.cs",
-              "RelativeToolTip": "UiTest\\ModelView\\SubModelView\\TestUnitViewModel.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAAAqAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-12T09:22:41.754Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CellTimer.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\Cell\\CellTimer.cs",
-              "RelativeDocumentMoniker": "UiTest\\Service\\Cell\\CellTimer.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\Cell\\CellTimer.cs",
-              "RelativeToolTip": "UiTest\\Service\\Cell\\CellTimer.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAAADcAAAAXAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-12T08:32:23.243Z",
+              "WhenOpened": "2025-07-18T09:38:36.614Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CellTest.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\Cell\\CellTest.cs",
-              "RelativeDocumentMoniker": "UiTest\\Service\\Cell\\CellTest.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\Cell\\CellTest.cs",
-              "RelativeToolTip": "UiTest\\Service\\Cell\\CellTest.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAqwBYAAAAiAAAAAAAAAA==",
+              "Title": "Util.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Common\\Util.cs",
+              "RelativeDocumentMoniker": "UiTest\\Common\\Util.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Common\\Util.cs",
+              "RelativeToolTip": "UiTest\\Common\\Util.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-12T08:10:28.24Z",
+              "WhenOpened": "2025-07-18T09:38:33.098Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RegistryUtil.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Common\\RegistryUtil.cs",
+              "RelativeDocumentMoniker": "UiTest\\Common\\RegistryUtil.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Common\\RegistryUtil.cs",
+              "RelativeToolTip": "UiTest\\Common\\RegistryUtil.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAA9wD8AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T04:09:33.7Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CellLogger.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\Logger\\CellLogger.cs",
+              "RelativeDocumentMoniker": "UiTest\\Service\\Logger\\CellLogger.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\Logger\\CellLogger.cs",
+              "RelativeToolTip": "UiTest\\Service\\Logger\\CellLogger.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAqwEYAAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T03:27:27.419Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CellTester.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\CellService\\CellTester.cs",
+              "RelativeDocumentMoniker": "UiTest\\Service\\CellService\\CellTester.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\CellService\\CellTester.cs",
+              "RelativeToolTip": "UiTest\\Service\\CellService\\CellTester.cs",
+              "ViewState": "AgIAACMAAAAAAAAAAAAwwEAAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-18T02:56:15.146Z"
             }
           ]
         }

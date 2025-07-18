@@ -6,7 +6,7 @@
              xmlns:ui="clr-namespace:UiTest.Style.Controls"
              mc:Ignorable="d" 
              x:Name="root"
-             Height="auto" Width="auto">
+             d:DesignHeight="50" d:DesignWidth="80">
     <ui:ReusableFieldBox Label="{Binding Label,ElementName=root}"
                          Padding="{Binding Padding,ElementName=root}"
                          FontSize="{Binding LabelFontSize,ElementName=root}">

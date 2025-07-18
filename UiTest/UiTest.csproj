@@ -98,14 +98,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviors\EnterFocusBehavior.cs" />
+    <Compile Include="Behaviors\PreviewEnterCommandBehavior.cs" />
+    <Compile Include="Behaviors\PreviewEnterFocusBehavior.cs" />
+    <Compile Include="Behaviors\PreviewKeyDownBehavior.cs" />
+    <Compile Include="Behaviors\PreviewTextInputCommandBehavior.cs" />
     <Compile Include="Behaviors\MouseLeftClickCommandBehavior.cs" />
     <Compile Include="Behaviors\MouseDoubleClickCommandBehavior.cs" />
     <Compile Include="Common\FileUtil.cs" />
     <Compile Include="Common\PcInfo.cs" />
     <Compile Include="Common\AppInfo.cs" />
     <Compile Include="Common\DependencyUtil.cs" />
+    <Compile Include="Common\RegistryUtil.cs" />
     <Compile Include="Common\Util.cs" />
     <Compile Include="Config\ConfigLoader.cs" />
+    <Compile Include="Config\ItemConfig.cs" />
     <Compile Include="Config\ModeConfig.cs" />
     <Compile Include="Config\ProgramConfig.cs" />
     <Compile Include="Config\ProgramInfo.cs" />
@@ -113,8 +120,13 @@
     <Compile Include="Config\StepFunction.cs" />
     <Compile Include="ModelView\BaseSubModelView.cs" />
     <Compile Include="Model\Cell\CellProperties.cs" />
-    <Compile Include="Service\Cell\CellTest.cs" />
-    <Compile Include="Service\Cell\CellTimer.cs" />
+    <Compile Include="Model\Cell\TestResultModel.cs" />
+    <Compile Include="Model\Function\FunctionData.cs" />
+    <Compile Include="Model\Interface\ITestResult.cs" />
+    <Compile Include="Service\CellService\Cell.cs" />
+    <Compile Include="Service\CellService\CellTester.cs" />
+    <Compile Include="Service\CellService\CellTimer.cs" />
+    <Compile Include="Service\CellService\ModeFlow.cs" />
     <Compile Include="Service\Communicate\BaseCommunicate.cs" />
     <Compile Include="Service\Communicate\BaseInOutStream.cs" />
     <Compile Include="Service\Communicate\BaseProcess.cs" />
@@ -133,10 +145,14 @@
     <Compile Include="Service\Errorcode\ErrorCodeModel.cs" />
     <Compile Include="Service\Errorcode\LoadErrorCodeConfig.cs" />
     <Compile Include="Service\Errorcode\SpecialErrorCode.cs" />
+    <Compile Include="Service\InputCommands.cs" />
     <Compile Include="Service\Interface\IUpdate.cs" />
+    <Compile Include="Service\Logger\CellLogger.cs" />
+    <Compile Include="Service\Logger\ProgramLogger.cs" />
     <Compile Include="Service\Managements\CellManagement.cs" />
     <Compile Include="Service\MySftp.cs" />
     <Compile Include="Config\SftpConfig.cs" />
+    <Compile Include="Service\Tester\BaseTester.cs" />
     <Compile Include="Service\Timer\Interfcae\IStopwatch.cs" />
     <Compile Include="Service\Timer\Stopwatch.cs" />
     <Compile Include="Service\ViewBuilder.cs" />
@@ -154,7 +170,7 @@
     <Compile Include="Service\Managements\ModelManagement.cs" />
     <Compile Include="Service\Relay\WindowStateCommands.cs" />
     <Compile Include="Service\Relay\RelayCommand.cs" />
-    <Compile Include="Service\Logger\UnitLogger.cs" />
+    <Compile Include="Service\Logger\MyLogger.cs" />
     <Compile Include="View\Component\LabeledStatusBox.xaml.cs">
       <DependentUpon>LabeledStatusBox.xaml</DependentUpon>
     </Compile>
@@ -163,6 +179,9 @@
     </Compile>
     <Compile Include="View\Component\MyListBox.xaml.cs">
       <DependentUpon>MyListBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Component\MyTextBox.xaml.cs">
+      <DependentUpon>MyTextBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SubView\MultiUnitModelView.xaml.cs">
       <DependentUpon>MultiUnitModelView.xaml</DependentUpon>
@@ -198,6 +217,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Component\LabeledStatusBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Component\MyTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

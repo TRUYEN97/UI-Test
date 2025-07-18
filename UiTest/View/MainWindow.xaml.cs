@@ -18,6 +18,10 @@ namespace UiTest.View
             Core.Instance.Update();
             var _viewModel = new MainViewModel(Core.Instance);
             DataContext = _viewModel;
+            Loaded += (s, e) =>
+            {
+                TextInput.Focus();
+            };
         }
     }
 }
