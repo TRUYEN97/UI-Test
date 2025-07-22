@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using UiTest.Common;
 using UiTest.Model.Function;
 using UiTest.Model.Interface;
 
@@ -18,16 +19,16 @@ namespace UiTest.Model.Cell
         public string FinalStopTime { get; set; }
         public string CellName { get; set; }
         public string MAC { get; set; }
+        public string INPUT { get; set; }
         public string ErrorCode { get; set; }
-        public string FinalErrorCode { get; set; }
         public string Mode { get; set; }
         public string Product { get; set; }
         public string Station { get; set; }
         public string PcName { get; set; }
-        public string Result { get; set; }
-        public string FinalResult { get; set; }
-        public string CycleTime { get; set; }
-        public string FinalCycleTime { get; set; }
+        public TestStatus Result { get; set; }
+        public TestStatus FinalResult { get; set; }
+        public double CycleTime { get; set; }
+        public double FinalCycleTime { get; set; }
 
     }
 }

@@ -33,7 +33,7 @@ namespace UiTest.Service.CellService
         public string Name => CellData.Name;
         public string StringTestTime => Timer.StringTestTime;
         public long TestTime => Timer.TestTime;
-        public string TestStatus => CellData.TestStatus;
+        public string TestStatus => CellData.ProcessStatus;
         public bool IsFree => tester.IsFree;
         public string ModeName => TestMode?.Name;
         public void StartTest(string input)
@@ -46,11 +46,6 @@ namespace UiTest.Service.CellService
             if (mode == null) return;
             TestMode = mode;
             ViewModel.TestMode = mode;
-        }
-
-        internal TestMode UpdateMode(object currentMode)
-        {
-            throw new NotImplementedException();
         }
     }
 }

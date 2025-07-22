@@ -50,6 +50,7 @@ namespace UiTest.Service.CellService
 
         public void Start()
         {
+            timer.Stop();
             timer.Start();
             stopwatch.Restart();
         }

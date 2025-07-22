@@ -97,7 +97,7 @@
                                         <TextBox    
                                             BorderThickness="0"
                                             Margin="5"
-                                            x:Name="TextInput"
+                                            x:Name="TxtInput"
                                             Text="{Binding Input, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                             Behaviors:PreviewEnterFocusBehavior.FocusTarget="TextIndex"
                                             Behaviors:PreviewEnterCommandBehavior.Command="{Binding InputKeyPessCommand}"
@@ -109,7 +109,7 @@
                                             x:Name="TextIndex"
                                             Text="{Binding Index, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                             Visibility="{Binding IndexVisibility}"
-                                            Behaviors:PreviewEnterFocusBehavior.FocusTarget="TextInput"
+                                            Behaviors:PreviewEnterFocusBehavior.FocusTarget="TxtInput"
                                             Behaviors:PreviewEnterCommandBehavior.Command="{Binding IndexKeyPessCommand}"
                                             HorizontalContentAlignment="Center"
                                             FontSize="16"/>

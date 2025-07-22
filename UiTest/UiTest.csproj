@@ -110,6 +110,7 @@
     <Compile Include="Common\AppInfo.cs" />
     <Compile Include="Common\DependencyUtil.cs" />
     <Compile Include="Common\RegistryUtil.cs" />
+    <Compile Include="Common\TestStatus.cs" />
     <Compile Include="Common\Util.cs" />
     <Compile Include="Config\ConfigLoader.cs" />
     <Compile Include="Config\ItemConfig.cs" />
@@ -291,6 +292,8 @@
   <ItemGroup>
     <Resource Include="icons8-testing-64.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Functions\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

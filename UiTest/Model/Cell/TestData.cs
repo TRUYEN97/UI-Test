@@ -1,6 +1,10 @@
 ﻿
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using Org.BouncyCastle.Ocsp;
+using UiTest.Common;
+using UiTest.Config;
 using UiTest.Model.Function;
 using UiTest.Model.Interface;
 
@@ -10,11 +14,15 @@ namespace UiTest.Model.Cell
     {
         private readonly List<FunctionData> _functionFailedDatas;
         private readonly TestResultModel _testResultModel;
+        private readonly ProgramInfo programInfo;
+        public DateTime StartDateTime {  get; private set; }
+        public DateTime StopDateTime {  get; private set; }
         public TestData(string name)
         {
             _functionFailedDatas = new List<FunctionData>();
             _testResultModel = new TestResultModel();
             CellName = name;
+            programInfo = ConfigLoader.ProgramConfig.ProgramInfo;
         }
         public void AddFuntionData(FunctionData functionData)
         {
@@ -25,29 +33,81 @@ namespace UiTest.Model.Cell
                 _functionFailedDatas.Add(functionData);
             }
         }
+
+        public void Reset()
+        {
+            MAC = "";
+            INPUT = "";
+            Mode = "";
+            StartTime = "";
+            StopTime = "";
+            FinalStopTime = "";
+            ErrorCode = "";
+            Result = TestStatus.Standby;
+            FinalResult = TestStatus.Standby;
+            CycleTime = 0;
+            FinalCycleTime = 0;
+        }
+        public void Start(string input, string modeName)
+        {
+            Product = programInfo.Product;
+            Station = programInfo.Station;
+            PcName = PcInfo.PcName;
+            MAC = input;
+            INPUT = input;
+            Mode = modeName;
+            StartDateTime = DateTime.Now;
+            StartTime = StartDateTime.ToString("o", CultureInfo.InvariantCulture);
+            StopTime = "";
+            FinalStopTime = "";
+            ErrorCode = "";
+            Result = TestStatus.Testing;
+            FinalResult = TestStatus.Testing;
+            CycleTime = 0;
+            FinalCycleTime = 0;
+        }
+
+        public void End()
+        {
+            StopDateTime = DateTime.Now;
+            StopTime = StopDateTime.ToString("o", CultureInfo.InvariantCulture);
+            Result = GetResult();
+            CycleTime = (StopDateTime - StartDateTime).TotalSeconds;
+        }
+
+        private TestStatus GetResult()
+        {
+            if (Result == TestStatus.Cancel)
+            {
+                return Result;
+            }
+            return FunctionFailedDatas.Count > 0 ? TestStatus.Failed : TestStatus.Passed;
+        }
+
+        public void EndProcess()
+        {
+            var dtNow = DateTime.Now;
+            FinalStopTime = dtNow.ToString("o", CultureInfo.InvariantCulture);
+            FinalResult = GetResult();
+            FinalCycleTime = (dtNow - StartDateTime).TotalSeconds;
+        }
+
         public List<FunctionData> FunctionDatas => new List<FunctionData>(_testResultModel.FunctionDatas);
         public List<FunctionData> FunctionFailedDatas => new List<FunctionData>(_functionFailedDatas);
-
-        public bool IsTested { get; set; }
         public string StartTime { get => _testResultModel.StartTime; private set => _testResultModel.StartTime = value; }
         public string StopTime { get => _testResultModel.StopTime; private set => _testResultModel.StopTime = value; }
         public string FinalStopTime { get => _testResultModel.FinalStopTime; private set => _testResultModel.FinalStopTime = value; }
         public string CellName { get => _testResultModel.CellName; private set => _testResultModel.CellName = value; }
-        public string Product { get => _testResultModel.Product; set => _testResultModel.Product = value; }
-        public string Station { get => _testResultModel.Station; set => _testResultModel.Station = value; }
-        public string PcName { get => _testResultModel.PcName; set => _testResultModel.PcName = value; }
-        public string MAC { get => _testResultModel.MAC; set => _testResultModel.MAC = value; }
-        public string Mode { get => _testResultModel.Mode; set => _testResultModel.Mode = value; }
-        public string ErrorCode { get => _testResultModel.ErrorCode; set => _testResultModel.ErrorCode = value; }
-        public string FinalErrorCode { get => _testResultModel.FinalErrorCode; set => _testResultModel.FinalErrorCode = value; }
-        public string Result { get => _testResultModel.Result; set => _testResultModel.Result = value; }
-        public string FinalResult { get => _testResultModel.FinalResult; set => _testResultModel.FinalResult = value; }
-        public string CycleTime { get => _testResultModel.CycleTime; set => _testResultModel.CycleTime = value; }
-        public string FinalCycleTime { get => _testResultModel.FinalCycleTime; set => _testResultModel.FinalCycleTime = value; }
-
-        public void Reset()
-        {
-            Result = null; MAC = null; ErrorCode = null; IsTested = false; Mode = null; FinalCycleTime = null;
-        }
+        public string Product { get => _testResultModel.Product; private set => _testResultModel.Product = value; }
+        public string Station { get => _testResultModel.Station; private set => _testResultModel.Station = value; }
+        public string PcName { get => _testResultModel.PcName; private set => _testResultModel.PcName = value; }
+        public string MAC { get => _testResultModel.MAC; private set => _testResultModel.MAC = value; }
+        public string INPUT { get => _testResultModel.MAC; private set => _testResultModel.MAC = value; }
+        public string Mode { get => _testResultModel.Mode; private set => _testResultModel.Mode = value; }
+        public string ErrorCode { get => _testResultModel.ErrorCode; private set => _testResultModel.ErrorCode = value; }
+        public TestStatus Result { get => _testResultModel.Result; private set => _testResultModel.Result = value; }
+        public TestStatus FinalResult { get => _testResultModel.FinalResult; private set => _testResultModel.FinalResult = value; }
+        public double CycleTime { get => _testResultModel.CycleTime; private set => _testResultModel.CycleTime = value; }
+        public double FinalCycleTime { get => _testResultModel.FinalCycleTime; private set => _testResultModel.FinalCycleTime = value; }
     }
 }

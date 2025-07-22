@@ -30,13 +30,13 @@ namespace UiTest.Service.Managements
                 }
                 foreach (var modeConfig in programConfig.Modes)
                 {
-                    Modes.Add(new TestMode(modeConfig.Key, modeConfig.Value));
+                    Modes.Add(new TestMode(modeConfig.Key, modeConfig.Value, programConfig));
                 }
                 return UpdateMode(Modes[0]);
             }
             catch (Exception ex)
             {
-                ProgramLogger.AddError(ex.Message);
+                ProgramLogger.AddError("Mode Management" ,ex.Message);
                 return false;
             }
         }

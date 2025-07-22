@@ -17,18 +17,6 @@ namespace UiTest.Common
                 File.WriteAllText(filePath, text);
             }
         }
-        public static void WriteAllText(string filePath, ISerializable text, bool append = false)
-        {
-            CreateDirectory(filePath);
-            if (append)
-            {
-                File.AppendAllText(filePath, text?.ToString());
-            }
-            else
-            {
-                File.WriteAllText(filePath, text?.ToString());
-            }
-        }
         public static void CopyFile(string fileSource, string fileTaget)
         {
             CreateDirectory(fileTaget);

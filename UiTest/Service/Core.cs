@@ -58,7 +58,7 @@ namespace UiTest.Service
             }
             else
             {
-                ProgramLogger.AddError($"Index invalid: {index}");
+                ProgramLogger.AddError("Core", $"Index invalid: {index}");
             }
         }
         private void StartTest(string input, int index)
@@ -69,7 +69,7 @@ namespace UiTest.Service
             }
             else
             {
-                ProgramLogger.AddError($"Index: {index} not exists!");
+                ProgramLogger.AddError("Core", $"Index: {index} not exists!");
             }
         }
     }

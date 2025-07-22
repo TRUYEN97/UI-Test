@@ -10,7 +10,7 @@
   },
   "ProgramSetting": {
     "Column": 1,
-    "Row": 2,
+    "Row": 1,
     "View": "TestUnitViewModel",
     "Local_log": "D:/UI Test logs",
     "ShowMissingErrorCode": false
@@ -19,12 +19,18 @@
     "Production": {
       "IsOnSFO": false,
       "StepFunctions": [],
-      "GroupItem": null
+      "GroupName": null,
+      "StandbyColor": null,
+      "LoopTimes": 0
     },
     "Debug": {
       "IsOnSFO": false,
       "StepFunctions": [],
-      "GroupItem": null
+      "GroupName": null,
+      "StandbyColor": null,
+      "LoopTimes": 0
     }
-  }
+  },
+  "ItemGroups": {},
+  "ItemConfigs": {}
 }

@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using System.Windows.Media;
 
 namespace UiTest.Common
 {
@@ -15,6 +16,22 @@ namespace UiTest.Common
                 }
             }
             return null;
+        }
+
+        public static Brush GetBrushFromString(string hexColor, Brush brushDefault)
+        {
+            try
+            {
+                if (string.IsNullOrWhiteSpace(hexColor))
+                {
+                    return brushDefault;
+                }
+                return new SolidColorBrush((Color)ColorConverter.ConvertFromString(hexColor));
+            }
+            catch (System.Exception)
+            {
+                return brushDefault;
+            }
         }
 
     }

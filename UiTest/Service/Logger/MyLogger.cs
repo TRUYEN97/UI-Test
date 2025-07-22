@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Renci.SshNet.Messages;
 using UiTest.Common;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace UiTest.Service.Logger
 {
@@ -20,7 +18,7 @@ namespace UiTest.Service.Logger
 
         public void SaveToFile(string filePath)
         {
-            FileUtil.WriteAllText(filePath, logBuilder);
+            FileUtil.WriteAllText(filePath, logBuilder.ToString());
         }
 
         public string LogText => logBuilder.ToString();
@@ -54,16 +52,16 @@ namespace UiTest.Service.Logger
             {
                 return;
             }
-            foreach (var line in text.Split('\n','\r'))
+            foreach (var line in text.Split('\n'))
             {
                 string log;
                 if (string.IsNullOrEmpty(key))
                 {
-                    log = $"{DateTime.Now:yyyy/MM/dd HH:mm:ss.sss} =>   {line?.Trim()}";
+                    log = $"{DateTime.Now:yyyy/MM/dd HH:mm:ss.sss}  {line?.Trim()}";
                 }
                 else
                 {
-                    log = $"{DateTime.Now:yyyy/MM/dd HH:mm:ss.sss}   [{key?.ToUpper()}] =>  {line?.Trim()}";
+                    log = $"{DateTime.Now:yyyy/MM/dd HH:mm:ss.sss}  [{key?.ToUpper().Trim()}] => {line?.Trim()}";
                 }
                 logBuilder.Append($"{log}\r\n");
                 foreach (var action in WriteLogCallBacks)
@@ -79,7 +77,7 @@ namespace UiTest.Service.Logger
             {
                 return;
             }
-            foreach (var line in text.Split('\n', '\r'))
+            foreach (var line in text.Split('\n'))
             {
                 string log = $"{line?.Trim()}";
                 logBuilder.Append($"{log}\r\n");

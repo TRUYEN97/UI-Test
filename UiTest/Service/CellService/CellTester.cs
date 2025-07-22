@@ -15,7 +15,6 @@ namespace UiTest.Service.CellService
         private readonly CellTimer timer;
         private readonly CellData cellData;
         private readonly BaseSubModelView viewModel;
-        private string _status;
 
         public CellTester(Cell cell)
         {
@@ -42,13 +41,16 @@ namespace UiTest.Service.CellService
                         try
                         {
                             timer.Start();
-                            cellData.Reset();
                             cellData.Start(input, testMode.Name);
                             List<ItemConfig> items;
                             while ((items = modeFlow.GetListItem()) != null && !StopTest)
                             {
+                                if (modeFlow.IsFinalGroup)
+                                {
+                                    cellData.End();
+                                }
                                 viewModel.Color = modeFlow.TestColor;
-                                if (Run(items, !modeFlow.IsCoreGroup))
+                                if (Run(items))
                                 {
                                     modeFlow.NextToPassFlow();
                                 }
@@ -62,21 +64,24 @@ namespace UiTest.Service.CellService
                         }
                         finally
                         {
-                            cellData.End();
-                            timer.Stop();
+                            cellData.EndProcess();
                         }
                     }
                 }
                 catch (Exception ex)
                 {
-                    ProgramLogger.AddError(ex.Message);
+                    ProgramLogger.AddError(cellData.Name, ex.Message);
+                }
+                finally
+                {
+                    timer.Stop();
                 }
             });
         }
 
-        private bool Run(List<ItemConfig> items, bool v)
+        private bool Run(List<ItemConfig> items)
         {
-            return true;
+            return items.Count > 0;
         }
     }
 }

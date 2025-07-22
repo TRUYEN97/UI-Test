@@ -20,7 +20,7 @@ namespace UiTest.View
             DataContext = _viewModel;
             Loaded += (s, e) =>
             {
-                TextInput.Focus();
+                TxtInput.Focus();
             };
         }
     }
