@@ -1,12 +1,12 @@
 {
   "ProgramInfo": {
-    "Product": "UCP",
-    "Station": "PT",
-    "FwVersion": "123",
-    "FcdVersion": "456",
-    "FtuVersion": "789",
-    "BomVersion": "0001",
-    "MeBomVersion": "0002"
+    "Product": "",
+    "Station": "",
+    "FwVersion": "",
+    "FcdVersion": "",
+    "FtuVersion": "",
+    "BomVersion": "",
+    "MeBomVersion": ""
   },
   "ProgramSetting": {
     "Column": 1,
@@ -17,20 +17,55 @@
   },
   "Modes": {
     "Production": {
-      "IsOnSFO": false,
+      "IsOnSFO": true,
       "StepFunctions": [],
-      "GroupName": null,
+      "GroupName": "Test",
       "StandbyColor": null,
-      "LoopTimes": 0
-    },
-    "Debug": {
-      "IsOnSFO": false,
-      "StepFunctions": [],
-      "GroupName": null,
-      "StandbyColor": null,
-      "LoopTimes": 0
+      "LoopTimes": 1
     }
   },
-  "ItemGroups": {},
-  "ItemConfigs": {}
+  "ItemGroups": {
+    "Test": {
+      "Items": [
+        "Sfis"
+      ],
+      "TestColor": null,
+      "FailColor": null,
+      "IsFinalGroup": false,
+      "NextToPassGroup": null,
+      "NextToFailGroup": null
+    }
+  },
+  "ItemConfigs": {
+    "Sfis": {
+      "FunctionType": "SendSfis",
+      "Config": {
+        "$type": "UiTest.Functions.Config.Sfis.SfisConfig, UiTest",
+        "Param1": "test Param1",
+        "Param2": "test Param2",
+        "Param3": 1,
+        "Retry": 0,
+        "TimeOut": 2147483647,
+        "IsSkipFailure": false,
+        "Spec": null,
+        "UpperLimit": null,
+        "LowerLimit": null
+      }
+    },
+    "Sfis1": {
+      "FunctionType": "SendSfis",
+      "Config": {
+        "$type": "UiTest.Functions.Config.Sfis.SfisConfig, UiTest",
+        "Param1": "test Param10",
+        "Param2": "test Param20",
+        "Param3": 12,
+        "Retry": 0,
+        "TimeOut": 2147483647,
+        "IsSkipFailure": false,
+        "Spec": null,
+        "UpperLimit": null,
+        "LowerLimit": null
+      }
+    }
+  }
 }

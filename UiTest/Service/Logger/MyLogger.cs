@@ -57,11 +57,11 @@ namespace UiTest.Service.Logger
                 string log;
                 if (string.IsNullOrEmpty(key))
                 {
-                    log = $"{DateTime.Now:yyyy/MM/dd HH:mm:ss.sss}  {line?.Trim()}";
+                    log = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.sss}  {line?.Trim()}";
                 }
                 else
                 {
-                    log = $"{DateTime.Now:yyyy/MM/dd HH:mm:ss.sss}  [{key?.ToUpper().Trim()}] => {line?.Trim()}";
+                    log = $"{DateTime.Now:yyyy-MM-dd HH:mm:ss.sss}  [{key?.ToUpper().Trim()}] => {line?.Trim()}";
                 }
                 logBuilder.Append($"{log}\r\n");
                 foreach (var action in WriteLogCallBacks)
@@ -90,7 +90,7 @@ namespace UiTest.Service.Logger
 
         public void AddErrorText(string mess)
         {
-            AddLog("error", mess);
+            AddLog("Error", mess);
         }
         public void AddWarningText(string mess)
         {
@@ -98,7 +98,7 @@ namespace UiTest.Service.Logger
         }
         public void AddInfoText(string mess)
         {
-            AddLog("Warning", mess);
+            AddLog("Info", mess);
         }
 
         public void Clear()

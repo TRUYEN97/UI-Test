@@ -3,6 +3,6 @@
                     xmlns:ModelViewlocal="clr-namespace:UiTest.ModelView.SubModelView"
                     xmlns:Viewlocal="clr-namespace:UiTest.View.SubView">
     <DataTemplate DataType="{x:Type ModelViewlocal:TestUnitViewModel}">
-    <Viewlocal:TestUnitView/>
+        <Viewlocal:TestUnitView/>
     </DataTemplate>
 </ResourceDictionary>

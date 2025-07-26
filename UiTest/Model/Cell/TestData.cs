@@ -26,7 +26,7 @@ namespace UiTest.Model.Cell
         }
         public void AddFuntionData(FunctionData functionData)
         {
-            if (string.IsNullOrWhiteSpace(functionData?.Name)) return;
+            if (string.IsNullOrWhiteSpace(functionData?.name)) return;
             _testResultModel.FunctionDatas.Add(functionData);
             if (!functionData.IsPass)
             {
@@ -36,15 +36,15 @@ namespace UiTest.Model.Cell
 
         public void Reset()
         {
-            MAC = "";
-            INPUT = "";
-            Mode = "";
-            StartTime = "";
-            StopTime = "";
-            FinalStopTime = "";
-            ErrorCode = "";
-            Result = TestStatus.Standby;
-            FinalResult = TestStatus.Standby;
+            MAC = string.Empty;
+            INPUT = string.Empty;
+            Mode = string.Empty;
+            StartTime = string.Empty;
+            StopTime = string.Empty;
+            FinalStopTime = string.Empty;
+            ErrorCode = string.Empty;
+            Result = TestStatus.STANDBY;
+            FinalResult = TestStatus.STANDBY;
             CycleTime = 0;
             FinalCycleTime = 0;
         }
@@ -58,11 +58,11 @@ namespace UiTest.Model.Cell
             Mode = modeName;
             StartDateTime = DateTime.Now;
             StartTime = StartDateTime.ToString("o", CultureInfo.InvariantCulture);
-            StopTime = "";
-            FinalStopTime = "";
-            ErrorCode = "";
-            Result = TestStatus.Testing;
-            FinalResult = TestStatus.Testing;
+            StopTime = string.Empty;
+            FinalStopTime = string.Empty;
+            ErrorCode = string.Empty;
+            Result = TestStatus.TESTING;
+            FinalResult = TestStatus.TESTING;
             CycleTime = 0;
             FinalCycleTime = 0;
         }
@@ -77,11 +77,11 @@ namespace UiTest.Model.Cell
 
         private TestStatus GetResult()
         {
-            if (Result == TestStatus.Cancel)
+            if (Result == TestStatus.CANCEL)
             {
                 return Result;
             }
-            return FunctionFailedDatas.Count > 0 ? TestStatus.Failed : TestStatus.Passed;
+            return FunctionFailedDatas.Count > 0 ? TestStatus.FAILED : TestStatus.PASSED;
         }
 
         public void EndProcess()

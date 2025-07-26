@@ -19,7 +19,7 @@ namespace UiTest.Config
         public readonly string Name;
         public ModeConfig Config => _config;
         public bool IsOnSFO => _config.IsOnSFO;
-        public Brush StandbyColor { get; private set; }
+        public readonly Brush StandbyColor;
         public ModeFlow ModeFlow => new ModeFlow(_config, _programConfig);
 
         public int Loop => _config.LoopTimes;

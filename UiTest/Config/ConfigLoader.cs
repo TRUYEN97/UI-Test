@@ -35,7 +35,10 @@ namespace UiTest.Config
                     return false;
                 }
                 string configText = File.ReadAllText(cfPath);
-                _programConfig = JsonConvert.DeserializeObject<ProgramConfig>(configText);
+                _programConfig = JsonConvert.DeserializeObject<ProgramConfig>(configText, new JsonSerializerSettings()
+                {
+                    TypeNameHandling = TypeNameHandling.Auto
+                });
                 return true;
             }
             catch (Exception)
@@ -52,7 +55,10 @@ namespace UiTest.Config
         {
             try
             {
-                string cfJson = JsonConvert.SerializeObject(_programConfig, Formatting.Indented);
+                string cfJson = JsonConvert.SerializeObject(_programConfig, Formatting.Indented, new JsonSerializerSettings()
+                {
+                    TypeNameHandling = TypeNameHandling.Auto
+                });
                 File.WriteAllText(CfPath, cfJson);
                 return true;
             }

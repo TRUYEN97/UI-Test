@@ -2,8 +2,8 @@
 using System.Collections.ObjectModel;
 using UiTest.Config;
 using UiTest.ModelView;
-using UiTest.Service.Factory;
 using UiTest.Service.Interface;
+using UiTest.Service.Logger;
 using UiTest.Service.Managements;
 
 namespace UiTest.Service
@@ -43,8 +43,9 @@ namespace UiTest.Service
                 }
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                ProgramLogger.AddError("View Builder", ex.Message);
                 return false;
             }
         }

@@ -2,6 +2,6 @@
 {
     public enum TestStatus
     {
-        Passed, Failed, Cancel, Testing, Standby
+        PASSED, FAILED, CANCEL, TESTING, STANDBY
     }
 }

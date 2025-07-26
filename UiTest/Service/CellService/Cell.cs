@@ -33,9 +33,11 @@ namespace UiTest.Service.CellService
         public string Name => CellData.Name;
         public string StringTestTime => Timer.StringTestTime;
         public long TestTime => Timer.TestTime;
-        public string TestStatus => CellData.ProcessStatus;
+        public string TestStatus => CellData.ProcessStatus.ToString();
         public bool IsFree => tester.IsFree;
         public string ModeName => TestMode?.Name;
+        public string Message => CellData.Message;
+
         public void StartTest(string input)
         {
             UpdateMode(Core.Instance.ModelManagement.SelectedMode);

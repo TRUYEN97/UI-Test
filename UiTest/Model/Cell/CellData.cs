@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 using UiTest.Common;
-using UiTest.Config;
 using UiTest.Model.Function;
 using UiTest.Service.Logger;
 
@@ -14,22 +14,55 @@ namespace UiTest.Model.Cell
         public readonly CellProperties CellProperties;
         private readonly TestData testData;
         private bool hasEnd;
+        private TestStatus _processStatus;
+        private readonly List<string> messageLines;
+
         public CellData(string name)
         {
             Name = name = name.ToUpper();
             CellProperties = new CellProperties(name);
             testData = new TestData(name);
             CellLogger = new CellLogger(testData);
-            ProcessStatus = TestStatus.Standby.ToString();
+            messageLines = new List<string>();
+            ProcessStatus = TestStatus.STANDBY;
         }
         public void AddFuntionData(FunctionData functionData)
         {
             testData.AddFuntionData(functionData);
         }
 
-        public string ProcessStatus { get; private set; }
-        public event Action<CellData> DataChaned;
+        public TestStatus ProcessStatus
+        {
+            get => _processStatus;
+            private set
+            {
+                if (_processStatus == TestStatus.FAILED) return;
+                    _processStatus = value;
+            }
+        }
 
+        public event Action<CellData> DataChaned;
+        public string Message => GetMessage();
+
+        public bool HasFailedFunctions => testData.FunctionFailedDatas.Count > 0;
+
+        public string GetMessage()
+        {
+            switch (ProcessStatus)
+            {
+                case TestStatus.STANDBY:
+                    return TestStatus.STANDBY.ToString();
+                default:
+                    StringBuilder messBuilder = new StringBuilder();
+                    messBuilder.Append(ProcessStatus.ToString());
+                    foreach (string line in messageLines) 
+                    {
+                        messBuilder.AppendLine();
+                        messBuilder.Append(line);
+                    }
+                    return messBuilder.ToString();
+            }
+        }
         public void Reset()
         {
             try
@@ -37,7 +70,7 @@ namespace UiTest.Model.Cell
                 hasEnd = false;
                 CellLogger.Reset();
                 testData.Reset();
-                ProcessStatus = TestStatus.Standby.ToString();
+                _processStatus = TestStatus.STANDBY;
             }
             finally
             {
@@ -51,7 +84,7 @@ namespace UiTest.Model.Cell
             {
                 Reset();
                 testData.Start(input, modeName);
-                ProcessStatus = TestStatus.Testing.ToString();
+                ProcessStatus = TestStatus.TESTING;
             }
             finally
             {
@@ -65,7 +98,7 @@ namespace UiTest.Model.Cell
                 testData.End();
                 CellLogger.CreateLog();
                 CellLogger.SaveLog();
-                ProcessStatus = testData.Result.ToString();
+                ProcessStatus = testData.Result;
                 hasEnd = true;
             }
             finally
@@ -84,12 +117,24 @@ namespace UiTest.Model.Cell
                 testData.EndProcess();
                 CellLogger.CreateLog();
                 CellLogger.SaveLog();
-                ProcessStatus = testData.FinalResult.ToString();
+                ProcessStatus = testData.FinalResult;
+                
             }
             finally
             {
                 DataChaned?.Invoke(this);
             }
+        }
+        public void AddMessage(string message)
+        {
+            if(string.IsNullOrWhiteSpace(message)) return;
+            messageLines.Add(message);  
+        }
+
+        public void SetExecption(string exceptionMessage)
+        {
+            ProcessStatus = TestStatus.FAILED;
+            AddMessage($"Exception: {exceptionMessage}");
         }
     }
 }

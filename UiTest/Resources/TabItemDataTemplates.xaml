@@ -2,7 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:ViewModel="clr-namespace:UiTest.ModelView.TabItemViewModel"
                     xmlns:View="clr-namespace:UiTest.View.TabItemView">
-    <DataTemplate DataType="{x:Type ViewModel:TabLoggerViewModel}">
-        <View:TabLoggerView/>
+    <DataTemplate DataType="{x:Type ViewModel:TabLogViewModel}">
+        <View:TabLogView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ViewModel:TabMessageViewModel}">
+        <View:TabMessageView/>
     </DataTemplate>
 </ResourceDictionary>

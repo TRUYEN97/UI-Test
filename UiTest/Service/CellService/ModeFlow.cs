@@ -33,7 +33,12 @@ namespace UiTest.Service.CellService
         {
             return _itemGroup.Items.Where(
                 (i) => _programConfig.ItemConfigs.ContainsKey(i))
-                .Select(i => _programConfig.ItemConfigs[i]).ToList();
+                .Select(i =>
+                {
+                    var item = _programConfig.ItemConfigs[i];
+                    item.Name = i;
+                    return item;
+                }).ToList();
         }
 
         public bool NextToPassFlow()
@@ -47,6 +52,10 @@ namespace UiTest.Service.CellService
         }
         private bool SetItemGroup(string groupName)
         {
+            if (string.IsNullOrWhiteSpace(groupName))
+            {
+                return false;
+            }
             return _programConfig?.ItemGroups?.TryGetValue(groupName, out _itemGroup) == true;
         }
     }

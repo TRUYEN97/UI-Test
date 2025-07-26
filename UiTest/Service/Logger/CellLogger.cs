@@ -34,7 +34,8 @@ namespace UiTest.Service.Logger
 
         private void CreateHeaderLog()
         {
-            myLogger.AddText($"-------------------------------------------[Test summary]-------------------------------------------");
+            myLogger.AddText($"-----------------------------------------------------------------------------------------------");
+            myLogger.AddText($"----------------------------------------[Test summary]-----------------------------------------");
             myLogger.AddText($"Product: {testData.Product}");
             myLogger.AddText($"Station: {testData.Station}");
             myLogger.AddText($"Pc name: {testData.PcName}");
@@ -45,19 +46,17 @@ namespace UiTest.Service.Logger
             myLogger.AddText($"Stop time: {testData.StopTime}");
             myLogger.AddText($"Result: {testData.Result}");
             myLogger.AddText($"Error code: {testData.ErrorCode}");
-            myLogger.AddText($"Cycle time: {testData.CycleTime}");
+            myLogger.AddText($"Cycle time: {testData.CycleTime} s");
             if (!string.IsNullOrWhiteSpace(testData.FinalStopTime))
             {
-                myLogger.AddText($"-------------------------------------------[Final summary]------------------------------------------");
+                myLogger.AddText($"----------------------------------------[Final summary]----------------------------------------");
                 myLogger.AddText($"Final stop time: {testData.FinalStopTime}");
                 myLogger.AddText($"Final result: {testData.FinalResult}");
                 myLogger.AddText($"Final error code: {testData.ErrorCode}");
-                myLogger.AddText($"Final Cycle time: {testData.FinalCycleTime}");
-                myLogger.AddText($"----------------------------------------------------------------------------------------------------");
+                myLogger.AddText($"Final Cycle time: {testData.FinalCycleTime} s");
             }
             myLogger.AddText($"Items failed: {GetListFailedItems()}");
-            myLogger.AddText($"===============================================================================================");
-            myLogger.AddText($"===============================================================================================");
+            myLogger.AddText($"-----------------------------------------------------------------------------------------------\r\n");
         }
 
         private string GetListFailedItems()
@@ -80,17 +79,18 @@ namespace UiTest.Service.Logger
 
         private void CreateBodyLog()
         {
+            myLogger.AddText($"===============================================================================================");
             foreach (var funcData in testData.FunctionDatas)
             {
-                myLogger.AddText($"===============================================================================================");
-                myLogger.AddText($"------------------------------[{funcData}]------------------------------");
-                myLogger.AddText($"Value: {funcData.Value}");
-                myLogger.AddText($"Result: {funcData.Result}");
-                myLogger.AddText($"Test time: {funcData.TestTime} s");
-                myLogger.AddText($"Error code: {funcData.ErrorCode}");
-                myLogger.AddText($"Upper limit: {funcData.UpperLimit}");
-                myLogger.AddText($"Lower limit: {funcData.LowerLimit}");
-                myLogger.AddText($"Spec: {funcData.Spec}");
+                var result = funcData.resultModel;
+                myLogger.AddText($"--------------------------------------[{funcData}]-------------------------------------");
+                myLogger.AddText($"Value: {result.Value}");
+                myLogger.AddText($"Result: {result.Result}");
+                myLogger.AddText($"Cycle time: {result.CycleTime} s");
+                myLogger.AddText($"Error code: {result.ErrorCode}");
+                myLogger.AddText($"Upper limit: {result.UpperLimit}");
+                myLogger.AddText($"Lower limit: {result.LowerLimit}");
+                myLogger.AddText($"Spec: {result.Spec}");
                 myLogger.AddText($"-----------------------------------------------------------------------------------------------");
                 myLogger.AddText(funcData.logger.LogText);
                 myLogger.AddText($"===============================================================================================");
@@ -109,7 +109,7 @@ namespace UiTest.Service.Logger
         private string CreateFileName()
         {
             var info = ConfigLoader.ProgramConfig.ProgramInfo;
-            if (testData.Result == TestStatus.Passed)
+            if (testData.Result == TestStatus.PASSED)
             {
                 return $"{testData.Result}_{testData.MAC}_{info.Product}_{info.Station}_{PcInfo.PcName}_{testData.StartDateTime:yyyy-MM-dd_HH-mm-ss}.log";
             }

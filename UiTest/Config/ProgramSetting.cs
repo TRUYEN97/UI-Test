@@ -15,8 +15,8 @@ namespace UiTest.Config
         internal bool IsSingleView => Column == 1 && Row == 1;
         public int Row { get => row; set => row = value < 1 ? 1 : value; }
         public string View { get; set; } = "TestUnitViewModel";
-        public string Local_log { get; set; } = "../UI Test logs";
-        public bool ShowMissingErrorCode { get; set; } = false;
+        public string Local_log { get; set; } = "D:/UI Test logs";
+        public bool ShowMissingErrorCode { get; set; } = true;
 
     }
 }

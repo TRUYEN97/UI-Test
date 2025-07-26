@@ -1,36 +1,65 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Globalization;
+using UiTest.Common;
 using UiTest.Service.Logger;
 
 namespace UiTest.Model.Function
 {
     public class FunctionData
     {
-        public readonly string Name;
-        public readonly string FunctionName;
+        public readonly string name;
+        public readonly string functionName;
         public readonly MyLogger logger;
+        public readonly FunctionResultModel resultModel;
+        private DateTime startTime;
+        private DateTime stopTime;
         public FunctionData(string name, string functionName)
         {
-            Name = name;
-            FunctionName = functionName;
+            this.name = name;
+            this.functionName = functionName;
             logger = new MyLogger();
+            resultModel = new FunctionResultModel();
         }
+        public bool IsPass => resultModel.Result == TestStatus.PASSED.ToString();
 
-        public string Value { get; internal set; }
-        public string Result { get; internal set; }
-        public string TestTime { get; internal set; }
-        public string UpperLimit { get; internal set; }
-        public string LowerLimit { get; internal set; }
-        public string Spec { get; internal set; }
-        public string ErrorCode { get; internal set; }
-        public bool IsPass { get; internal set; }
+        public double CycleTime => startTime == null ? 0 : (DateTime.Now - startTime).TotalSeconds;
+
+        public (ItemStatus status, string value) TestResult { get; internal set; }
 
         public override string ToString()
         {
-            return $"{Name}/{FunctionName}";
+            return $"{name}-{functionName}";
+        }
+
+        public void TurnInit()
+        {
+            resultModel.StopTime = string.Empty;
+            resultModel.LowerLimit = string.Empty;
+            resultModel.UpperLimit = string.Empty;
+            resultModel.Spec = string.Empty;
+            resultModel.Value = string.Empty;
+            TestResult = (ItemStatus.FAILED, "");
+        }
+
+        public void Start()
+        {
+            startTime = DateTime.Now;
+            resultModel.StartTime = startTime.ToString("o", CultureInfo.InvariantCulture);
+            resultModel.Result = ItemStatus.FAILED.ToString();
+            resultModel.CycleTime = 0;
+            resultModel.StopTime = string.Empty;
+            resultModel.LowerLimit = string.Empty;
+            resultModel.UpperLimit = string.Empty;
+            resultModel.Spec = string.Empty;
+            resultModel.Value = string.Empty;
+            TestResult = (ItemStatus.FAILED, "");
+        }
+
+        public void End()
+        {
+            stopTime = DateTime.Now;
+            resultModel.StopTime = stopTime.ToString("o", CultureInfo.InvariantCulture);
+            resultModel.CycleTime = (stopTime - startTime).TotalSeconds;
         }
     }
 }

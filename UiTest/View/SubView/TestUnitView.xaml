@@ -8,40 +8,25 @@
              mc:Ignorable="d" d:DesignHeight="250" d:DesignWidth="400">
     <Border CornerRadius="5" Padding="5" Margin="5" Background="{Binding Color}">
         <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition Width="37*"/>
-            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="86"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            <Grid Grid.ColumnSpan="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="22"/>
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="1*"/>
-                    </Grid.ColumnDefinitions>
-                    <local:LabeledStatusBox Grid.Column="0" Label="Name" Text="{Binding Name}" Padding="3" />
-                    <local:LabeledStatusBox Grid.Column="1" Label="Mode" Text="{Binding ModeName}" Padding="3" />
-                    <local:LabeledStatusBox Grid.Column="2" Label="Time" Text="{Binding TestTime}" Padding="3" />
-                    <local:LabeledStatusBox Grid.Column="3" Label="Status" Text="{Binding TestStatus}" Padding="3"/>
-                </Grid>
-                <Border  Grid.Row="1" Margin="10,0,10,4" CornerRadius="5" BorderThickness="3" BorderBrush="Green">
-                    <Grid>
-                        <ProgressBar Value="{Binding ProgressValue}" Maximum="{Binding ProgressMaximum}"/>
-                        <TextBlock Text="{Binding ProgressPercent}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </Grid>
-                </Border>
+            <Grid Margin="0,5,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <local:LabeledStatusBox Grid.Column="0" Label="Name" Text="{Binding Name}" Padding="3" />
+                <local:LabeledStatusBox Grid.Column="1" Label="Mode" Text="{Binding ModeName}" Padding="3" />
+                <local:LabeledStatusBox Grid.Column="2" Label="Status" Text="{Binding TestStatus}" Padding="3" />
+                <local:LabeledStatusBox Grid.Column="3" Label="Time" Text="{Binding TestTime}" Padding="3" />
             </Grid>
-            <Border  Grid.Row="1" Background="{Binding Color}" Grid.ColumnSpan="2">
+            <Border  Grid.Row="1" Background="{Binding Color}">
                 <TabControl 
+                    Background="{Binding Color}"
                     ItemsSource="{Binding Tabs}" 
                     SelectedItem="{Binding SelectedTab, Mode=TwoWay}">
                     <TabControl.ItemTemplate>
@@ -51,7 +36,10 @@
                     </TabControl.ItemTemplate>
                     <TabControl.ContentTemplate>
                         <DataTemplate>
-                            <ContentPresenter Content="{Binding}"/>
+                            <ScrollViewer HorizontalScrollBarVisibility="Auto"
+                                          VerticalScrollBarVisibility="Auto">
+                                <ContentPresenter Content="{Binding}"/>
+                            </ScrollViewer>
                         </DataTemplate>
                     </TabControl.ContentTemplate>
                 </TabControl>
