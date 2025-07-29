@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UiTest.Model.Interface;
+﻿using UiTest.Model.Interface;
 
 namespace UiTest.Model.Function
 {

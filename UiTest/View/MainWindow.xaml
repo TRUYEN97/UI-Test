@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:ui="clr-namespace:UiTest.View.Component"
         xmlns:Controls="clr-namespace:UiTest.Style.Controls"
+        xmlns:ListBoxItems="clr-namespace:UiTest.View.ListBoxItemViews"
         xmlns:Behaviors="clr-namespace:UiTest.Behaviors"
         Width="1024" Height="600"
         WindowStyle="None"
@@ -102,7 +103,7 @@
                                             Behaviors:PreviewEnterFocusBehavior.FocusTarget="TextIndex"
                                             Behaviors:PreviewEnterCommandBehavior.Command="{Binding InputKeyPessCommand}"
                                             HorizontalContentAlignment="Center"
-                                            FontSize="16"/>
+                                            FontSize="18"/>
                                         <TextBox
                                             BorderThickness="0"
                                             Margin="10,5,10,5"
@@ -112,7 +113,7 @@
                                             Behaviors:PreviewEnterFocusBehavior.FocusTarget="TxtInput"
                                             Behaviors:PreviewEnterCommandBehavior.Command="{Binding IndexKeyPessCommand}"
                                             HorizontalContentAlignment="Center"
-                                            FontSize="16"/>
+                                            FontSize="18"/>
                                     </StackPanel>
                                 </Controls:ReusableFieldBox>
                                 <ui:MyCombobox Label="Mode" 
@@ -120,10 +121,18 @@
                                                Margin="10,0,5,5"
                                                ItemsSource="{Binding Modes}" 
                                                SelectedItem="{Binding SelectedMode, Mode=TwoWay}"/>
-                                <ui:MyListBox Label="Properties"
-                                              Margin="10"
-                                              Height="150"
-                                              ItemsSource ="{Binding Properties}"/>
+                                <TextBlock Text="Proterties:" Margin="10,10,0,0" FontSize="14" FontWeight="DemiBold"/>
+                                <ListBox ItemsSource="{Binding Properties }"
+                                         IsHitTestVisible="False"
+                                         Margin="10,5"
+                                         Background="Transparent"
+                                         FontSize="12">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <ListBoxItems:PropertyItemTemplate/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
                             </StackPanel>
                         </Border>
 
@@ -159,7 +168,7 @@
                             Grid.Column="0" 
                             Grid.ColumnSpan="3" 
                             Padding="2"
-                            FontSize="14"
+                            FontSize="12"
                             Margin="5,0,5,5"
                             Label="Message box" 
                             ItemsSource ="{Binding LogLines}"/>

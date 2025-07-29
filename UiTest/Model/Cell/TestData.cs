@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using Org.BouncyCastle.Ocsp;
 using UiTest.Common;
 using UiTest.Config;
 using UiTest.Model.Function;
@@ -14,21 +13,25 @@ namespace UiTest.Model.Cell
     {
         private readonly List<FunctionData> _functionFailedDatas;
         private readonly TestResultModel _testResultModel;
-        private readonly ProgramInfo programInfo;
-        public DateTime StartDateTime {  get; private set; }
-        public DateTime StopDateTime {  get; private set; }
+        private readonly ProgramSetting programSetting;
+        public DateTime StartDateTime { get; private set; }
+        public DateTime StopDateTime { get; private set; }
         public TestData(string name)
         {
             _functionFailedDatas = new List<FunctionData>();
             _testResultModel = new TestResultModel();
+            programSetting = ConfigLoader.ProgramConfig.ProgramSetting;
             CellName = name;
-            programInfo = ConfigLoader.ProgramConfig.ProgramInfo;
         }
         public void AddFuntionData(FunctionData functionData)
         {
             if (string.IsNullOrWhiteSpace(functionData?.name)) return;
             _testResultModel.FunctionDatas.Add(functionData);
-            if (!functionData.IsPass)
+        }
+        public void AddFailedFuntionData(FunctionData functionData)
+        {
+            if (string.IsNullOrWhiteSpace(functionData?.name)) return;
+            if (!functionData.IsPassed)
             {
                 _functionFailedDatas.Add(functionData);
             }
@@ -47,11 +50,13 @@ namespace UiTest.Model.Cell
             FinalResult = TestStatus.STANDBY;
             CycleTime = 0;
             FinalCycleTime = 0;
+            _functionFailedDatas.Clear();
+            _testResultModel.FunctionDatas.Clear();
         }
         public void Start(string input, string modeName)
         {
-            Product = programInfo.Product;
-            Station = programInfo.Station;
+            Product = programSetting.Product;
+            Station = programSetting.Station;
             PcName = PcInfo.PcName;
             MAC = input;
             INPUT = input;
@@ -72,6 +77,7 @@ namespace UiTest.Model.Cell
             StopDateTime = DateTime.Now;
             StopTime = StopDateTime.ToString("o", CultureInfo.InvariantCulture);
             Result = GetResult();
+            ErrorCode = FunctionFailedDatas.Count > 0 ? FunctionFailedDatas[0].ErrorCode : string.Empty;
             CycleTime = (StopDateTime - StartDateTime).TotalSeconds;
         }
 
@@ -90,6 +96,27 @@ namespace UiTest.Model.Cell
             FinalStopTime = dtNow.ToString("o", CultureInfo.InvariantCulture);
             FinalResult = GetResult();
             FinalCycleTime = (dtNow - StartDateTime).TotalSeconds;
+        }
+
+        public void ReCheck(FunctionData functionData, TestStatus status)
+        {
+            if (functionData == null) return;
+            switch (status)
+            {
+                case TestStatus.FAILED:
+                    if (!_functionFailedDatas.Contains(functionData))
+                    {
+                        _functionFailedDatas.Add(functionData);
+                    }
+                    break;
+                case TestStatus.CANCEL:
+                case TestStatus.PASSED:
+                    if (_functionFailedDatas.Contains(functionData))
+                    {
+                        _functionFailedDatas.Remove(functionData);
+                    }
+                    break;
+            }
         }
 
         public List<FunctionData> FunctionDatas => new List<FunctionData>(_testResultModel.FunctionDatas);

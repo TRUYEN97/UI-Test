@@ -14,6 +14,7 @@
         <ListBox ItemsSource="{Binding ItemsSource ,ElementName=root}"
              SelectedItem="{Binding SelectedItem,ElementName=root, Mode=TwoWay}"
              FontWeight="{Binding FontWeight ,ElementName=root}"
-             FontSize="{Binding FontSize ,ElementName=root}"/>
+             FontSize="{Binding FontSize ,ElementName=root}">
+        </ListBox>
     </ui:ReusableFieldBox>
 </UserControl>

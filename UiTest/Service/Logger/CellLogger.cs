@@ -88,6 +88,8 @@ namespace UiTest.Service.Logger
                 myLogger.AddText($"Result: {result.Result}");
                 myLogger.AddText($"Cycle time: {result.CycleTime} s");
                 myLogger.AddText($"Error code: {result.ErrorCode}");
+                myLogger.AddText($"Start time: {result.StartTime}");
+                myLogger.AddText($"Stop time: {result.StopTime}");
                 myLogger.AddText($"Upper limit: {result.UpperLimit}");
                 myLogger.AddText($"Lower limit: {result.LowerLimit}");
                 myLogger.AddText($"Spec: {result.Spec}");
@@ -108,14 +110,14 @@ namespace UiTest.Service.Logger
 
         private string CreateFileName()
         {
-            var info = ConfigLoader.ProgramConfig.ProgramInfo;
+            var setting = ConfigLoader.ProgramConfig.ProgramSetting;
             if (testData.Result == TestStatus.PASSED)
             {
-                return $"{testData.Result}_{testData.MAC}_{info.Product}_{info.Station}_{PcInfo.PcName}_{testData.StartDateTime:yyyy-MM-dd_HH-mm-ss}.log";
+                return $"{testData.Result}_{testData.MAC}_{setting.Product}_{setting.Station}_{PcInfo.PcName}_{testData.StartDateTime:yyyy-MM-dd_HH-mm-ss}.log".ToUpper();
             }
             else
             {
-                return $"{testData.Result}_{testData.MAC}_{info.Product}_{info.Station}_{PcInfo.PcName}_{testData.StartDateTime:yyyy-MM-dd_HH-mm-ss}_{testData.ErrorCode}.log";
+                return $"{testData.Result}_{testData.MAC}_{setting.Product}_{setting.Station}_{PcInfo.PcName}_{testData.StartDateTime:yyyy-MM-dd_HH-mm-ss}_{testData.ErrorCode}.log".ToUpper();
             }
         }
     }

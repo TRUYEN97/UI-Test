@@ -67,6 +67,8 @@ namespace UiTest.Service.Managements
             }
         }
 
+        public int Count => cellTests.Count;
+
         public bool TryGetCell(int index, out Cell cell)
         {
             return (cell = GetCell(index)) != null;

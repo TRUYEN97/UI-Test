@@ -8,11 +8,14 @@ namespace UiTest.Functions.Config
 {
     public abstract class BasefunctionConfig
     {
-        public int Retry { get; set; }
-        public int TimeOut { get; set; } = int.MaxValue;
+        public bool IsCancelInDebugMode { get; set; } = false;
         public bool IsSkipFailure { get; set; } = false;
-        public string Spec { get; set; }
-        public string UpperLimit { get; set; }
-        public string LowerLimit { get; set; }
+        public bool IsMultiTask { get; set; } = false;
+        public bool IsDontWaitForMe { get; internal set; } = false;
+        public int Retry { get; set; } = 0;
+        public int TimeOut { get; set; } = int.MaxValue;
+        public string Spec { get; set; } = string.Empty;
+        public string UpperLimit { get; set; } = string.Empty;
+        public string LowerLimit { get; set; } = string.Empty;
     }
 }

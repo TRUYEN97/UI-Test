@@ -12,7 +12,7 @@
                          FontSize="{Binding LabelFontSize,ElementName=root}">
         <TextBlock Text="{Binding Text, ElementName=root}"
                 FontSize="{Binding FontSize, ElementName=root}"
-                FontWeight="{Binding FontWeight, ElementName=root}"
+                FontWeight="DemiBold"
                 TextWrapping="NoWrap"
                HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </ui:ReusableFieldBox>

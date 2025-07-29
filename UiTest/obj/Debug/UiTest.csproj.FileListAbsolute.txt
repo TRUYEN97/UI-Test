@@ -93,3 +93,5 @@ D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\TabMessageView.g.cs
 D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\TabMessageView.baml
 D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\TabLogView.g.cs
 D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\TabLogView.baml
+D:\C#\UiTest\UiTest\obj\Debug\View\ListBoxItemViews\PropertyItemTemplate.g.cs
+D:\C#\UiTest\UiTest\obj\Debug\View\ListBoxItemViews\PropertyItemTemplate.baml

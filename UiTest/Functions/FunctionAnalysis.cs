@@ -31,13 +31,13 @@ namespace UiTest.Functions
                 var (status, value) = functionData.TestResult;
                 switch (status)
                 {
-                    case ItemStatus.PASSED:
+                    case TestStatus.PASSED:
                         CheckPassStatus(value);
                         break;
-                    case ItemStatus.FAILED:
+                    case TestStatus.FAILED:
                         SetFail();
                         break;
-                    case ItemStatus.CANCEL:
+                    case TestStatus.CANCEL:
                         SetCancel();
                         break;
                     default:
@@ -54,58 +54,49 @@ namespace UiTest.Functions
 
         private void CheckPassStatus(string result)
         {
-            if (!IsLimitAvailable)
+            if (!string.IsNullOrEmpty(config.Spec))
             {
-                SetPass();
-            }
-            else
-            {
-                var resultModel = functionData.resultModel;
-
-                if (!string.IsNullOrEmpty(config.Spec))
+                if (result == config.Spec)
                 {
-                    if (result != null)
-                    {
-                        if (config.Spec == $"{result}")
-                        {
-                            IsAcceptable = true;
-                            resultModel.Result = ItemStatus.PASSED.ToString();
-                            return;
-                        }
-                    }
-                    SetFail();
-                }
-                else if (double.TryParse($"{result}", out var value))
-                {
-
+                    SetPass();
                 }
                 else
                 {
                     SetFail();
                 }
             }
+            else
+            {
+                bool isHasUpper = double.TryParse(config.UpperLimit, out var upperLimit);
+                bool isHasLower = double.TryParse(config.LowerLimit, out var lowerLimit);
+                if (isHasUpper || isHasLower)
+                {
+                    if (!double.TryParse(result, out var value)
+                        || (isHasUpper && value > upperLimit)
+                        || (isHasLower && value < lowerLimit))
+                    {
+                        SetFail();
+                    }
+                }
+                SetPass();
+            }
         }
-
-        private bool IsLimitAvailable => config != null &&
-                (!string.IsNullOrWhiteSpace(config.Spec)
-                || !string.IsNullOrWhiteSpace(config.UpperLimit)
-                || !string.IsNullOrWhiteSpace(config.LowerLimit));
 
         private void SetCancel()
         {
             IsAcceptable = true;
-            functionData.resultModel.Result = ItemStatus.CANCEL.ToString();
+            functionData.SetResult(TestStatus.CANCEL);
         }
 
         private void SetFail()
         {
             IsAcceptable = false;
-            functionData.resultModel.Result = ItemStatus.FAILED.ToString();
+            functionData.SetResult(TestStatus.FAILED);
         }
         private void SetPass()
         {
             IsAcceptable = true;
-            functionData.resultModel.Result = ItemStatus.PASSED.ToString();
+            functionData.SetResult(TestStatus.PASSED);
         }
 
         private void SetResultValue()
@@ -121,11 +112,12 @@ namespace UiTest.Functions
             var resultModel = functionData.resultModel;
             logger.AddLog("***************************************************");
             logger.AddLog("RESULT", $"Item name: {functionData}");
-            logger.AddLog("RESULT", $"Upper limit: {resultModel.UpperLimit}");
-            logger.AddLog("RESULT", $"Lower limit: {resultModel.UpperLimit}");
             logger.AddLog("RESULT", $"Value: {resultModel.Value}");
             logger.AddLog("RESULT", $"Result: {resultModel.Result}");
             logger.AddLog("RESULT", $"Errorcode: {resultModel.ErrorCode}");
+            logger.AddLog("RESULT", $"Upper limit: {resultModel.UpperLimit}");
+            logger.AddLog("RESULT", $"Lower limit: {resultModel.LowerLimit}");
+            logger.AddLog("RESULT", $"Spec: {resultModel.Spec}");
             logger.AddLog("***************************************************");
         }
     }

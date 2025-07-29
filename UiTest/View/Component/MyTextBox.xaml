@@ -16,6 +16,7 @@
             x:Name="InnerTextBox"
             BorderThickness="0"
             Margin="1"
+            Padding="2"
             HorizontalContentAlignment="Center"
             Text="{Binding Text, ElementName=root, Mode=TwoWay}"
             FontSize="{Binding FontSize, ElementName=root}"

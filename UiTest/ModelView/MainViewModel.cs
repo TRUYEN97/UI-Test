@@ -5,6 +5,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using UiTest.Common;
 using UiTest.Config;
+using UiTest.Model;
+using UiTest.ModelView.ListBoxItems;
 using UiTest.Service;
 using UiTest.Service.Logger;
 using UiTest.Service.Managements;
@@ -45,11 +47,11 @@ namespace UiTest.ModelView
         public ObservableCollection<TestMode> Modes => _modelManagement.Modes;
         public ObservableCollection<string> LogLines => ProgramLogger.Instance.MessageBox;
         public TestMode SelectedMode { get => _modelManagement.SelectedMode; set => _modelManagement.SelectedMode = value; }
-        public ObservableCollection<string> Properties { get; } = new ObservableCollection<string>() { "mode1", "mode2" };
+        public ObservableCollection<PropertyModel> Properties => _modelManagement.Properties;
         public string Title => $"{AppInfo.ProductName} - V{AppInfo.ProductVersion}";
         public string PcName => PcInfo.PcName;
-        public string Product => ConfigLoader.ProgramConfig.ProgramInfo.Product;
-        public string Station => ConfigLoader.ProgramConfig.ProgramInfo.Station;
+        public string Product => ConfigLoader.ProgramConfig.ProgramSetting.Product;
+        public string Station => ConfigLoader.ProgramConfig.ProgramSetting.Station;
         public string Input { get => _input; set => SetProperty(ref _input, value, nameof(Input)); }
         public string Index { get => _index; set => SetProperty(ref _index, value, nameof(Index)); }
 

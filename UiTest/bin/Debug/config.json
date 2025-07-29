@@ -1,39 +1,71 @@
 {
-  "ProgramInfo": {
-    "Product": "",
-    "Station": "",
-    "FwVersion": "",
-    "FcdVersion": "",
-    "FtuVersion": "",
-    "BomVersion": "",
-    "MeBomVersion": ""
+  "ErrorCode": {
+    "LocalFilePath": "./Errorcodes.csv",
+    "LocalNewFilePath": "./NewErrorcodes.csv",
+    "MaxLength": 6
   },
   "ProgramSetting": {
+    "Product": "UTP",
+    "Station": "FT",
     "Column": 1,
     "Row": 1,
     "View": "TestUnitViewModel",
     "Local_log": "D:/UI Test logs",
-    "ShowMissingErrorCode": false
+    "ShowMissingErrorCode": false,
+    "Properties": {
+      "FW Version": "16666666",
+      "BOM Version": "1888888",
+      "FTU Version": "6666666",
+      "FCD Version": "7777777"
+    }
   },
   "Modes": {
     "Production": {
       "IsOnSFO": true,
-      "StepFunctions": [],
       "GroupName": "Test",
+      "LoopTimes": 1,
       "StandbyColor": null,
-      "LoopTimes": 1
+      "PassColor": null,
+      "CancelColor": null,
+      "Properties": {
+        "FW Version": "123456"
+      },
+      "StepFunctions": []
+    },
+    "Debug": {
+      "IsOnSFO": true,
+      "GroupName": "Test1",
+      "LoopTimes": 1,
+      "StandbyColor": null,
+      "PassColor": null,
+      "CancelColor": null,
+      "Properties": {
+        "FW Version": "11111111",
+        "BOM Version": "2222222"
+      },
+      "StepFunctions": []
     }
   },
   "ItemGroups": {
     "Test": {
-      "Items": [
-        "Sfis"
-      ],
+      "IsFinalGroup": false,
       "TestColor": null,
       "FailColor": null,
+      "NextToPassGroup": "Test1",
+      "NextToFailGroup": null,
+      "Items": [
+        "Sfis"
+      ]
+    },
+    "Test1": {
       "IsFinalGroup": false,
+      "TestColor": null,
+      "FailColor": null,
       "NextToPassGroup": null,
-      "NextToFailGroup": null
+      "NextToFailGroup": null,
+      "Items": [
+        "Sfis1"
+      ]
     }
   },
   "ItemConfigs": {
@@ -42,14 +74,17 @@
       "Config": {
         "$type": "UiTest.Functions.Config.Sfis.SfisConfig, UiTest",
         "Param1": "test Param1",
-        "Param2": "test Param2",
+        "Param2": "gg",
         "Param3": 1,
-        "Retry": 0,
-        "TimeOut": 2147483647,
+        "IsCancelInDebugMode": false,
         "IsSkipFailure": false,
-        "Spec": null,
-        "UpperLimit": null,
-        "LowerLimit": null
+        "IsMultiTask": false,
+        "IsDontWaitForMe": false,
+        "Retry": 2,
+        "TimeOut": 2147483647,
+        "Spec": "gg",
+        "UpperLimit": "3",
+        "LowerLimit": "1"
       }
     },
     "Sfis1": {
@@ -59,9 +94,12 @@
         "Param1": "test Param10",
         "Param2": "test Param20",
         "Param3": 12,
+        "IsCancelInDebugMode": false,
+        "IsSkipFailure": false,
+        "IsMultiTask": false,
+        "IsDontWaitForMe": false,
         "Retry": 0,
         "TimeOut": 2147483647,
-        "IsSkipFailure": false,
         "Spec": null,
         "UpperLimit": null,
         "LowerLimit": null

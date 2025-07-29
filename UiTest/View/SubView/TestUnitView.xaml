@@ -21,7 +21,7 @@
                 </Grid.ColumnDefinitions>
                 <local:LabeledStatusBox Grid.Column="0" Label="Name" Text="{Binding Name}" Padding="3" />
                 <local:LabeledStatusBox Grid.Column="1" Label="Mode" Text="{Binding ModeName}" Padding="3" />
-                <local:LabeledStatusBox Grid.Column="2" Label="Status" Text="{Binding TestStatus}" Padding="3" />
+                <local:LabeledStatusBox Grid.Column="2" Label="Status" Text="{Binding Status}" Padding="3" />
                 <local:LabeledStatusBox Grid.Column="3" Label="Time" Text="{Binding TestTime}" Padding="3" />
             </Grid>
             <Border  Grid.Row="1" Background="{Binding Color}">

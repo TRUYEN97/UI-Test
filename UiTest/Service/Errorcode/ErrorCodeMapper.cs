@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
+using System.Windows;
 using UiTest.Config;
+using UiTest.Service.Logger;
 
 namespace UiTest.Service.ErrorCode
 {
@@ -8,68 +10,49 @@ namespace UiTest.Service.ErrorCode
     {
         private readonly static Lazy<ErrorCodeMapper> instance = new Lazy<ErrorCodeMapper>(() => new ErrorCodeMapper());
         private readonly ErrorCodeModel model;
-        private readonly SpecialErrorCode specialError;
         private readonly ErrorCodeAnalysis errorCodeAnalysis;
-        private ErrorCodeMapperConfig _config;
+        private readonly ErrorCodeMapperConfig _config;
         private ErrorCodeMapper()
         {
-            _config = LoadErrorCodeConfig.Instance.Config;
-            model = new ErrorCodeModel() { MaxLength = _config.ErrorCodeMaxLength };
-            specialError = new SpecialErrorCode() { MaxLength = _config.ErrorCodeMaxLength };
-            errorCodeAnalysis = new ErrorCodeAnalysis(model, specialError) { MaxLength = _config.ErrorCodeMaxLength };
+            _config = ConfigLoader.ProgramConfig.ErrorCode;
+            model = new ErrorCodeModel() { MaxLength = _config.MaxLength };
+            errorCodeAnalysis = new ErrorCodeAnalysis(model) { MaxLength = _config.MaxLength };
+            LoadErrorCode();
         }
         public static ErrorCodeMapper Instance => instance.Value;
         public ErrorCodeMapperConfig Config => _config;
-        public SftpConfig SftpConfig { get => _config.SftpConfig; set => _config.SftpConfig = value; }
-        public string RemoteDir { get => _config.RemoteDir; set => _config.RemoteDir = value; }
-        public string Product { get => _config.Product; set => _config.Product = value; }
-        public string Station { get => _config.Station; set => _config.Station = value; }
-        public SpecialErrorCode SpecialErrorCode => specialError;
-        public string RemoteNewFilePath => Path.Combine(RemoteDir, Product, Station, "newErrorCodes.csv");
-        public string RemoteFilePath => Path.Combine(RemoteDir, Product, Station, "ErrorCodes.csv");
-
-        public bool LoadErrorcodeFromServer()
+        public bool LoadErrorCode()
         {
-            using (var sftp = new MySftp(Instance._config.SftpConfig))
-            {
-                if (!sftp.Connect())
-                {
-                    return false;
-                }
-                if (!sftp.TryReadAllLines(RemoteFilePath, out string[] lines))
-                {
-                    return false;
-                }
-                return AddErrorCode(lines);
-            }
+            model.Clear();
+            bool rs = AddErrorCode(_config.LocalFilePath);
+            AddErrorCode(_config.LocalNewFilePath);
+            return rs;
         }
 
-        public bool LoadErrorcodeFromFile()
-        {
-            string filePath = Instance._config.LocalFilePath;
-            if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
-            {
-                return false;
-            }
-            string[] lines = File.ReadAllLines(filePath);
-            return AddErrorCode(lines);
-        }
-
-        public bool TryGetErrorcode(string logText, out string functionName, out string errorcode)
+        public bool TryGetErrorcode(string functionName, out string errorcode)
         {
             try
             {
-                if (errorCodeAnalysis.TryGetErrorCode(logText, out functionName, out errorcode) && !string.IsNullOrWhiteSpace(errorcode))
+                if (errorCodeAnalysis.TryGetErrorCode(functionName, out errorcode))
                 {
                     return true;
                 }
                 errorcode = errorCodeAnalysis.CreateNewErrorcode(functionName);
-                UpdateNewErrorCode(functionName, errorcode);
-                return !string.IsNullOrWhiteSpace(errorcode);
+                if (ConfigLoader.ProgramConfig.ProgramSetting.ShowMissingErrorCode)
+                {
+                    string mess = $"Missing of item[{functionName}]\r\nAuto create a new errorCode is [{errorcode}]";
+                    ProgramLogger.AddWarning(ToString(), mess);
+                    MessageBox.Show(mess);
+                }
+                if (!string.IsNullOrWhiteSpace(errorcode))
+                {
+                    UpdateNewErrorCode(functionName, errorcode);
+                    return true;
+                }
+                return false;
             }
             catch (Exception)
             {
-                functionName = null;
                 errorcode = null;
                 return false;
             }
@@ -80,23 +63,11 @@ namespace UiTest.Service.ErrorCode
             model.Set(functionName, newErrorcode);
             string line = $"{functionName};{newErrorcode}".ToUpper();
             UpdateToLocalFile(line);
-            UpdateToSftpFile(line);
-        }
-
-        private void UpdateToSftpFile(string line)
-        {
-            using (var sftp = new MySftp(Instance._config.SftpConfig))
-            {
-                if (sftp.Connect())
-                {
-                    sftp.AppendLine(RemoteNewFilePath, line);
-                }
-            }
         }
 
         private void UpdateToLocalFile(string line)
         {
-            string filePath = _config.LocalFilePath;
+            string filePath = _config.LocalNewFilePath;
             if (!File.Exists(filePath))
             {
                 string dir = Path.GetDirectoryName(filePath);
@@ -108,12 +79,17 @@ namespace UiTest.Service.ErrorCode
             File.AppendAllText(filePath, line);
         }
 
-        private bool AddErrorCode(string[] lines)
+        private bool AddErrorCode(string filePath)
         {
+            if (string.IsNullOrEmpty(filePath) || !File.Exists(filePath))
+            {
+                return false;
+            }
+            string[] lines = File.ReadAllLines(filePath);
             if (lines == null) return false;
             foreach (var line in lines)
             {
-                string[] elems = line.Split(new char[] { ',', ';' });
+                string[] elems = line.Split(new char[] { ';' });
                 if (elems.Length >= 2)
                 {
                     string funcName = elems[0];
@@ -122,6 +98,11 @@ namespace UiTest.Service.ErrorCode
                 }
             }
             return true;
+        }
+
+        public string MakeUp(string errorCode)
+        {
+            return errorCodeAnalysis.MakeUp(errorCode);
         }
     }
 }

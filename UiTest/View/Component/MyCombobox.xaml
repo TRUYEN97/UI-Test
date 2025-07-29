@@ -15,8 +15,10 @@
             ItemsSource="{Binding ItemsSource, ElementName=root}"
             SelectedItem="{Binding SelectedItem, ElementName=root, Mode=TwoWay}"
             BorderThickness="0"
+            FontWeight="DemiBold"
             Margin="1"
-            FontSize="{Binding FontSize, ElementName=root}"
-            FontWeight="{Binding FontWeight, ElementName=root}"/>
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            FontSize="{Binding FontSize, ElementName=root}"/>
     </ui:ReusableFieldBox>
 </UserControl>

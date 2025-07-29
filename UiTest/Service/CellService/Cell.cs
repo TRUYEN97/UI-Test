@@ -1,5 +1,6 @@
 ﻿
 using System;
+using UiTest.Common;
 using UiTest.Config;
 using UiTest.Model.Cell;
 using UiTest.ModelView;
@@ -17,8 +18,7 @@ namespace UiTest.Service.CellService
             Timer = new CellTimer();
             CellData = new CellData(name);
             ViewModel = viewModel;
-            tester = new CellTester(this);
-            ViewModel.Cell = this;
+            tester = new CellTester(Timer, CellData);
             ViewModel.Name = name;
             Timer.AddTimeTick((ts) =>
             {
@@ -28,14 +28,14 @@ namespace UiTest.Service.CellService
             {
                 ViewModel.Update();
             };
+            ViewModel.Cell = this;
         }
-        public TestMode TestMode { get; set; }
         public string Name => CellData.Name;
         public string StringTestTime => Timer.StringTestTime;
         public long TestTime => Timer.TestTime;
-        public string TestStatus => CellData.ProcessStatus.ToString();
+        public TestStatus TestStatus => CellData.TestStatus;
         public bool IsFree => tester.IsFree;
-        public string ModeName => TestMode?.Name;
+        public string ModeName => CellData.TestMode?.Name;
         public string Message => CellData.Message;
 
         public void StartTest(string input)
@@ -46,8 +46,8 @@ namespace UiTest.Service.CellService
         public void UpdateMode(TestMode mode)
         {
             if (mode == null) return;
-            TestMode = mode;
-            ViewModel.TestMode = mode;
+            CellData.TestMode = mode;
+            ViewModel.Update();
         }
     }
 }

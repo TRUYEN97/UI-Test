@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using UiTest.Config;
 using UiTest.Functions;
 using UiTest.Model.Cell;
-using UiTest.ModelView;
 using UiTest.Service.Logger;
 using UiTest.Service.Tester;
 
@@ -13,56 +12,55 @@ namespace UiTest.Service.CellService
 {
     public class CellTester : BaseTester
     {
-        private readonly Cell cell;
         private readonly CellTimer timer;
         private readonly CellData cellData;
-        private readonly BaseSubModelView viewModel;
-        private CancellationTokenSource cts;
+        private readonly FucntionCoverManagement functionCoverManagement;
 
-        public CellTester(Cell cell)
+        public CellTester(CellTimer timer, CellData cellData)
         {
-            this.cell = cell;
-            this.timer = cell.Timer;
-            this.cellData = cell.CellData;
-            this.viewModel = cell.ViewModel;
+            this.timer = timer;
+            this.cellData = cellData;
+            functionCoverManagement = new FucntionCoverManagement();
         }
+
         public bool IsFree => !IsRunning;
 
         public void StartTest(string input)
         {
             if (string.IsNullOrWhiteSpace(input) || IsRunning) return;
+            functionCoverManagement.Cts = new CancellationTokenSource();
+            functionCoverManagement.IsAcceptable = true;
             currentTask = Task.Run(async () =>
             {
                 try
                 {
-                    TestMode testMode = cell.TestMode;
-                    input = input.ToUpper().Trim();
-                    ModeFlow modeFlow = testMode.ModeFlow;
-                    cts = new CancellationTokenSource();
-                    for (int i = 0; !cts.IsCancellationRequested && i < modeFlow.Loop && modeFlow.Reset(); i++)
+                    input = input.Trim();
+                    ModeFlow modeFlow = cellData.TestMode.ModeFlow;
+                    for (int i = 0; i < modeFlow.Loop && functionCoverManagement.IsAcceptable && modeFlow.Reset(); i++)
                     {
                         try
                         {
                             timer.Start();
-                            cellData.Start(input, testMode.Name);
+                            cellData.Start(input, modeFlow.Name);
                             List<ItemConfig> items;
-                            while ((items = modeFlow.GetListItem()) != null && !cts.IsCancellationRequested)
+                            while (functionCoverManagement.IsAcceptable && (items = modeFlow.GetListItem()) != null )
                             {
                                 if (modeFlow.IsFinalGroup)
                                 {
                                     cellData.End();
                                 }
-                                viewModel.Color = modeFlow.TestColor;
+                                cellData.TestColor = modeFlow.TestColor;
+                                cellData.FailColor = modeFlow.FailColor;
                                 if (await Run(items))
                                 {
                                     modeFlow.NextToPassFlow();
                                 }
                                 else
                                 {
-                                    viewModel.Color = modeFlow.FailColor;
                                     modeFlow.NextToFailedFlow();
                                 }
                             }
+                            await functionCoverManagement.WaitForAllTaskDone();
                         }
                         catch (Exception ex)
                         {
@@ -71,6 +69,7 @@ namespace UiTest.Service.CellService
                         }
                         finally
                         {
+                            await functionCoverManagement.StopAll();
                             cellData.EndProcess();
                         }
                     }
@@ -83,26 +82,28 @@ namespace UiTest.Service.CellService
                 {
                     timer.Stop();
                 }
-            });
+            }, functionCoverManagement.Cts.Token);
         }
 
         private async Task<bool> Run(List<ItemConfig> itemConfigs)
         {
             foreach (var itemConfig in itemConfigs)
             {
-                if (cts.IsCancellationRequested)
+                if (!functionCoverManagement.IsAcceptable)
                 {
                     break;
                 }
-                var functionCover = new FunctionCover(itemConfig, cellData);
-                functionCover.functionBody.Cts = cts;
-                await functionCover.Start();
-                if (!functionCover.IsAcceptable)
+                var functionCover = new FunctionCover(itemConfig, cellData, functionCoverManagement);
+                if (functionCover.Config.IsMultiTask)
                 {
-                    break;
+                    _ = functionCover.Start();
+                }
+                else
+                {
+                    await functionCover.Start();
                 }
             }
-            return !cellData.HasFailedFunctions;
+            return functionCoverManagement.IsAcceptable;
         }
     }
 }

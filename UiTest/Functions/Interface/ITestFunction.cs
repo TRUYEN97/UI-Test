@@ -2,6 +2,7 @@
 using System.Threading;
 using UiTest.Common;
 using UiTest.Functions.Config;
+using UiTest.Model.Cell;
 using UiTest.Model.Function;
 
 namespace UiTest.Functions.Interface
@@ -12,6 +13,6 @@ namespace UiTest.Functions.Interface
         BasefunctionConfig BaseConfig { get; }
         FunctionData FunctionData { get; }
         void Cancel();
-        (ItemStatus status, string value) Run(int times);
+        (TestStatus status, string value) Run(int times);
     }
 }

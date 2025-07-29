@@ -3,40 +3,24 @@
   "WorkspaceRootPath": "D:\\C#\\UiTest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\functions\\functionanalysis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\functions\\functionanalysis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\cellservice\\celltester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\cellservice\\celltester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\functions\\functioncover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\functions\\functioncover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\functions\\body\\sfis\\sendsfis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\functions\\body\\sfis\\sendsfis.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\functions\\body\\basefunctionbody.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\functions\\body\\basefunctionbody.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\model\\cell\\celldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\model\\cell\\celldata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\model\\function\\functiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\model\\function\\functiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|D:\\C#\\UiTest\\uitest\\model\\cell\\testdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\model\\cell\\testdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|D:\\C#\\UiTest\\uitest\\service\\logger\\celllogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\logger\\celllogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\logger\\celllogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\cellservice\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\cellservice\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\model\\cell\\testdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\model\\cell\\testdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\cellservice\\celltester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\cellservice\\celltester.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,119 +34,67 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "SendSfis.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Functions\\Body\\Sfis\\SendSfis.cs",
-              "RelativeDocumentMoniker": "UiTest\\Functions\\Body\\Sfis\\SendSfis.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Functions\\Body\\Sfis\\SendSfis.cs",
-              "RelativeToolTip": "UiTest\\Functions\\Body\\Sfis\\SendSfis.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T10:17:16.467Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BaseFunctionBody.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Functions\\Body\\BaseFunctionBody.cs",
-              "RelativeDocumentMoniker": "UiTest\\Functions\\Body\\BaseFunctionBody.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Functions\\Body\\BaseFunctionBody.cs",
-              "RelativeToolTip": "UiTest\\Functions\\Body\\BaseFunctionBody.cs",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAIwDMAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T10:16:59.554Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "FunctionCover.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Functions\\FunctionCover.cs",
-              "RelativeDocumentMoniker": "UiTest\\Functions\\FunctionCover.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Functions\\FunctionCover.cs",
-              "RelativeToolTip": "UiTest\\Functions\\FunctionCover.cs",
-              "ViewState": "AgIAAB8AAAAAAAAAAAAUwCcAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T09:35:52.07Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "FunctionAnalysis.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Functions\\FunctionAnalysis.cs",
-              "RelativeDocumentMoniker": "UiTest\\Functions\\FunctionAnalysis.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Functions\\FunctionAnalysis.cs",
-              "RelativeToolTip": "UiTest\\Functions\\FunctionAnalysis.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAvwCUAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T09:07:38.511Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FunctionData.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Model\\Function\\FunctionData.cs",
-              "RelativeDocumentMoniker": "UiTest\\Model\\Function\\FunctionData.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Model\\Function\\FunctionData.cs",
-              "RelativeToolTip": "UiTest\\Model\\Function\\FunctionData.cs",
-              "ViewState": "AgIAAAgAAAAAAAAAAAAswBoAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T09:07:15.173Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Cell.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\CellService\\Cell.cs",
-              "RelativeDocumentMoniker": "UiTest\\Service\\CellService\\Cell.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\CellService\\Cell.cs",
-              "RelativeToolTip": "UiTest\\Service\\CellService\\Cell.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAIAwwCsAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T09:04:54.526Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CellTester.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\CellService\\CellTester.cs",
-              "RelativeDocumentMoniker": "UiTest\\Service\\CellService\\CellTester.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\CellService\\CellTester.cs",
-              "RelativeToolTip": "UiTest\\Service\\CellService\\CellTester.cs",
-              "ViewState": "AgIAABwAAAAAAAAAAAASwDcAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T09:01:02.825Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "CellLogger.cs",
               "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\Logger\\CellLogger.cs",
               "RelativeDocumentMoniker": "UiTest\\Service\\Logger\\CellLogger.cs",
               "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\Logger\\CellLogger.cs",
               "RelativeToolTip": "UiTest\\Service\\Logger\\CellLogger.cs",
-              "ViewState": "AgIAADoAAAAAAAAAAAAhwG8AAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T04:21:00.329Z",
+              "WhenOpened": "2025-07-29T12:58:12.111Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
+              "Title": "CellData.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Model\\Cell\\CellData.cs",
+              "RelativeDocumentMoniker": "UiTest\\Model\\Cell\\CellData.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Model\\Cell\\CellData.cs",
+              "RelativeToolTip": "UiTest\\Model\\Cell\\CellData.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAwwF4AAABGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T12:29:21.358Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CellTester.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\CellService\\CellTester.cs",
+              "RelativeDocumentMoniker": "UiTest\\Service\\CellService\\CellTester.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\CellService\\CellTester.cs",
+              "RelativeToolTip": "UiTest\\Service\\CellService\\CellTester.cs",
+              "ViewState": "AgIAAC0AAAAAAAAAAAAkwEYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T12:22:35.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SendSfis.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Functions\\Body\\Sfis\\SendSfis.cs",
+              "RelativeDocumentMoniker": "UiTest\\Functions\\Body\\Sfis\\SendSfis.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Functions\\Body\\Sfis\\SendSfis.cs",
+              "RelativeToolTip": "UiTest\\Functions\\Body\\Sfis\\SendSfis.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T11:58:03.431Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "TestData.cs",
               "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Model\\Cell\\TestData.cs",
               "RelativeDocumentMoniker": "UiTest\\Model\\Cell\\TestData.cs",
               "ToolTip": "D:\\C#\\UiTest\\UiTest\\Model\\Cell\\TestData.cs",
               "RelativeToolTip": "UiTest\\Model\\Cell\\TestData.cs",
-              "ViewState": "AgIAAFkAAAAAAAAAAAAIwFMAAABYAAAAAAAAAA==",
+              "ViewState": "AgIAADgAAAAAAAAAAADgv08AAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T04:20:12.81Z",
+              "WhenOpened": "2025-07-29T12:29:33.388Z",
               "EditorCaption": ""
             }
           ]

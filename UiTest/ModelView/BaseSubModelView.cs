@@ -1,9 +1,7 @@
 ﻿
 using System;
-using System.Collections.Generic;
 using System.Windows.Media;
 using UiTest.Common;
-using UiTest.Config;
 using UiTest.Service.CellService;
 using UiTest.Service.Interface;
 
@@ -18,7 +16,6 @@ namespace UiTest.ModelView
         private string _testStatus;
         private string _modeName;
         private string _message;
-        private TestMode _testMode;
 
         public BaseSubModelView()
         {
@@ -36,24 +33,12 @@ namespace UiTest.ModelView
             }
         }
 
-        public TestMode TestMode
-        {
-            get => _testMode;
-            set
-            {
-                if (value == null) return;
-                _testMode = value;
-                Update();
-            }
-        }
-
         public string Name { get => _name; set { _name = value; OnPropertyChanged(); } }
         public string TestTime { get => _testTime; set { _testTime = value; OnPropertyChanged(); } }
-        public string TestStatus { get => _testStatus; set { _testStatus = value; OnPropertyChanged(); } }
+        public string Status { get => _testStatus; set { _testStatus = value; OnPropertyChanged(); } }
         public string ModeName { get => _modeName; set { _modeName = value; OnPropertyChanged(); } }
         public string Message { get => _message; set { _message = value; OnPropertyChanged(); } }
-        public Brush Color { get => _color.Value; set { _color.Value = value; OnPropertyChanged();} }
-
+        public Brush Color { get => _color.Value; set { _color.Value = value; OnPropertyChanged(); } }
         public bool Update()
         {
             try
@@ -62,7 +47,6 @@ namespace UiTest.ModelView
                 UpdateModeName();
                 UpdateTimeTest();
                 UpdateTestStatus();
-                //UpdateColor();
                 UpdateMessage();
                 UpdateCellData(Cell);
                 return true;
@@ -74,7 +58,28 @@ namespace UiTest.ModelView
         }
         protected virtual void UpdateTestStatus()
         {
-            TestStatus = _cell.TestStatus;
+            TestStatus testStatus = Cell.TestStatus;
+            if (testStatus == TestStatus.PASSED)
+            {
+                Color = Cell.CellData.PassColor;
+            }
+            else if (testStatus == TestStatus.FAILED)
+            {
+                Color = Cell.CellData.FailColor;
+            }
+            else if (testStatus == TestStatus.CANCEL)
+            {
+                Color = Cell.CellData.CancelColor;
+            }
+            else if (testStatus == TestStatus.STANDBY)
+            {
+                Color = Cell.CellData.StandbyColor;
+            }
+            else if (testStatus == TestStatus.TESTING)
+            {
+                Color = Cell.CellData.TestColor;
+            }
+            Status = testStatus.ToString();
         }
 
         protected virtual void UpdateTimeTest()
@@ -84,7 +89,7 @@ namespace UiTest.ModelView
 
         protected virtual void UpdateModeName()
         {
-            ModeName = TestMode.Name;
+            ModeName = _cell.CellData.TestMode?.Name;
         }
 
         protected virtual void UpdateName()
@@ -96,10 +101,6 @@ namespace UiTest.ModelView
         {
             Message = _cell.Message;
         }
-      /*  protected virtual void UpdateColor()
-        {
-            Color = TestMode.StandbyColor;
-        }*/
 
         protected abstract void UpdateCellData(Cell cell);
 

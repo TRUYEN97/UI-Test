@@ -151,7 +151,6 @@
     <Compile Include="Behaviors\MouseLeftClickCommandBehavior.cs" />
     <Compile Include="Behaviors\MouseDoubleClickCommandBehavior.cs" />
     <Compile Include="Common\FileUtil.cs" />
-    <Compile Include="Common\ItemStatus.cs" />
     <Compile Include="Common\PcInfo.cs" />
     <Compile Include="Common\AppInfo.cs" />
     <Compile Include="Common\DependencyUtil.cs" />
@@ -162,7 +161,6 @@
     <Compile Include="Config\ItemConfig.cs" />
     <Compile Include="Config\ModeConfig.cs" />
     <Compile Include="Config\ProgramConfig.cs" />
-    <Compile Include="Config\ProgramInfo.cs" />
     <Compile Include="Config\ProgramSetting.cs" />
     <Compile Include="Config\StepFunction.cs" />
     <Compile Include="Exceptions\FactoryClassTypeNotFoundException.cs" />
@@ -175,14 +173,17 @@
     <Compile Include="Functions\Interface\ITestFunction.cs" />
     <Compile Include="Mapper\MyObjectMapper.cs" />
     <Compile Include="ModelView\BaseSubModelView.cs" />
+    <Compile Include="ModelView\ListBoxItems\PropertyItemTemplateModeView.cs" />
     <Compile Include="ModelView\TabItemViewModel\TabLogViewModel.cs" />
     <Compile Include="ModelView\TabItemViewModel\TabMessageViewModel.cs" />
-    <Compile Include="Model\Cell\CellProperties.cs" />
+    <Compile Include="Model\Cell\FucntionCoverManagement.cs" />
+    <Compile Include="Model\Cell\MyProperties.cs" />
     <Compile Include="Model\Cell\TestResultModel.cs" />
     <Compile Include="Model\Function\FunctionData.cs" />
     <Compile Include="Model\Function\FunctionResultModel.cs" />
     <Compile Include="Model\Interface\IFunctionResult.cs" />
     <Compile Include="Model\Interface\ITestResult.cs" />
+    <Compile Include="Model\PropertyModel.cs" />
     <Compile Include="Service\CellService\Cell.cs" />
     <Compile Include="Service\CellService\CellTester.cs" />
     <Compile Include="Service\CellService\CellTimer.cs" />
@@ -203,8 +204,6 @@
     <Compile Include="Service\Errorcode\ErrorCodeMapper.cs" />
     <Compile Include="Service\Errorcode\ErrorCodeMapperConfig.cs" />
     <Compile Include="Service\Errorcode\ErrorCodeModel.cs" />
-    <Compile Include="Service\Errorcode\LoadErrorCodeConfig.cs" />
-    <Compile Include="Service\Errorcode\SpecialErrorCode.cs" />
     <Compile Include="Service\Factory\FunctionFactory.cs" />
     <Compile Include="Service\InputCommands.cs" />
     <Compile Include="Service\Interface\IUpdate.cs" />
@@ -242,6 +241,9 @@
     </Compile>
     <Compile Include="View\Component\MyTextBox.xaml.cs">
       <DependentUpon>MyTextBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ListBoxItemViews\PropertyItemTemplate.xaml.cs">
+      <DependentUpon>PropertyItemTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SubView\MultiUnitModelView.xaml.cs">
       <DependentUpon>MultiUnitModelView.xaml</DependentUpon>
@@ -284,6 +286,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Component\MyTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ListBoxItemViews\PropertyItemTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

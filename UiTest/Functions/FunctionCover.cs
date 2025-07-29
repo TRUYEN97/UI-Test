@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Threading;
 using System.Threading.Tasks;
 using UiTest.Common;
@@ -18,21 +19,21 @@ namespace UiTest.Functions
         public readonly ITestFunction functionBody;
         public readonly BasefunctionConfig Config;
         private readonly FunctionAnalysis functionAnalysis;
-        private readonly CellData cellData;
+        private readonly FucntionCoverManagement functionCoverManagement;
         private Thread thread;
         private bool isRunning;
-        public FunctionCover(ItemConfig itemConfig, CellData cellData)
+        public FunctionCover(ItemConfig itemConfig, CellData cellData, FucntionCoverManagement functionCoverManagement)
         {
-            FunctionData = new FunctionData(itemConfig.Name, itemConfig.FunctionType);
-            this.cellData = cellData;
+            FunctionData = new FunctionData(itemConfig.Name, itemConfig.FunctionType, cellData);
             functionBody = FunctionFactory.Instance.CreateFunctionWithTypeName(itemConfig.FunctionType, FunctionData, itemConfig.Config);
             Config = functionBody.BaseConfig;
-            cellData.AddFuntionData(FunctionData);
             functionAnalysis = new FunctionAnalysis(FunctionData, Config);
+            functionBody.Cts = new CancellationTokenSource();
+            this.functionCoverManagement = functionCoverManagement;
         }
         public bool IsRunning => thread != null && thread.IsAlive || isRunning;
 
-        public bool IsAcceptable => FunctionData.IsPass || Config.IsSkipFailure;
+        public bool IsAcceptable => !FunctionData.IsFailed || Config.IsSkipFailure;
 
         public Task Start()
         {
@@ -40,7 +41,7 @@ namespace UiTest.Functions
             {
                 try
                 {
-                    if (IsRunning) return;
+                    if (IsRunning || !functionCoverManagement.TryAdd(FunctionData.ToString(), this)) return;
                     isRunning = true;
                     int runTimes = Config.Retry + 1;
                     FunctionData.Start();
@@ -49,7 +50,7 @@ namespace UiTest.Functions
                         thread?.Abort();
                         thread = new Thread(() =>
                         {
-                            FunctionData.TurnInit();
+                            FunctionData.TurnInit(times);
                             FunctionData.TestResult = functionBody.Run(times);
                         });
                         thread.Start();
@@ -57,7 +58,7 @@ namespace UiTest.Functions
                         {
                             FunctionData.logger.AddErrorText($"Time out:{FunctionData.CycleTime} >= {Config.TimeOut}");
                             Stop();
-                            FunctionData.TestResult = (ItemStatus.FAILED, "");
+                            FunctionData.TestResult = (TestStatus.FAILED, "");
                         }
                         functionAnalysis.CheckResultTest();
                         if (functionAnalysis.IsAcceptable)
@@ -70,7 +71,7 @@ namespace UiTest.Functions
                 {
                     ProgramLogger.AddError(FunctionData.ToString(), ex.Message);
                     FunctionData.logger.AddErrorText(ex.Message);
-                    FunctionData.TestResult = (ItemStatus.FAILED, "");
+                    FunctionData.TestResult = (TestStatus.FAILED, "");
                     functionAnalysis.CheckResultTest();
                 }
                 finally
@@ -78,6 +79,7 @@ namespace UiTest.Functions
                     FunctionData.End();
                     functionBody.Cancel();
                     isRunning = false;
+                    functionCoverManagement.SetTestDone(FunctionData.ToString());
                 }
             });
         }
