@@ -1,18 +1,12 @@
-﻿using System;
-using System.Threading;
-using UiTest.Common;
-using UiTest.Functions.Config;
-using UiTest.Model.Cell;
+﻿using UiTest.Config.Items;
+using UiTest.Functions.TestFunctions.Config;
 using UiTest.Model.Function;
 
 namespace UiTest.Functions.Interface
 {
-    public interface ITestFunction
+    public interface ITestFunction: IFucntion<BasefunctionConfig>
     {
-        CancellationTokenSource Cts { get; set; }
-        BasefunctionConfig BaseConfig { get; }
+        ItemSetting ItemSetting { get; }
         FunctionData FunctionData { get; }
-        void Cancel();
-        (TestStatus status, string value) Run(int times);
     }
 }

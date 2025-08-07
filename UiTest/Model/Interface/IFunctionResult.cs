@@ -8,6 +8,7 @@ namespace UiTest.Model.Interface
 {
     public interface IFunctionResult
     {
+        string Name { get;}
         string StartTime { get; }
         string StopTime { get; }
         string Value { get; }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using UiTest.Common;
 using UiTest.Config;
 using UiTest.Model.Function;
@@ -40,7 +41,7 @@ namespace UiTest.Model.Cell
         public void Reset()
         {
             MAC = string.Empty;
-            INPUT = string.Empty;
+            Input = string.Empty;
             Mode = string.Empty;
             StartTime = string.Empty;
             StopTime = string.Empty;
@@ -59,7 +60,7 @@ namespace UiTest.Model.Cell
             Station = programSetting.Station;
             PcName = PcInfo.PcName;
             MAC = input;
-            INPUT = input;
+            Input = input;
             Mode = modeName;
             StartDateTime = DateTime.Now;
             StartTime = StartDateTime.ToString("o", CultureInfo.InvariantCulture);
@@ -77,17 +78,25 @@ namespace UiTest.Model.Cell
             StopDateTime = DateTime.Now;
             StopTime = StopDateTime.ToString("o", CultureInfo.InvariantCulture);
             Result = GetResult();
+            FinalResult = Result;
             ErrorCode = FunctionFailedDatas.Count > 0 ? FunctionFailedDatas[0].ErrorCode : string.Empty;
             CycleTime = (StopDateTime - StartDateTime).TotalSeconds;
         }
 
         private TestStatus GetResult()
         {
-            if (Result == TestStatus.CANCEL)
+            if (FunctionFailedDatas.Count > 0)
             {
-                return Result;
+                return TestStatus.FAILED;
             }
-            return FunctionFailedDatas.Count > 0 ? TestStatus.FAILED : TestStatus.PASSED;
+            else if (FunctionDatas.Count > 0 && FunctionDatas.Any(f => !f.IsCancel))
+            {
+                return TestStatus.PASSED;
+            }
+            else
+            {
+                return TestStatus.CANCEL;
+            }
         }
 
         public void EndProcess()
@@ -129,7 +138,7 @@ namespace UiTest.Model.Cell
         public string Station { get => _testResultModel.Station; private set => _testResultModel.Station = value; }
         public string PcName { get => _testResultModel.PcName; private set => _testResultModel.PcName = value; }
         public string MAC { get => _testResultModel.MAC; private set => _testResultModel.MAC = value; }
-        public string INPUT { get => _testResultModel.MAC; private set => _testResultModel.MAC = value; }
+        public string Input { get => _testResultModel.Input; private set => _testResultModel.Input = value; }
         public string Mode { get => _testResultModel.Mode; private set => _testResultModel.Mode = value; }
         public string ErrorCode { get => _testResultModel.ErrorCode; private set => _testResultModel.ErrorCode = value; }
         public TestStatus Result { get => _testResultModel.Result; private set => _testResultModel.Result = value; }

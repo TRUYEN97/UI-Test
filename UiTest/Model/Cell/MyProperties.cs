@@ -5,14 +5,17 @@ namespace UiTest.Model.Cell
 {
     public class MyProperties
     {
+        public readonly int Index;
+        public readonly string Name;
         private readonly Dictionary<string, string> properties;
-        public MyProperties(string name)
+        public MyProperties(string name, int index)
         {
             Name = name;
             properties = new Dictionary<string, string>();
+            Index = index;
         }
-        public string Name { get; private set; }
-
+        public int PassCount {  get; set; }
+        public int FailCount { get; set; }
         public void SetProperties(Dictionary<string, string> properties)
         {
             this.properties.Clear();
@@ -25,5 +28,6 @@ namespace UiTest.Model.Cell
                 }
             }
         }
+        public Dictionary<string, string> Properties => new Dictionary<string, string>(properties);
     }
 }

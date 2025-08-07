@@ -14,7 +14,13 @@ namespace UiTest.Service.Communicate.InOutStream
         }
         public void Dispose()
         {
-            _writer?.Dispose();
+            try
+            {
+                _writer?.Dispose();
+            }
+            catch (Exception)
+            {
+            }
         }
 
         public bool Write(string mess)

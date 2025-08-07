@@ -1,6 +1,8 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using UiTest.Config;
 using UiTest.ModelView;
 using UiTest.Service;
 
@@ -11,17 +13,37 @@ namespace UiTest.View
     /// </summary>
     public partial class MainWindow : Window
     {
+        private readonly MainViewModel mainViewModel;
         public MainWindow()
         {
             InitializeComponent();
             Background = Brushes.Transparent;
-            Core.Instance.Update();
-            var _viewModel = new MainViewModel(Core.Instance);
-            DataContext = _viewModel;
-            Loaded += (s, e) =>
+            if (Core.Instance.Update())
             {
-                TxtInput.Focus();
-            };
+                mainViewModel = new MainViewModel(Core.Instance);
+                DataContext = mainViewModel;
+                Loaded += (s, e) =>
+                {
+                    TxtInput.Focus();
+                };
+            }
+            else
+            {
+                Application.Current?.Shutdown();
+            }
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender is ComboBox cbb)
+            {
+                var oldMode = mainViewModel.SelectedMode;
+                var newMode = cbb.SelectedItem;
+                if (oldMode != newMode &&  mainViewModel.ModeSelectionChangedCommand?.CanExecute(newMode) == true)
+                {
+                    mainViewModel.ModeSelectionChangedCommand.Execute(newMode);
+                }
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Media;
 using UiTest.Common;
+using UiTest.Config.Events;
 using UiTest.Service.CellService;
 
 namespace UiTest.Config
@@ -29,10 +30,9 @@ namespace UiTest.Config
             }
         }
         public ModeConfig Config => _config;
-        public bool IsOnSFO => _config.IsOnSFO;
         public Brush StandbyColor => Util.GetBrushFromString(_config.StandbyColor, Brushes.DarkCyan);
-        public Brush PassColor => Util.GetBrushFromString(_config.PassColor, Brushes.LightGreen);
-        public Brush CancelColor => Util.GetBrushFromString(_config.CancelColor, Brushes.Orange);
+        public List<ActionEventSetting> InputEvents => new List<ActionEventSetting>(_config.InputEvents);
+        public List<ActionEventSetting> ModeChangeEvents => new List<ActionEventSetting>(_config.ModeChangeEvents);
         public ModeFlow ModeFlow => new ModeFlow(_config, _programConfig, Name);
         public int Loop => _config.LoopTimes;
         public override string ToString() { return Name; }

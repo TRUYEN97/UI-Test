@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using UiTest.Model.Cell;
 using UiTest.ModelView.TabItemViewModel;
 using UiTest.Service.CellService;
 

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using UiTest.Common;
 
 namespace UiTest.View.Component
@@ -24,7 +25,7 @@ namespace UiTest.View.Component
         }
         public IEnumerable ItemsSource
         {
-            get => (IEnumerable) GetValue(ItemsSourcePropertie);
+            get => (IEnumerable)GetValue(ItemsSourcePropertie);
             set => SetValue(ItemsSourcePropertie, value);
         }
         public object SelectedItem
@@ -37,10 +38,25 @@ namespace UiTest.View.Component
             get => (int)GetValue(LabelFontSizePropertie);
             set => SetValue(LabelFontSizePropertie, value);
         }
+        public ICommand SelectionChangedCommand
+        {
+            get => (ICommand)GetValue(SelectionChangedCommandProperty);
+            set => SetValue(SelectionChangedCommandProperty, value);
+        }
 
+        public static readonly DependencyProperty SelectionChangedCommandProperty =
+            DependencyUtil.RegisterDependencyProperty<ICommand>(nameof(SelectionChangedCommand), typeof(MyCombobox));
         public static readonly DependencyProperty LabelFontSizePropertie = DependencyUtil.RegisterDependencyProperty<int>(nameof(LabelFontSize), typeof(MyCombobox), 12);
         public static readonly DependencyProperty LabelPropertie = DependencyUtil.RegisterDependencyProperty<string>(nameof(Label), typeof(MyCombobox));
         public static readonly DependencyProperty ItemsSourcePropertie = DependencyUtil.RegisterDependencyProperty<IEnumerable>(nameof(ItemsSource), typeof(MyCombobox));
         public static readonly DependencyProperty SelectedItemPropertie = DependencyUtil.RegisterDependencyProperty<object>(nameof(SelectedItem), typeof(MyCombobox));
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (SelectionChangedCommand?.CanExecute(sender) == true)
+            {
+                SelectionChangedCommand.Execute(sender);
+            }
+        }
     }
 }

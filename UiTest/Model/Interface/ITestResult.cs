@@ -19,7 +19,7 @@ namespace UiTest.Model.Interface
         string Station { get; }
         string PcName { get; }
         string MAC { get; }
-        string INPUT { get; }
+        string Input { get; }
         string ErrorCode { get; }
         string Mode { get; }
         TestStatus Result { get; }

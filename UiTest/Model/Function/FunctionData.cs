@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using Newtonsoft.Json.Linq;
 using UiTest.Common;
 using UiTest.Model.Cell;
 using UiTest.Service.Logger;
@@ -24,7 +23,7 @@ namespace UiTest.Model.Function
             this.functionName = functionName;
             this.cellData = cellData;
             logger = new MyLogger();
-            resultModel = new FunctionResultModel();
+            resultModel = new FunctionResultModel(name);
         }
         public bool IsTested => stopTime != default;
         public bool IsPassed => Result == TestStatus.PASSED;
@@ -34,6 +33,7 @@ namespace UiTest.Model.Function
         public double CycleTime => startTime == null ? 0 : (DateTime.Now - startTime).TotalSeconds;
         public (TestStatus status, string value) TestResult { get; internal set; }
         public TestStatus Result { get; private set; }
+        public int RetryTimes { get; internal set; }
 
         public void SetTempErrorCode(string errorCode)
         {
@@ -43,7 +43,7 @@ namespace UiTest.Model.Function
         {
             return $"{name}-{functionName}";
         }
-        public void TurnInit(int times)
+        public void TurnInit()
         {
             stopTime = default;
             resultModel.StopTime = string.Empty;
@@ -55,14 +55,6 @@ namespace UiTest.Model.Function
             resultModel.Result = string.Empty;
             tempErrorCode = string.Empty;
             TestResult = (TestStatus.FAILED, "");
-            if (times == 0)
-            {
-                logger.AddLog("----------------------[Begin]----------------------");
-            }
-            else
-            {
-                logger.AddLog($"---------------------[Retry-{times}]---------------------");
-            }
         }
         public void Start()
         {

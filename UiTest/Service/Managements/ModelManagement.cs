@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Newtonsoft.Json.Linq;
+using UiTest.Common;
 using UiTest.Config;
+using UiTest.Functions.ActionEvents;
 using UiTest.Model;
 using UiTest.Service.Interface;
 using UiTest.Service.Logger;
@@ -14,6 +17,7 @@ namespace UiTest.Service.Managements
         private readonly ProgramConfig programConfig;
         private readonly ObservableCollection<TestMode> _modes;
         private readonly CellManagement cellManagement;
+        private readonly ActionEventRunner actionEventRunner;
         private TestMode _selectedMode;
 
         public ModelManagement(ProgramConfig programConfig, CellManagement cellManagement)
@@ -22,10 +26,13 @@ namespace UiTest.Service.Managements
             this.programConfig = programConfig;
             this.cellManagement = cellManagement;
             Properties = new ObservableCollection<PropertyModel>();
+            actionEventRunner = new ActionEventRunner();
         }
         public ObservableCollection<TestMode> Modes => _modes;
-        public TestMode SelectedMode { get => _selectedMode; set => UpdateMode(value); }
+        public TestMode SelectedMode => _selectedMode;
+
         public ObservableCollection<PropertyModel> Properties { get; private set; }
+        public event Action OnSelectedModeChanged;
         public bool Update()
         {
             try
@@ -49,17 +56,36 @@ namespace UiTest.Service.Managements
         }
         public bool UpdateMode(TestMode mode)
         {
-            if (mode == null)
+            try
             {
-                return false;
+                if (mode == null || actionEventRunner.IsRunning)
+                {
+                    return false;
+                }
+                actionEventRunner.ActionEvents = mode.ModeChangeEvents;
+                actionEventRunner.Run();
+                if (!actionEventRunner.IsAcceptable)
+                {
+                    return false;
+                }
+                DispatcherUtil.RunOnUI(() =>
+                {
+                    if (cellManagement.Count == 1 || _selectedMode == null)
+                    {
+                        cellManagement.UpdataMode(mode);
+                    }
+                    _selectedMode = mode;
+                    UpdateProperties(mode.Properties);
+                });
+                return true;
             }
-            _selectedMode = mode;
-            if (cellManagement.Count == 1)
+            finally
             {
-                cellManagement.UpdataMode(_selectedMode);
+                DispatcherUtil.RunOnUI(() =>
+                {
+                    OnSelectedModeChanged?.Invoke();
+                });
             }
-            UpdateProperties(mode.Properties);
-            return true;
         }
 
         private void UpdateProperties(Dictionary<string, string> properties)

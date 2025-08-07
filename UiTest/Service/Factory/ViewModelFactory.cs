@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using UiTest.Functions.Config;
 using UiTest.Model.Cell;
 using UiTest.ModelView;
 

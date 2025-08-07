@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Media;
 using UiTest.Common;
 using UiTest.Config;
+using UiTest.Config.Items;
 
 namespace UiTest.Service.CellService
 {
@@ -22,24 +23,23 @@ namespace UiTest.Service.CellService
         }
 
         public int Loop => modeConfig.LoopTimes < 1 ? 1 : modeConfig.LoopTimes;
-        public Brush TestColor => Util.GetBrushFromString(_itemGroup?.TestColor, Brushes.Gold);
         public Brush FailColor => Util.GetBrushFromString(_itemGroup?.FailColor, Brushes.Red);
         public bool IsFinalGroup => _itemGroup.IsFinalGroup;
-
         public bool Reset()
         {
-            return SetItemGroup(modeConfig.GroupName);
+            return SetItemGroup(modeConfig.BeginGroup);
         }
 
-        public List<ItemConfig> GetListItem()
+        public List<FunctionConfig> GetListItem()
         {
             if (_itemGroup == null) return null;
             return _itemGroup.Items.Where(
-                (i) => _programConfig.ItemConfigs.ContainsKey(i))
+                (i) => i.FunctionConfig != null && _programConfig.FunctionConfigs.ContainsKey(i.FunctionConfig))
                 .Select(i =>
                 {
-                    var item = _programConfig.ItemConfigs[i];
-                    item.Name = i;
+                    var item = _programConfig.FunctionConfigs[i.FunctionConfig];
+                    item.Name = i.Name;
+                    item.ItemSetting = i;
                     return item;
                 }).ToList();
         }
@@ -60,7 +60,7 @@ namespace UiTest.Service.CellService
                 _itemGroup = null;
                 return false;
             }
-            return _programConfig?.ItemGroups?.TryGetValue(groupName, out _itemGroup) == true;
+            return modeConfig?.ItemGroups?.TryGetValue(groupName, out _itemGroup) == true;
         }
     }
 }

@@ -1,27 +1,25 @@
 ﻿using System.Collections.Generic;
-using UiTest.Functions.Body.Sfis;
-using UiTest.Functions.Config.Sfis;
 using UiTest.Service.ErrorCode;
+using UiTest.Config.Items;
+using UiTest.Functions.TestFunctions.Body.Sfis;
+using UiTest.Functions.TestFunctions.Config.Sfis;
 
 namespace UiTest.Config
 {
     public class ProgramConfig
     {
 
-        public ProgramConfig() 
+        public ProgramConfig()
         {
             Modes.Add("Production", new ModeConfig());
         }
-        public ErrorCodeMapperConfig ErrorCode { get; set; } = new ErrorCodeMapperConfig();
         public ProgramSetting ProgramSetting { get; set; } = new ProgramSetting();
+        public ErrorCodeMapperConfig ErrorCode { get; set; } = new ErrorCodeMapperConfig();
+        public ActionEvents ActionEvents { get; set; } = new ActionEvents();
         public Dictionary<string, ModeConfig> Modes { get; set; } = new Dictionary<string, ModeConfig>();
-        public Dictionary<string, ItemGroup> ItemGroups { get; set; } = new Dictionary<string, ItemGroup>()
+        public Dictionary<string, FunctionConfig> FunctionConfigs { get; set; } = new Dictionary<string, FunctionConfig>()
         {
-            {"Test", new ItemGroup() { Items = new List<string>() { "Sfis"} } }
-        };
-        public Dictionary<string, ItemConfig> ItemConfigs { get; set; } = new Dictionary<string, ItemConfig>()
-        {
-            {"Sfis", new ItemConfig(){ FunctionType = nameof(SendSfis), Name = "Sfis", Config = new SfisConfig() } }
+            {"Sfis", new FunctionConfig(){ FunctionType = nameof(SendSfis), Name = "Sfis", Config = new SfisConfig() } }
         };
     }
 }

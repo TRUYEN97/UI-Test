@@ -1,7 +1,9 @@
 ﻿
 using System;
+using System.Threading.Tasks;
 using UiTest.Common;
 using UiTest.Config;
+using UiTest.Functions.TestFunctions;
 using UiTest.Model.Cell;
 using UiTest.ModelView;
 
@@ -12,13 +14,14 @@ namespace UiTest.Service.CellService
         public readonly CellTimer Timer;
         public readonly CellData CellData;
         public readonly BaseSubModelView ViewModel;
-        private readonly CellTester tester;
-        public Cell(string name, BaseSubModelView viewModel)
+        private readonly FunctionTester functionTester;
+
+        public Cell(string name, BaseSubModelView viewModel, int index)
         {
             Timer = new CellTimer();
-            CellData = new CellData(name);
+            CellData = new CellData(name, index);
             ViewModel = viewModel;
-            tester = new CellTester(Timer, CellData);
+            functionTester = new FunctionTester(Timer, CellData);
             ViewModel.Name = name;
             Timer.AddTimeTick((ts) =>
             {
@@ -34,14 +37,22 @@ namespace UiTest.Service.CellService
         public string StringTestTime => Timer.StringTestTime;
         public long TestTime => Timer.TestTime;
         public TestStatus TestStatus => CellData.TestStatus;
-        public bool IsFree => tester.IsFree;
+        public bool IsFree => functionTester.IsFree;
         public string ModeName => CellData.TestMode?.Name;
         public string Message => CellData.Message;
+        public string Input => CellData.Input;
 
         public void StartTest(string input)
         {
-            UpdateMode(Core.Instance.ModelManagement.SelectedMode);
-            tester.StartTest(input);
+            if (!string.IsNullOrWhiteSpace(input))
+            {
+                Task.Factory.StartNew(() =>
+                {
+                    UpdateMode(Core.Instance.ModelManagement.SelectedMode);
+                    CellData.Input = input;
+                    functionTester.Run();
+                });
+            }
         }
         public void UpdateMode(TestMode mode)
         {

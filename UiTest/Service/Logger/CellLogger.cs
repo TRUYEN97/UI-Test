@@ -40,7 +40,7 @@ namespace UiTest.Service.Logger
             myLogger.AddText($"Station: {testData.Station}");
             myLogger.AddText($"Pc name: {testData.PcName}");
             myLogger.AddText($"Cell name: {testData.CellName}");
-            myLogger.AddText($"Input: {testData.INPUT}");
+            myLogger.AddText($"Input: {testData.Input}");
             myLogger.AddText($"MAC: {testData.MAC}");
             myLogger.AddText($"Start time: {testData.StartTime}");
             myLogger.AddText($"Stop time: {testData.StopTime}");
@@ -69,7 +69,7 @@ namespace UiTest.Service.Logger
             StringBuilder stringBuilder = new StringBuilder();
             foreach (var item in items)
             {
-                stringBuilder.Append(item.ToString());
+                stringBuilder.Append(item.name);
                 stringBuilder.Append(',');
             }
             stringBuilder.Insert(0, '[');
@@ -84,15 +84,16 @@ namespace UiTest.Service.Logger
             {
                 var result = funcData.resultModel;
                 myLogger.AddText($"--------------------------------------[{funcData}]-------------------------------------");
-                myLogger.AddText($"Value: {result.Value}");
+                myLogger.AddText($"Name: {result.Name}");
                 myLogger.AddText($"Result: {result.Result}");
+                myLogger.AddText($"Value: {result.Value}");
                 myLogger.AddText($"Cycle time: {result.CycleTime} s");
-                myLogger.AddText($"Error code: {result.ErrorCode}");
                 myLogger.AddText($"Start time: {result.StartTime}");
                 myLogger.AddText($"Stop time: {result.StopTime}");
                 myLogger.AddText($"Upper limit: {result.UpperLimit}");
                 myLogger.AddText($"Lower limit: {result.LowerLimit}");
                 myLogger.AddText($"Spec: {result.Spec}");
+                myLogger.AddText($"Error code: {result.ErrorCode}");
                 myLogger.AddText($"-----------------------------------------------------------------------------------------------");
                 myLogger.AddText(funcData.logger.LogText);
                 myLogger.AddText($"===============================================================================================");

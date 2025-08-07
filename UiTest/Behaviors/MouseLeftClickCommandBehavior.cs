@@ -20,10 +20,10 @@ namespace UiTest.Behaviors
                 new PropertyMetadata(null));
 
         public static void SetCommand(UIElement element, ICommand value)
-            => element.SetValue(CommandProperty, value);
+            => element?.SetValue(CommandProperty, value);
 
         public static ICommand GetCommand(UIElement element)
-            => (ICommand)element.GetValue(CommandProperty);
+            => (ICommand)element?.GetValue(CommandProperty);
 
         public static object GetCommandParameter(UIElement element) => element.GetValue(Commandparameter);
         public static void SetCommandParameter(UIElement element, object value) => element.SetValue(Commandparameter, value);

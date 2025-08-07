@@ -41,7 +41,7 @@ namespace UiTest.Service.ErrorCode
                     {
                         break;
                     }
-                    if ((c >= 0 && c <= 9) || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
+                    if ((c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'))
                     {
                         newErrorBuilder.Append(c);
                     }

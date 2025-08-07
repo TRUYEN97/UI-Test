@@ -19,7 +19,7 @@ namespace UiTest.Model.Cell
         public string FinalStopTime { get; set; }
         public string CellName { get; set; }
         public string MAC { get; set; }
-        public string INPUT { get; set; }
+        public string Input { get; set; }
         public string ErrorCode { get; set; }
         public string Mode { get; set; }
         public string Product { get; set; }

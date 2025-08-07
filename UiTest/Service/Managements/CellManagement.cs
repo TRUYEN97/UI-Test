@@ -7,6 +7,7 @@ using UiTest.Config;
 using UiTest.ModelView;
 using UiTest.Service.CellService;
 using UiTest.Service.Factory;
+using UiTest.Service.Logger;
 
 namespace UiTest.Service.Managements
 {
@@ -29,7 +30,14 @@ namespace UiTest.Service.Managements
             }
             return null;
         }
-
+        public BaseSubModelView GetBaseSubModelView(int index)
+        {
+            if (Cells.Count > index && index >= 0)
+            {
+                return Cells[index];
+            }
+            return null;
+        }
         public void Clear()
         {
             cellTests.Clear();
@@ -40,7 +48,7 @@ namespace UiTest.Service.Managements
         {
             string name = $"Slot-{cellTests.Count}";
             var view = viewFactory.GetInstanceWithTypeName(typeName, name);
-            var cell = new Cell(name, view);
+            var cell = new Cell(name, view, cellTests.Count);
             cellTests.Add(cell);
             Cells.Add(view);
             return true;
@@ -61,8 +69,8 @@ namespace UiTest.Service.Managements
             foreach (var cell in cellTests)
             {
                 if (cell?.IsFree == true)
-                { 
-                    cell.UpdateMode(selectedMode); 
+                {
+                    cell.UpdateMode(selectedMode);
                 }
             }
         }
@@ -72,6 +80,38 @@ namespace UiTest.Service.Managements
         public bool TryGetCell(int index, out Cell cell)
         {
             return (cell = GetCell(index)) != null;
+        }
+
+        public void StartTest(string input, int index)
+        {
+            if (string.IsNullOrWhiteSpace(input))
+            {
+                return;
+            }
+            if (TryGetCell(index, out Cell cell))
+            {
+                if (cell.IsFree)
+                {
+                    input = input.ToUpper().Trim();
+                    foreach (var c in cellTests)
+                    {
+                        if (!c.IsFree && c.Input == input)
+                        {
+                            ProgramLogger.AddError("Core", $"Input: [{input}] is running at [{c.Name}].");
+                            return;
+                        }
+                    }
+                    cell.StartTest(input);
+                }
+                else
+                {
+                    ProgramLogger.AddError("Core", $"[{cell.Name}] is running.");
+                }
+            }
+            else
+            {
+                ProgramLogger.AddError("Core", $"Index: {index} not exists.");
+            }
         }
     }
 }

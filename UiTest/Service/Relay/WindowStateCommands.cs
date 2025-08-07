@@ -1,16 +1,24 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media.Animation;
+using UiTest.Config;
+using UiTest.Functions.ActionEvents;
+using static Org.BouncyCastle.Crypto.Engines.SM2Engine;
 
 namespace UiTest.Service.Relay
 {
-    internal class WindowStateCommands    {
+    internal class WindowStateCommands
+    {
+        private readonly ActionEventRunner actionEventRunner;
         public WindowStateCommands()
         {
+            actionEventRunner = new ActionEventRunner();
             DragMoveCommand = new RelayCommand(DragMove);
             ToggleSidebarCommand = new RelayCommand(ToggleSidebar);
             CloseCommand = new RelayCommand(ExecuteClose);
             MaximizeCommand = new RelayCommand(ExecuteMaximize);
+            DoubleClickCommand = new RelayCommand(ExecuteMaximize);
             MinimizeCommand = new RelayCommand(ExecuteMinimize);
         }
         public bool SidebarVisible { get; set; } = true;
@@ -19,6 +27,7 @@ namespace UiTest.Service.Relay
         public RelayCommand CloseCommand { get; private set; }
         public RelayCommand MaximizeCommand { get; private set; }
         public RelayCommand MinimizeCommand { get; private set; }
+        public RelayCommand DoubleClickCommand { get; private set; }
 
 
         private void ToggleSidebar(object obj)
@@ -40,7 +49,14 @@ namespace UiTest.Service.Relay
         private void ExecuteClose(object obj)
         {
             if (obj is Window window)
-                window.Close();
+            {
+                actionEventRunner.ActionEvents = ConfigLoader.ProgramConfig?.ActionEvents?.WindownClosingEvents;
+                actionEventRunner.Run();
+                if (actionEventRunner.IsAcceptable)
+                {
+                    window.Close();
+                }
+            }
         }
 
         private void ExecuteMaximize(object obj)

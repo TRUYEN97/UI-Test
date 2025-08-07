@@ -21,9 +21,9 @@ namespace UiTest.View.Component
             get => (string)GetValue(LabelPropertie);
             set => SetValue(LabelPropertie, value);
         }
-        public IEnumerable ItemsSource
+        public object ItemsSource
         {
-            get => (IEnumerable)GetValue(ItemsSourcePropertie);
+            get => (object)GetValue(ItemsSourcePropertie);
             set => SetValue(ItemsSourcePropertie, value);
         }
         public object SelectedItem
@@ -39,7 +39,7 @@ namespace UiTest.View.Component
 
         public static readonly DependencyProperty LabelFontSizePropertie = DependencyUtil.RegisterDependencyProperty<int>(nameof(LabelFontSize), typeof(MyListBox), 12);
         public static readonly DependencyProperty LabelPropertie = DependencyUtil.RegisterDependencyProperty<string>(nameof(Label), typeof(MyListBox));
-        public static readonly DependencyProperty ItemsSourcePropertie = DependencyUtil.RegisterDependencyProperty<IEnumerable>(nameof(ItemsSource), typeof(MyListBox));
+        public static readonly DependencyProperty ItemsSourcePropertie = DependencyUtil.RegisterDependencyProperty<object>(nameof(ItemsSource), typeof(MyListBox));
         public static readonly DependencyProperty SelectedItemPropertie = DependencyUtil.RegisterDependencyProperty<object>(nameof(SelectedItem), typeof(MyListBox));
     }
 }

@@ -7,12 +7,10 @@ namespace UiTest.Service
     public class InputCommands
     {
         private readonly Core core;
-        private readonly MainViewModel mainViewModel;
 
         public InputCommands(Core core, MainViewModel mainViewModel)
         {
-            this.core = core;
-            this.mainViewModel = mainViewModel;
+            this.core = core;;
             InputKeyPessCommand = new RelayCommand((ob) =>
             {
                 if (IsSingleView)

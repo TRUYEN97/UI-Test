@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Reflection;
-using System.Windows;
+using System.Collections.ObjectModel;
 using UiTest.Config;
-using UiTest.Service.CellService;
+using UiTest.ModelView.ListBoxItems;
 using UiTest.Service.Interface;
 using UiTest.Service.Logger;
 using UiTest.Service.Managements;
@@ -19,18 +18,21 @@ namespace UiTest.Service
             CellManagement = new CellManagement();
             ModelManagement = new ModelManagement(ProgramConfig, CellManagement);
             ViewBuilder = new ViewBuilder(ProgramConfig.ProgramSetting, CellManagement);
+            ActionTools = new ObservableCollection<ActionToolModelView>();
+            ProgramConfig.ActionEvents.ActionTools.ForEach(i => { if (!string.IsNullOrWhiteSpace(i?.Name)) ActionTools.Add(new ActionToolModelView(i)); });
         }
         public ProgramConfig ProgramConfig { get; private set; }
         public ModelManagement ModelManagement { get; private set; }
         public CellManagement CellManagement { get; private set; }
         public ViewBuilder ViewBuilder { get; private set; }
+        public ObservableCollection<ActionToolModelView> ActionTools { get; private set; }
 
         public bool Update()
         {
             try
             {
                 bool rs = true;
-                if (!this.ViewBuilder.Update())
+                if (!ViewBuilder.Update())
                 {
                     rs = false;
                 }
@@ -63,14 +65,7 @@ namespace UiTest.Service
         }
         private void StartTest(string input, int index)
         {
-            if (this.CellManagement.TryGetCell(index, out Cell cell))
-            {
-                cell.StartTest(input);
-            }
-            else
-            {
-                ProgramLogger.AddError("Core", $"Index: {index} not exists!");
-            }
+            CellManagement.StartTest(input, index);
         }
     }
 }

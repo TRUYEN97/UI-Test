@@ -4,6 +4,12 @@ namespace UiTest.Model.Function
 {
     public class FunctionResultModel: IFunctionResult
     {
+
+        public FunctionResultModel(string name)
+        {
+            this.Name = name;
+        }
+        public string Name { get; set; }
         public string StartTime { get;  set; }
         public string StopTime { get;  set; }
         public string Value { get;  set; }

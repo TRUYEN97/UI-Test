@@ -5,8 +5,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using UiTest.Common;
 using UiTest.Config;
+using UiTest.Functions.ActionEvents.Configs;
 using UiTest.Model;
 using UiTest.ModelView.ListBoxItems;
+using UiTest.ModelView.SubModelView;
 using UiTest.Service;
 using UiTest.Service.Logger;
 using UiTest.Service.Managements;
@@ -35,26 +37,35 @@ namespace UiTest.ModelView
             _inputCommands = new InputCommands(core, this);
             _modelManagement = core.ModelManagement;
             _viewBuilder = core.ViewBuilder;
+            _modelManagement.OnSelectedModeChanged += OnSelectedModeChanged;
+            ModeSelectionChangedCommand = new RelayCommand((value) => { if (value is TestMode mode) SelectedMode = mode; });
+            ActionTools = core.ActionTools;
         }
         public ICommand DragMoveCommand => _windowStateCommands.DragMoveCommand;
         public ICommand ToggleSidebarCommand => _windowStateCommands.ToggleSidebarCommand;
         public ICommand CloseCommand => _windowStateCommands.CloseCommand;
         public ICommand MaximizeCommand => _windowStateCommands.MaximizeCommand;
+        public ICommand DoubleClickCommand => _windowStateCommands.DoubleClickCommand;
         public ICommand MinimizeCommand => _windowStateCommands.MinimizeCommand;
         public ICommand InputKeyPessCommand => _inputCommands.InputKeyPessCommand;
         public ICommand IndexKeyPessCommand => _inputCommands.IndexKeyPessCommand;
+        public ICommand ModeSelectionChangedCommand { get; private set; }
 
         public ObservableCollection<TestMode> Modes => _modelManagement.Modes;
         public ObservableCollection<string> LogLines => ProgramLogger.Instance.MessageBox;
-        public TestMode SelectedMode { get => _modelManagement.SelectedMode; set => _modelManagement.SelectedMode = value; }
+        public TestMode SelectedMode { get => _modelManagement.SelectedMode; set { _modelManagement.UpdateMode(value); } }
         public ObservableCollection<PropertyModel> Properties => _modelManagement.Properties;
+        public ObservableCollection<ActionToolModelView> ActionTools { get; private set; }
         public string Title => $"{AppInfo.ProductName} - V{AppInfo.ProductVersion}";
         public string PcName => PcInfo.PcName;
         public string Product => ConfigLoader.ProgramConfig.ProgramSetting.Product;
         public string Station => ConfigLoader.ProgramConfig.ProgramSetting.Station;
         public string Input { get => _input; set => SetProperty(ref _input, value, nameof(Input)); }
         public string Index { get => _index; set => SetProperty(ref _index, value, nameof(Index)); }
-
+        public void OnSelectedModeChanged()
+        {
+            OnPropertyChanged(nameof(SelectedMode));
+        }
 
         public Brush SideBarBackground
         {

@@ -138,13 +138,25 @@ namespace UiTest.Service.Communicate.InOutStream
 
         public void Complete()
         {
-            _collection?.CompleteAdding();
+            try
+            {
+                _collection?.CompleteAdding();
+            }
+            catch (Exception)
+            {
+            }
         }
 
         public void Dispose()
         {
-            _collection?.CompleteAdding();
-            _collection?.Dispose();
+            try
+            {
+                _collection?.CompleteAdding();
+                _collection?.Dispose();
+            }
+            catch (Exception)
+            {
+            }
         }
     }
 }

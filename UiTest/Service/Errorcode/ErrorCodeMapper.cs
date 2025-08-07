@@ -40,7 +40,7 @@ namespace UiTest.Service.ErrorCode
                 errorcode = errorCodeAnalysis.CreateNewErrorcode(functionName);
                 if (ConfigLoader.ProgramConfig.ProgramSetting.ShowMissingErrorCode)
                 {
-                    string mess = $"Missing of item[{functionName}]\r\nAuto create a new errorCode is [{errorcode}]";
+                    string mess = $"Missing errr code of item[{functionName}]\r\nAuto create a new error code is [{errorcode}]";
                     ProgramLogger.AddWarning(ToString(), mess);
                     MessageBox.Show(mess);
                 }
@@ -61,7 +61,7 @@ namespace UiTest.Service.ErrorCode
         private void UpdateNewErrorCode(string functionName, string newErrorcode)
         {
             model.Set(functionName, newErrorcode);
-            string line = $"{functionName};{newErrorcode}".ToUpper();
+            string line = $"{functionName};{newErrorcode}\r\n".ToUpper();
             UpdateToLocalFile(line);
         }
 

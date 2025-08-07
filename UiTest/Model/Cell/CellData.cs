@@ -17,25 +17,29 @@ namespace UiTest.Model.Cell
         public readonly MyProperties CellProperties;
         public readonly TestData TestData;
         public readonly ErrorCodeMapper errorCodeMapper;
+        private readonly List<string> messageLines;
         private bool hasEnd;
-        private TestStatus _processStatus;
+        private string input;
         private Brush standbyColor;
         private Brush testColor;
         private Brush passColor;
         private Brush cancelColor;
         private Brush failColor;
         private TestMode _testMode;
-        private readonly List<string> messageLines;
 
-        public CellData(string name)
+        public CellData(string name, int index)
         {
             Name = name = name.ToUpper();
-            CellProperties = new MyProperties(name);
+            CellProperties = new MyProperties(name, index);
             TestData = new TestData(name);
             CellLogger = new CellLogger(TestData);
             errorCodeMapper = ErrorCodeMapper.Instance;
             messageLines = new List<string>();
             TestStatus = TestStatus.STANDBY;
+            TestColor = Brushes.Gold;
+            PassColor = Brushes.LightGreen;
+            CancelColor = Brushes.OrangeRed;
+            Input = string.Empty;
         }
         public TestMode TestMode
         {
@@ -45,8 +49,6 @@ namespace UiTest.Model.Cell
                 Reset();
                 _testMode = value;
                 StandbyColor = value?.StandbyColor;
-                CancelColor = value?.CancelColor;
-                PassColor = value?.PassColor;
                 CellProperties.SetProperties(value?.Properties);
             }
         }
@@ -59,48 +61,35 @@ namespace UiTest.Model.Cell
             TestData.AddFailedFuntionData(functionData);
         }
 
-        public TestStatus TestStatus
-        {
-            get => _processStatus;
-            private set
-            {
-                if (_processStatus == TestStatus.FAILED) return;
-                _processStatus = value;
-            }
-        }
+        public TestStatus TestStatus { get; private set; }
 
         public event Action<CellData> DataChaned;
         public string Message => GetMessage();
-        public bool HasFailedFunctions => TestData.FunctionFailedDatas.Count > 0;
         public Brush StandbyColor { get => standbyColor; internal set { standbyColor = value; DataChaned?.Invoke(this); } }
         public Brush TestColor { get => testColor; internal set { testColor = value; DataChaned?.Invoke(this); } }
         public Brush PassColor { get => passColor; internal set { passColor = value; DataChaned?.Invoke(this); } }
         public Brush CancelColor { get => cancelColor; internal set { cancelColor = value; DataChaned?.Invoke(this); } }
         public Brush FailColor { get => failColor; internal set { failColor = value; DataChaned?.Invoke(this); } }
+        public string Input { get => input; set => input = value?.Trim() ?? string.Empty; }
 
         public string GetMessage()
         {
-            switch (TestStatus)
+
+            StringBuilder messBuilder = new StringBuilder();
+            if (TestStatus == TestStatus.FAILED)
             {
-                case TestStatus.STANDBY:
-                    return TestStatus.STANDBY.ToString();
-                default:
-                    StringBuilder messBuilder = new StringBuilder();
-                    if (TestStatus == TestStatus.FAILED)
-                    {
-                        messBuilder.AppendLine($"{TestStatus}: \"{TestData.ErrorCode}\"");
-                    }
-                    else
-                    {
-                        messBuilder.AppendLine(TestStatus.ToString());
-                    }
-                    foreach (string line in messageLines)
-                    {
-                        messBuilder.AppendLine();
-                        messBuilder.Append(line);
-                    }
-                    return messBuilder.ToString();
+                messBuilder.Append($"{TestStatus}: \"{TestData.ErrorCode}\"");
             }
+            else
+            {
+                messBuilder.Append(TestStatus.ToString());
+            }
+            foreach (string line in messageLines)
+            {
+                messBuilder.AppendLine();
+                messBuilder.Append(line);
+            }
+            return messBuilder.ToString();
         }
         public void Reset()
         {
@@ -109,7 +98,8 @@ namespace UiTest.Model.Cell
                 hasEnd = false;
                 CellLogger.Reset();
                 TestData.Reset();
-                _processStatus = TestStatus.STANDBY;
+                messageLines.Clear();
+                TestStatus = TestStatus.STANDBY;
             }
             finally
             {
@@ -117,13 +107,13 @@ namespace UiTest.Model.Cell
             }
         }
 
-        public void Start(string input, string modeName)
+        public void Start(string modeName)
         {
             try
             {
                 Reset();
-                TestData.Start(input, modeName);
                 TestStatus = TestStatus.TESTING;
+                TestData.Start(Input, modeName);
             }
             finally
             {
@@ -137,7 +127,6 @@ namespace UiTest.Model.Cell
                 TestData.End();
                 CellLogger.CreateLog();
                 CellLogger.SaveLog();
-                TestStatus = TestData.Result;
                 hasEnd = true;
             }
             finally
@@ -157,7 +146,6 @@ namespace UiTest.Model.Cell
                 CellLogger.CreateLog();
                 CellLogger.SaveLog();
                 TestStatus = TestData.FinalResult;
-
             }
             finally
             {
@@ -172,7 +160,6 @@ namespace UiTest.Model.Cell
 
         public void SetExecption(string exceptionMessage)
         {
-            TestStatus = TestStatus.FAILED;
             AddMessage($"Exception: {exceptionMessage}");
         }
     }
