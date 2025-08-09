@@ -16,7 +16,7 @@ using UiTest.Service.Relay;
 
 namespace UiTest.ModelView
 {
-    public class MainViewModel : BaseViewModel
+    public class MainViewModel : BaseModelView
     {
         private readonly SafeDispatcherProperty<Brush> _background;
         private readonly SafeDispatcherProperty<Brush> _sideBarBackground;

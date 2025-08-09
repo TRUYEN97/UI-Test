@@ -25,8 +25,8 @@ namespace UiTest.Model.Cell
         public string Product { get; set; }
         public string Station { get; set; }
         public string PcName { get; set; }
-        public TestStatus Result { get; set; }
-        public TestStatus FinalResult { get; set; }
+        public TestResult Result { get; set; }
+        public TestResult FinalResult { get; set; }
         public double CycleTime { get; set; }
         public double FinalCycleTime { get; set; }
 

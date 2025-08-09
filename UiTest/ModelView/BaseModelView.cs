@@ -9,9 +9,9 @@ using UiTest.Common;
 
 namespace UiTest.ModelView
 {
-    public abstract class BaseViewModel : INotifyPropertyChanged
+    public abstract class BaseModelView : INotifyPropertyChanged
     {
-        protected BaseViewModel() { }
+        protected BaseModelView() { }
         public event PropertyChangedEventHandler PropertyChanged;
         protected SafeDispatcherProperty<T> CreateSafeProperty<T>(string name, T initialValue = null) where T : class
         {

@@ -3,7 +3,7 @@ using UiTest.Config.Events;
 
 namespace UiTest.Functions.Interface
 {
-    public interface IActionEvent : IFucntion<object>
+    public interface IActionEvent : IFunction<object>
     {
     }
 }

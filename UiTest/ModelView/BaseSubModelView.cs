@@ -7,7 +7,7 @@ using UiTest.Service.Interface;
 
 namespace UiTest.ModelView
 {
-    public abstract class BaseSubModelView : BaseViewModel, IUpdate
+    public abstract class BaseSubModelView : BaseModelView, IUpdate
     {
         private readonly SafeDispatcherProperty<Brush> _color;
         private Cell _cell;

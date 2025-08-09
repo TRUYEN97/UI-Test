@@ -14,12 +14,13 @@ namespace UiTest.Model.Cell
             properties = new Dictionary<string, string>();
             Index = index;
         }
-        public int PassCount {  get; set; }
+        public int PassCount { get; set; }
         public int FailCount { get; set; }
-        public void SetProperties(Dictionary<string, string> properties)
+        public int FailContinue { get; set; }
+        public void Set(Dictionary<string, string> properties)
         {
-            this.properties.Clear();
-            this.properties.Add("Name", Name);
+            Clear();
+            properties.Add("Name", Name);
             if (properties != null)
             {
                 foreach (var item in properties)
@@ -27,6 +28,26 @@ namespace UiTest.Model.Cell
                     this.properties[item.Key] = item.Value;
                 }
             }
+        }
+
+        public void Clear()
+        {
+            properties.Clear();
+        }
+
+        public bool Add(string key, string value)
+        {
+            if (string.IsNullOrWhiteSpace(key)) return false;
+            properties[key] = value?.Trim() ?? string.Empty;
+            return true;
+        }
+        public string Get(string key, string defaultValue)
+        {
+            return properties[key] ?? defaultValue;
+        }
+        public bool TryGet(string key, out string value)
+        {
+            return properties.TryGetValue(key, out value);
         }
         public Dictionary<string, string> Properties => new Dictionary<string, string>(properties);
     }

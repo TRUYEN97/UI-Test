@@ -37,7 +37,7 @@ namespace UiTest.Service.Managements
         {
             try
             {
-                Modes.Clear();
+                Clear();
                 if (programConfig?.Modes == null)
                 {
                     return false;
@@ -54,6 +54,17 @@ namespace UiTest.Service.Managements
                 return false;
             }
         }
+
+        private void Clear()
+        {
+            Modes.Clear();
+            _selectedMode = null;
+            DispatcherUtil.RunOnUI(() =>
+            {
+                OnSelectedModeChanged?.Invoke();
+            });
+        }
+
         public bool UpdateMode(TestMode mode)
         {
             try
@@ -64,7 +75,7 @@ namespace UiTest.Service.Managements
                 }
                 actionEventRunner.ActionEvents = mode.ModeChangeEvents;
                 actionEventRunner.Run();
-                if (!actionEventRunner.IsAcceptable)
+                if (!actionEventRunner.IsPassed)
                 {
                     return false;
                 }

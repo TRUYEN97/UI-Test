@@ -195,10 +195,10 @@
     <Compile Include="Functions\ActionEvents\Configs\SettingConfig.cs" />
     <Compile Include="Functions\ActionEvents\EventCover.cs" />
     <Compile Include="Functions\ActionEvents\BaseActionEvent.cs" />
-    <Compile Include="Functions\ActionEvents\Events\InputEvents\BaseInputEvent.cs" />
+    <Compile Include="Functions\ActionEvents\BaseInputEvent.cs" />
     <Compile Include="Functions\ActionEvents\Events\InputEvents\CheckInputLength.cs" />
     <Compile Include="Functions\ActionEvents\Events\LoginAction.cs" />
-    <Compile Include="Functions\ActionEvents\Events\SettingConfigAction.cs" />
+    <Compile Include="Functions\ActionEvents\Events\SettingAction.cs" />
     <Compile Include="Functions\ActionEvents\InputEventRunner.cs" />
     <Compile Include="Functions\BaseCover.cs" />
     <Compile Include="Functions\BaseFunction.cs" />
@@ -212,11 +212,12 @@
     <Compile Include="Functions\TestFunctions\FunctionCoverManagement.cs" />
     <Compile Include="Functions\TestFunctions\FunctionAnalysis.cs" />
     <Compile Include="Functions\TestFunctions\FunctionCover.cs" />
-    <Compile Include="Functions\Interface\IFucntion.cs" />
+    <Compile Include="Functions\Interface\IFunction.cs" />
     <Compile Include="Functions\Interface\ITestFunction.cs" />
     <Compile Include="Mapper\MyObjectMapper.cs" />
     <Compile Include="ModelView\BaseSubModelView.cs" />
     <Compile Include="ModelView\ListBoxItems\ActionToolModelView.cs" />
+    <Compile Include="ModelView\SettingModelView.cs" />
     <Compile Include="ModelView\TabItemViewModel\TabLogViewModel.cs" />
     <Compile Include="ModelView\TabItemViewModel\TabMessageViewModel.cs" />
     <Compile Include="Functions\CoverManagement.cs" />
@@ -296,8 +297,11 @@
     <Compile Include="View\ListBoxItemViews\PropertyItemTemplate.xaml.cs">
       <DependentUpon>PropertyItemTemplate.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\SubView\MultiUnitModelView.xaml.cs">
-      <DependentUpon>MultiUnitModelView.xaml</DependentUpon>
+    <Compile Include="View\SettingView.xaml.cs">
+      <DependentUpon>SettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SubView\MultiUnitView.xaml.cs">
+      <DependentUpon>MultiUnitView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\SubView\TestUnitView.xaml.cs">
       <DependentUpon>TestUnitView.xaml</DependentUpon>
@@ -309,10 +313,6 @@
       <DependentUpon>TabMessageView.xaml</DependentUpon>
     </Compile>
     <Page Include="Resources\DataTemplates.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\TabItemDataTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -370,7 +370,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\SubView\MultiUnitModelView.xaml">
+    <Page Include="View\SettingView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\SubView\MultiUnitView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

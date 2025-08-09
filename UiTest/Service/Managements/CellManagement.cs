@@ -65,17 +65,15 @@ namespace UiTest.Service.Managements
 
         public void UpdataMode(TestMode selectedMode)
         {
-            if (selectedMode == null) return;
             foreach (var cell in cellTests)
             {
-                if (cell?.IsFree == true)
-                {
-                    cell.UpdateMode(selectedMode);
-                }
+                cell?.UpdateMode(selectedMode);
             }
         }
 
         public int Count => cellTests.Count;
+
+        public bool IsAllFree => cellTests.All(cell => cell.IsFree);
 
         public bool TryGetCell(int index, out Cell cell)
         {

@@ -13,6 +13,7 @@ namespace UiTest.Model.Cell
     public class TestData : ITestResult
     {
         private readonly List<FunctionData> _functionFailedDatas;
+        private readonly List<FunctionData> _functionCanceledDatas;
         private readonly TestResultModel _testResultModel;
         private readonly ProgramSetting programSetting;
         public DateTime StartDateTime { get; private set; }
@@ -20,6 +21,7 @@ namespace UiTest.Model.Cell
         public TestData(string name)
         {
             _functionFailedDatas = new List<FunctionData>();
+            _functionCanceledDatas = new List<FunctionData>();
             _testResultModel = new TestResultModel();
             programSetting = ConfigLoader.ProgramConfig.ProgramSetting;
             CellName = name;
@@ -28,14 +30,6 @@ namespace UiTest.Model.Cell
         {
             if (string.IsNullOrWhiteSpace(functionData?.name)) return;
             _testResultModel.FunctionDatas.Add(functionData);
-        }
-        public void AddFailedFuntionData(FunctionData functionData)
-        {
-            if (string.IsNullOrWhiteSpace(functionData?.name)) return;
-            if (!functionData.IsPassed)
-            {
-                _functionFailedDatas.Add(functionData);
-            }
         }
 
         public void Reset()
@@ -47,8 +41,8 @@ namespace UiTest.Model.Cell
             StopTime = string.Empty;
             FinalStopTime = string.Empty;
             ErrorCode = string.Empty;
-            Result = TestStatus.STANDBY;
-            FinalResult = TestStatus.STANDBY;
+            Result = TestResult.CANCEL;
+            FinalResult = TestResult.CANCEL;
             CycleTime = 0;
             FinalCycleTime = 0;
             _functionFailedDatas.Clear();
@@ -67,8 +61,8 @@ namespace UiTest.Model.Cell
             StopTime = string.Empty;
             FinalStopTime = string.Empty;
             ErrorCode = string.Empty;
-            Result = TestStatus.TESTING;
-            FinalResult = TestStatus.TESTING;
+            Result = TestResult.CANCEL;
+            FinalResult = TestResult.CANCEL;
             CycleTime = 0;
             FinalCycleTime = 0;
         }
@@ -77,25 +71,25 @@ namespace UiTest.Model.Cell
         {
             StopDateTime = DateTime.Now;
             StopTime = StopDateTime.ToString("o", CultureInfo.InvariantCulture);
-            Result = GetResult();
+            Result = GetCurrentResult();
             FinalResult = Result;
             ErrorCode = FunctionFailedDatas.Count > 0 ? FunctionFailedDatas[0].ErrorCode : string.Empty;
             CycleTime = (StopDateTime - StartDateTime).TotalSeconds;
         }
 
-        private TestStatus GetResult()
+        public TestResult GetCurrentResult()
         {
-            if (FunctionFailedDatas.Count > 0)
+            if (FunctionDatas.Count == 0 || _functionCanceledDatas.Count > 0)
             {
-                return TestStatus.FAILED;
+                return TestResult.CANCEL;
             }
-            else if (FunctionDatas.Count > 0 && FunctionDatas.Any(f => !f.IsCancel))
+            else if (_functionFailedDatas.Count > 0)
             {
-                return TestStatus.PASSED;
+                return TestResult.FAILED;
             }
             else
             {
-                return TestStatus.CANCEL;
+                return TestResult.PASSED;
             }
         }
 
@@ -103,26 +97,35 @@ namespace UiTest.Model.Cell
         {
             var dtNow = DateTime.Now;
             FinalStopTime = dtNow.ToString("o", CultureInfo.InvariantCulture);
-            FinalResult = GetResult();
+            FinalResult = GetCurrentResult();
             FinalCycleTime = (dtNow - StartDateTime).TotalSeconds;
         }
 
-        public void ReCheck(FunctionData functionData, TestStatus status)
+        public void ReCheck(FunctionData functionData, TestResult status)
         {
             if (functionData == null) return;
             switch (status)
             {
-                case TestStatus.FAILED:
+                case TestResult.FAILED:
                     if (!_functionFailedDatas.Contains(functionData))
                     {
                         _functionFailedDatas.Add(functionData);
                     }
                     break;
-                case TestStatus.CANCEL:
-                case TestStatus.PASSED:
+                case TestResult.CANCEL:
+                    if (!_functionCanceledDatas.Contains(functionData))
+                    {
+                        _functionCanceledDatas.Add(functionData);
+                    }
+                    break;
+                case TestResult.PASSED:
                     if (_functionFailedDatas.Contains(functionData))
                     {
                         _functionFailedDatas.Remove(functionData);
+                    }
+                    if (_functionCanceledDatas.Contains(functionData))
+                    {
+                        _functionCanceledDatas.Remove(functionData);
                     }
                     break;
             }
@@ -130,6 +133,7 @@ namespace UiTest.Model.Cell
 
         public List<FunctionData> FunctionDatas => new List<FunctionData>(_testResultModel.FunctionDatas);
         public List<FunctionData> FunctionFailedDatas => new List<FunctionData>(_functionFailedDatas);
+        public List<FunctionData> FunctionCancelDatas => new List<FunctionData>(_functionFailedDatas);
         public string StartTime { get => _testResultModel.StartTime; private set => _testResultModel.StartTime = value; }
         public string StopTime { get => _testResultModel.StopTime; private set => _testResultModel.StopTime = value; }
         public string FinalStopTime { get => _testResultModel.FinalStopTime; private set => _testResultModel.FinalStopTime = value; }
@@ -141,8 +145,8 @@ namespace UiTest.Model.Cell
         public string Input { get => _testResultModel.Input; private set => _testResultModel.Input = value; }
         public string Mode { get => _testResultModel.Mode; private set => _testResultModel.Mode = value; }
         public string ErrorCode { get => _testResultModel.ErrorCode; private set => _testResultModel.ErrorCode = value; }
-        public TestStatus Result { get => _testResultModel.Result; private set => _testResultModel.Result = value; }
-        public TestStatus FinalResult { get => _testResultModel.FinalResult; private set => _testResultModel.FinalResult = value; }
+        public TestResult Result { get => _testResultModel.Result; private set => _testResultModel.Result = value; }
+        public TestResult FinalResult { get => _testResultModel.FinalResult; private set => _testResultModel.FinalResult = value; }
         public double CycleTime { get => _testResultModel.CycleTime; private set => _testResultModel.CycleTime = value; }
         public double FinalCycleTime { get => _testResultModel.FinalCycleTime; private set => _testResultModel.FinalCycleTime = value; }
     }

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\C#\UiTest\UiTest\App.xaml
-17-1705634773
+171199088394
 
-133-1013626535
+135130035994
 44-1603117090
-Resources\DataTemplates.xaml;Resources\TabItemDataTemplates.xaml;Style\Themes\Colors.xaml;Style\Themes\Generic.xaml;Style\RoundedWindowButton.xaml;Style\Themes\Shadows.xaml;View\Component\LabeledStatusBox.xaml;View\Component\MyTextBox.xaml;View\ListBoxItemViews\ActionToolView.xaml;View\ListBoxItemViews\PropertyItemTemplate.xaml;View\MainWindow.xaml;View\Component\MyCombobox.xaml;View\Component\MyListBox.xaml;View\SubView\MultiUnitModelView.xaml;View\SubView\TestUnitView.xaml;View\TabItemView\TabLogView.xaml;View\TabItemView\TabMessageView.xaml;
+Resources\DataTemplates.xaml;Style\Themes\Colors.xaml;Style\Themes\Generic.xaml;Style\RoundedWindowButton.xaml;Style\Themes\Shadows.xaml;View\Component\LabeledStatusBox.xaml;View\Component\MyTextBox.xaml;View\ListBoxItemViews\ActionToolView.xaml;View\ListBoxItemViews\PropertyItemTemplate.xaml;View\MainWindow.xaml;View\Component\MyCombobox.xaml;View\Component\MyListBox.xaml;View\SettingView.xaml;View\SubView\MultiUnitView.xaml;View\SubView\TestUnitView.xaml;View\TabItemView\TabLogView.xaml;View\TabItemView\TabMessageView.xaml;
 
 False
 

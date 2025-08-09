@@ -14,7 +14,6 @@
                 <ResourceDictionary Source="/Style/Themes/Shadows.xaml"/>
                 <ResourceDictionary Source="/Style/Themes/Generic.xaml"/>
                 <ResourceDictionary Source="/Resources/DataTemplates.xaml"/>
-                <ResourceDictionary Source="/Resources/TabItemDataTemplates.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

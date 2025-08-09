@@ -52,7 +52,7 @@ namespace UiTest.Service.Relay
             {
                 actionEventRunner.ActionEvents = ConfigLoader.ProgramConfig?.ActionEvents?.WindownClosingEvents;
                 actionEventRunner.Run();
-                if (actionEventRunner.IsAcceptable)
+                if (actionEventRunner.IsPassed)
                 {
                     window.Close();
                 }

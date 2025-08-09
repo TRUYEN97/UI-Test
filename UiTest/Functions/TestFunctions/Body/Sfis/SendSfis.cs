@@ -16,7 +16,7 @@ namespace UiTest.Functions.TestFunctions.Body.Sfis
     {
         public SendSfis(FunctionData functionData) : this(null, functionData, new ItemSetting()) { }
         public SendSfis(SfisConfig config, FunctionData functionData, ItemSetting itemSetting) : base(config, functionData, itemSetting) { }
-        protected override (TestStatus status, string value) Test()
+        protected override (TestResult status, string value) Test()
         {
             using (BaseCommunicate serial = new MySerialPort("com8", 9600))
             {
@@ -31,6 +31,14 @@ namespace UiTest.Functions.TestFunctions.Body.Sfis
                         {
                             break;
                         }
+                        if (line == "c")
+                        {
+                            return (TestResult.CANCEL, RetryTimes.ToString());
+                        }
+                        if (line == "f")
+                        {
+                            return (TestResult.FAILED, RetryTimes.ToString());
+                        }
                     }
                     Logger.AddInfoText("out");
                     serial.WriteLine("out");
@@ -40,7 +48,7 @@ namespace UiTest.Functions.TestFunctions.Body.Sfis
                     Logger.AddInfoText("f");
                 }
             }
-            return (TestStatus.PASSED, RetryTimes.ToString());
+            return (TestResult.PASSED, RetryTimes.ToString());
         }
 
         private void NewMethod(IWriter serial, string line)

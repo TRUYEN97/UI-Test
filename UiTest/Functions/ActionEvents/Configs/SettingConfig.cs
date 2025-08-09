@@ -10,6 +10,6 @@ namespace UiTest.Functions.ActionEvents.Configs
     public class SettingConfig
     {
         public string ConfigPath {  get; set; } = ConfigLoader.CfPath;
-        public string NewConfigPath {  get; set; } = ConfigLoader.CfPath;
+        public string SavePath {  get; set; } = ConfigLoader.CfPath;
     }
 }

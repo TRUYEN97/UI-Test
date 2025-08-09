@@ -3,7 +3,7 @@ using System.Threading;
 using UiTest.Mapper;
 using System;
 using UiTest.Service.Factory;
-using System.Threading.Tasks;
+using UiTest.Common;
 
 namespace UiTest.Functions
 {
@@ -20,9 +20,10 @@ namespace UiTest.Functions
             Cts = new CancellationTokenSource();
         }
 
-        public CancellationTokenSource Cts {  get; set; }
-        public bool IsCanceled => Cts?.IsCancellationRequested == true;
+        public CancellationTokenSource Cts { get; set; }
+        public TestResult Result { get; protected set; }
         public T Config => _config;
+
         public virtual void Cancel()
         {
             if (Cts?.IsCancellationRequested == false)
@@ -38,13 +39,6 @@ namespace UiTest.Functions
             }
         }
         public abstract void Run();
-        public virtual void Stop()
-        {
-            if (Cts?.IsCancellationRequested == false)
-            {
-                Cts?.Cancel();
-            }
-        }
         public bool UpdateConfig(T config)
         {
             if (_config == null) return false;

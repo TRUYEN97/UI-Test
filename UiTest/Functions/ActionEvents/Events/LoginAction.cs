@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using UiTest.Common;
 using UiTest.Functions.ActionEvents.Configs;
 
 namespace UiTest.Functions.ActionEvents.Events
@@ -10,9 +11,9 @@ namespace UiTest.Functions.ActionEvents.Events
         {
         }
 
-        protected override bool Test()
+        protected override TestResult Test()
         {
-           return MessageBox.Show("Lg","Login",MessageBoxButton.OKCancel) == MessageBoxResult.OK;
+            return MessageBox.Show("Lg", "Login", MessageBoxButton.OKCancel) == MessageBoxResult.OK ? TestResult.PASSED : TestResult.FAILED;
         }
     }
 }

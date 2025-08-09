@@ -49,18 +49,14 @@ namespace UiTest.Model.Cell
                 Reset();
                 _testMode = value;
                 StandbyColor = value?.StandbyColor;
-                CellProperties.SetProperties(value?.Properties);
+                CellProperties.Set(value?.Properties);
             }
         }
         public void AddFuntionData(FunctionData functionData)
         {
             TestData.AddFuntionData(functionData);
         }
-        public void AddFailedFuntionData(FunctionData functionData)
-        {
-            TestData.AddFailedFuntionData(functionData);
-        }
-
+        public TestResult CurrentResult => TestData.GetCurrentResult();
         public TestStatus TestStatus { get; private set; }
 
         public event Action<CellData> DataChaned;
@@ -145,7 +141,24 @@ namespace UiTest.Model.Cell
                 TestData.EndProcess();
                 CellLogger.CreateLog();
                 CellLogger.SaveLog();
-                TestStatus = TestData.FinalResult;
+                switch (TestData.FinalResult)
+                {
+                    case TestResult.FAILED:
+                        TestStatus = TestStatus.FAILED;
+                        CellProperties.FailContinue++;
+                        CellProperties.FailCount++;
+                        break;
+                    case TestResult.PASSED:
+                        TestStatus = TestStatus.PASSED;
+                        CellProperties.PassCount++;
+                        CellProperties.FailContinue = 0;
+                        break;
+                    case TestResult.CANCEL:
+                        TestStatus = TestStatus.CANCEL;
+                        break;
+                    default:
+                        break;
+                }
             }
             finally
             {

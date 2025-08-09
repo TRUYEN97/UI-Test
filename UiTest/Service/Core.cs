@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Reflection;
 using UiTest.Config;
+using UiTest.Functions.ActionEvents;
 using UiTest.ModelView.ListBoxItems;
 using UiTest.Service.Interface;
 using UiTest.Service.Logger;
@@ -12,6 +14,7 @@ namespace UiTest.Service
     {
         private static readonly Lazy<Core> _instace = new Lazy<Core>(() => new Core());
         public static Core Instance = _instace.Value;
+        private readonly ActionEventRunner actionEventRunner;
         private Core()
         {
             ProgramConfig = ConfigLoader.ProgramConfig;
@@ -19,8 +22,9 @@ namespace UiTest.Service
             ModelManagement = new ModelManagement(ProgramConfig, CellManagement);
             ViewBuilder = new ViewBuilder(ProgramConfig.ProgramSetting, CellManagement);
             ActionTools = new ObservableCollection<ActionToolModelView>();
-            ProgramConfig.ActionEvents.ActionTools.ForEach(i => { if (!string.IsNullOrWhiteSpace(i?.Name)) ActionTools.Add(new ActionToolModelView(i)); });
+            actionEventRunner = new ActionEventRunner();
         }
+
         public ProgramConfig ProgramConfig { get; private set; }
         public ModelManagement ModelManagement { get; private set; }
         public CellManagement CellManagement { get; private set; }
@@ -31,21 +35,43 @@ namespace UiTest.Service
         {
             try
             {
-                bool rs = true;
+                if (!CellManagement.IsAllFree)
+                {
+                    return false;
+                }
+                InitActionTool();
+                if (!RunLauchAction())
+                {
+                    return false;
+                }
                 if (!ViewBuilder.Update())
                 {
-                    rs = false;
+                    return false;
                 }
                 if (!ModelManagement.Update())
                 {
-                    rs = false;
+                    return false;
                 }
-                return rs;
+                return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                ProgramLogger.AddError("Core", ex.Message);
                 return false;
             }
+        }
+
+        private void InitActionTool()
+        {
+            ActionTools.Clear();
+            ProgramConfig.ActionEvents.ActionTools.ForEach(i => { if (!string.IsNullOrWhiteSpace(i?.Name)) ActionTools.Add(new ActionToolModelView(i)); });
+        }
+
+        private bool RunLauchAction()
+        {
+            actionEventRunner.ActionEvents = ConfigLoader.ProgramConfig?.ActionEvents?.LauchEvents;
+            actionEventRunner.Run();
+            return actionEventRunner.IsPassed;
         }
 
         public void Start(string input)

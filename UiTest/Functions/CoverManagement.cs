@@ -3,9 +3,7 @@ using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Threading;
-using System.Threading.Tasks;
-using UiTest.Functions.ActionEvents;
-using UiTest.Functions.TestFunctions.Config;
+using UiTest.Common;
 
 namespace UiTest.Functions
 {
@@ -13,17 +11,28 @@ namespace UiTest.Functions
     {
         protected readonly ConcurrentDictionary<string, BaseCover<T>> covers;
         protected CancellationTokenSource cts;
-        protected bool isAcceptable;
 
         protected CoverManagement()
         {
             covers = new ConcurrentDictionary<string, BaseCover<T>>();
-            isAcceptable = true;
         }
-        public CancellationTokenSource Cts { get { return cts; } set { cts = value; } }
-        public bool IsAcceptable { get { return isAcceptable && (cts == null || !cts.IsCancellationRequested); } set { isAcceptable = value; } }
-        public bool IsEmpty => covers.Count == 0;
+        public void Reset()
+        {
+            if (cts?.IsCancellationRequested == false)
+            {
+                cts?.Cancel();
+            }
+            cts = new CancellationTokenSource();
+            IsHaveCancelled = false;
+            IsHaveFailled = false;
+        }
 
+        public event Action CancelRunEvent;
+        public bool IsHaveCancelled {  get; protected set; }
+        public bool IsPass => !IsHaveFailled && !IsHaveCancelled;
+        public bool IsHaveFailled {  get; protected set; }
+        public bool IsRunCancelled => cts?.IsCancellationRequested == true;
+        public bool IsEmpty => covers.Count == 0;
         public bool TryAdd(string name, BaseCover<T> functionCover)
         {
             if (string.IsNullOrEmpty(name)) return false;
@@ -33,30 +42,30 @@ namespace UiTest.Functions
         public void SetTestDone(string name)
         {
             if (string.IsNullOrEmpty(name)) return;
-            if (covers.TryRemove(name, out var functionCover) && !functionCover.IsAcceptable)
+            if (covers.TryRemove(name, out var cover))
             {
-                IsAcceptable = false;
+                switch (cover.Result)
+                {
+                    case TestResult.FAILED:
+                        IsHaveFailled = true;
+                        break;
+                    case TestResult.CANCEL:
+                        IsHaveCancelled = true;
+                        break;
+                }
             }
         }
-        public void StopAll()
+
+        public void CancelAllTask()
         {
-            List<BaseCover<T>> list = new List<BaseCover<T>>();
-            while (covers.Count > 0)
-            {
-                list.Clear();
-                list.AddRange(covers.Values);
-                list.ForEach(x => x.Stop());
-                Thread.Sleep(500);
-            }
-        }
-        public void CancelAll()
-        {
+            cts?.Cancel();
+            CancelRunEvent?.Invoke();
             var list = new List<BaseCover<T>>();
             while (covers.Count > 0)
             {
                 list.Clear();
                 list.AddRange(covers.Values);
-                list.ForEach(x =>x.Cancel());
+                list.ForEach(x => x.Cancel());
                 Thread.Sleep(500);
             }
         }

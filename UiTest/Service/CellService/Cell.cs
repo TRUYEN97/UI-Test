@@ -56,9 +56,11 @@ namespace UiTest.Service.CellService
         }
         public void UpdateMode(TestMode mode)
         {
-            if (mode == null) return;
-            CellData.TestMode = mode;
-            ViewModel.Update();
+            if (IsFree)
+            {
+                CellData.TestMode = mode;
+                ViewModel.Update();
+            }
         }
     }
 }

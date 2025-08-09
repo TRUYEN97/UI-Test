@@ -17,7 +17,7 @@ namespace UiTest.Config
         };
         public List<ActionEventSetting> ActionTools { get; set; } = new List<ActionEventSetting>
         {
-            new ActionEventSetting{Name = "Login", FunctionType = "LoginAction", Config = new LoginConfig()}
+            new ActionEventSetting{Name = "Setting", FunctionType = "SettingAction", Config = new SettingConfig()}
         };
     }
 }

@@ -38,7 +38,7 @@ namespace UiTest.View.SubView {
     /// <summary>
     /// MultiUnitModelView
     /// </summary>
-    public partial class MultiUnitModelView : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
+    public partial class MultiUnitView : System.Windows.Controls.UserControl, System.Windows.Markup.IComponentConnector {
         
         private bool _contentLoaded;
         

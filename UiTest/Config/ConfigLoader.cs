@@ -1,6 +1,8 @@
 ﻿using System;
 using System.IO;
 using Newtonsoft.Json;
+using UiTest.Common;
+using UiTest.Service.Logger;
 
 namespace UiTest.Config
 {
@@ -10,13 +12,13 @@ namespace UiTest.Config
         private static ConfigLoader Instance => _instance.Value;
         private ProgramConfig _programConfig;
         public static string CfPath { get; } = "./config.json";
-        public ConfigLoader() 
+        private ConfigLoader()
         {
             if (!Init(CfPath))
             {
                 _programConfig = new ProgramConfig();
             }
-            UpdateCf();
+            UpdateCf(CfPath);
         }
         public static ProgramConfig ProgramConfig
         {
@@ -35,23 +37,36 @@ namespace UiTest.Config
                     return false;
                 }
                 string configText = File.ReadAllText(cfPath);
-                _programConfig = JsonConvert.DeserializeObject<ProgramConfig>(configText, new JsonSerializerSettings()
+                var programConfig = JsonConvert.DeserializeObject<ProgramConfig>(configText, new JsonSerializerSettings()
                 {
                     TypeNameHandling = TypeNameHandling.Auto
                 });
+                _programConfig = programConfig;
                 return true;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                ProgramLogger.AddError(GetType().Name, ex.Message);
                 return false;
             }
         }
+
         public static bool UpdateConfig()
         {
-            return Instance.UpdateCf();
+            return Instance.UpdateCf(CfPath);
+        }
+        
+        public static bool Reload()
+        {
+            return Instance.Init(CfPath);
         }
 
-        public bool UpdateCf()
+        public static bool SaveConfig(string path)
+        {
+            return Instance.UpdateCf(path);
+        }
+
+        public bool UpdateCf(string path)
         {
             try
             {
@@ -59,7 +74,7 @@ namespace UiTest.Config
                 {
                     TypeNameHandling = TypeNameHandling.Auto
                 });
-                File.WriteAllText(CfPath, cfJson);
+                FileUtil.WriteAllText(path, cfJson);
                 return true;
             }
             catch (Exception)

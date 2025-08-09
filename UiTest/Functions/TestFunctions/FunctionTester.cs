@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading;
+using UiTest.Common;
 using UiTest.Config.Items;
 using UiTest.Functions.ActionEvents;
 using UiTest.Functions.TestFunctions.Config;
@@ -24,21 +25,11 @@ namespace UiTest.Functions.TestFunctions
             this.cellData = cellData;
             coverManagement = new FunctionCoverManagement();
             inputEventRunner = new InputEventRunner(cellData);
+            CancelRunEvent += inputEventRunner.CancelRun;
         }
 
         public bool IsFree => !IsRunning;
 
-        public void Cancel()
-        {
-            if (IsRunning)
-            {
-                if (coverManagement.Cts?.IsCancellationRequested == false)
-                {
-                    coverManagement.Cts?.Cancel();
-                }
-                coverManagement.CancelAll();
-            }
-        }
         protected override bool IsRunnable()
         {
             return !string.IsNullOrWhiteSpace(cellData.Input) && !IsRunning && cellData?.TestMode != null ;
@@ -49,7 +40,7 @@ namespace UiTest.Functions.TestFunctions
             {
                 inputEventRunner.ActionEvents = cellData.TestMode.InputEvents;
                 inputEventRunner.Run();
-                if (inputEventRunner.IsAcceptable)
+                if (inputEventRunner.IsPassed)
                 {
                     RunFunctionsTest();
                 }
@@ -68,31 +59,36 @@ namespace UiTest.Functions.TestFunctions
         private void RunFunctionsTest()
         {
             ModeFlow modeFlow = cellData.TestMode.ModeFlow;
-            coverManagement.IsAcceptable = true;
-            for (int i = 0; i < modeFlow.Loop && coverManagement.IsAcceptable && modeFlow.Reset(); i++)
+            for (int i = 0; i < modeFlow.Loop && !coverManagement.IsRunCancelled && modeFlow.Reset(); i++)
             {
                 try
                 {
                     timer.Start();
                     cellData.Start(modeFlow.Name);
                     List<FunctionConfig> items;
-                    while (coverManagement.IsAcceptable && (items = modeFlow.GetListItem()) != null)
+                    while (!coverManagement.IsRunCancelled && (items = modeFlow.GetListItem()) != null)
                     {
                         cellData.FailColor = modeFlow.FailColor;
                         if (modeFlow.IsFinalGroup)
                         {
                             cellData.End();
                         }
-                        if (RunFunctions(items))
+                        switch (RunFunctions(items))
                         {
-                            modeFlow.NextToPassFlow();
-                        }
-                        else
-                        {
-                            modeFlow.NextToFailedFlow();
+                            case TestResult.FAILED:
+                                modeFlow.NextToFailedFlow();
+                                break;
+                            case TestResult.PASSED:
+                                modeFlow.NextToPassFlow();
+                                break;
+                            case TestResult.CANCEL:
+                                modeFlow.NextToCanceledFlow();
+                                break;
+                            default:
+                                break;
                         }
                     }
-                    coverManagement.WaitForTaskDone();
+                    coverManagement.WaitForAllTaskDone();
                 }
                 catch (Exception ex)
                 {
@@ -101,17 +97,17 @@ namespace UiTest.Functions.TestFunctions
                 }
                 finally
                 {
-                    coverManagement.StopAll();
+                    coverManagement.CancelAllTask();
                     cellData.EndProcess();
                 }
             }
         }
 
-        private bool RunFunctions(List<FunctionConfig> functionConfigs)
+        private TestResult RunFunctions(List<FunctionConfig> functionConfigs)
         {
             foreach (var functionConfig in functionConfigs)
             {
-                if (!coverManagement.IsAcceptable)
+                if (coverManagement.IsRunCancelled)
                 {
                     break;
                 }
@@ -120,7 +116,8 @@ namespace UiTest.Functions.TestFunctions
                 var functionCover = new FunctionCover(functionBody, coverManagement);
                 functionCover.Run();
             }
-            return coverManagement.IsAcceptable;
+            coverManagement.WaitForTaskDone();
+            return cellData.CurrentResult;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using UiTest.Config;
+using UiTest.Functions.ActionEvents;
 using UiTest.ModelView;
 using UiTest.Service;
 

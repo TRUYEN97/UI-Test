@@ -3,39 +3,28 @@
   "WorkspaceRootPath": "D:\\C#\\UiTest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\app.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\managements\\cellmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\managements\\cellmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{00000000-0000-0000-0000-000000000000}|\u003CSolution\u003E|UiTest||{04B8AB82-A572-4FEF-95CE-5222444B6B64}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|D:\\C#\\UiTest\\uitest\\modelview\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\modelview\\mainviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\functions\\actionevents\\events\\settingconfigaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\functions\\actionevents\\events\\settingconfigaction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\functions\\actionevents\\configs\\settingconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\functions\\actionevents\\configs\\settingconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\config\\events\\actioneventsetting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\config\\events\\actioneventsetting.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\config\\programconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\config\\programconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|D:\\C#\\UiTest\\uitest\\service\\core.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\core.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\core.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\properties\\resources.resx||{FF4D6ACA-9352-4A5F-821E-F4D6EBDCAB11}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\managements\\modelmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\managements\\modelmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\cellservice\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\cellservice\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\view\\settingview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\view\\settingview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -45,109 +34,82 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UiTest",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\UiTest.csproj",
-              "RelativeDocumentMoniker": "UiTest\\UiTest.csproj",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\UiTest.csproj",
-              "RelativeToolTip": "UiTest\\UiTest.csproj",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-08-07T13:21:49.266Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\App.xaml.cs",
-              "RelativeDocumentMoniker": "UiTest\\App.xaml.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\App.xaml.cs*",
-              "RelativeToolTip": "UiTest\\App.xaml.cs*",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAtAAAAAAAAAA==",
+              "Title": "CellManagement.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\Managements\\CellManagement.cs",
+              "RelativeDocumentMoniker": "UiTest\\Service\\Managements\\CellManagement.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\Managements\\CellManagement.cs",
+              "RelativeToolTip": "UiTest\\Service\\Managements\\CellManagement.cs",
+              "ViewState": "AgIAACYAAAAAAAAAAAAowEsAAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T13:18:08.341Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ActionEventSetting.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Config\\Events\\ActionEventSetting.cs",
-              "RelativeDocumentMoniker": "UiTest\\Config\\Events\\ActionEventSetting.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Config\\Events\\ActionEventSetting.cs",
-              "RelativeToolTip": "UiTest\\Config\\Events\\ActionEventSetting.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA5AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T13:08:20.676Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ProgramConfig.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Config\\ProgramConfig.cs",
-              "RelativeDocumentMoniker": "UiTest\\Config\\ProgramConfig.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Config\\ProgramConfig.cs",
-              "RelativeToolTip": "UiTest\\Config\\ProgramConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T13:05:11.891Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SettingConfig.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Functions\\ActionEvents\\Configs\\SettingConfig.cs",
-              "RelativeDocumentMoniker": "UiTest\\Functions\\ActionEvents\\Configs\\SettingConfig.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Functions\\ActionEvents\\Configs\\SettingConfig.cs",
-              "RelativeToolTip": "UiTest\\Functions\\ActionEvents\\Configs\\SettingConfig.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAwAAABBAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T13:02:06.505Z",
+              "WhenOpened": "2025-08-09T10:21:07.865Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "SettingConfigAction.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Functions\\ActionEvents\\Events\\SettingConfigAction.cs",
-              "RelativeDocumentMoniker": "UiTest\\Functions\\ActionEvents\\Events\\SettingConfigAction.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Functions\\ActionEvents\\Events\\SettingConfigAction.cs",
-              "RelativeToolTip": "UiTest\\Functions\\ActionEvents\\Events\\SettingConfigAction.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
+              "Title": "Cell.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\CellService\\Cell.cs",
+              "RelativeDocumentMoniker": "UiTest\\Service\\CellService\\Cell.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\CellService\\Cell.cs",
+              "RelativeToolTip": "UiTest\\Service\\CellService\\Cell.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAAxwDwAAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T12:58:11.576Z",
+              "WhenOpened": "2025-08-09T10:19:21.635Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MainViewModel.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\ModelView\\MainViewModel.cs",
-              "RelativeDocumentMoniker": "UiTest\\ModelView\\MainViewModel.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\ModelView\\MainViewModel.cs",
-              "RelativeToolTip": "UiTest\\ModelView\\MainViewModel.cs",
-              "ViewState": "AgIAACIAAAAAAAAAAAAQwDEAAABRAAAAAAAAAA==",
+              "Title": "ModelManagement.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\Managements\\ModelManagement.cs",
+              "RelativeDocumentMoniker": "UiTest\\Service\\Managements\\ModelManagement.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\Managements\\ModelManagement.cs",
+              "RelativeToolTip": "UiTest\\Service\\Managements\\ModelManagement.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAowCMAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T10:22:10.17Z",
+              "WhenOpened": "2025-08-09T10:15:02.296Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Core.cs",
               "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\Core.cs",
               "RelativeDocumentMoniker": "UiTest\\Service\\Core.cs",
               "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\Core.cs",
               "RelativeToolTip": "UiTest\\Service\\Core.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAewBUAAACXAAAAAAAAAA==",
+              "ViewState": "AgIAABkAAAAAAAAAAAAgwCUAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T06:23:38.226Z",
+              "WhenOpened": "2025-08-09T10:14:06.32Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainWindow.xaml",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\View\\MainWindow.xaml",
+              "RelativeDocumentMoniker": "UiTest\\View\\MainWindow.xaml",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\View\\MainWindow.xaml",
+              "RelativeToolTip": "UiTest\\View\\MainWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-09T10:04:51.041Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SettingView.xaml",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\View\\SettingView.xaml",
+              "RelativeDocumentMoniker": "UiTest\\View\\SettingView.xaml",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\View\\SettingView.xaml",
+              "RelativeToolTip": "UiTest\\View\\SettingView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-09T10:03:40.242Z",
               "EditorCaption": ""
             }
           ]

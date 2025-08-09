@@ -25,12 +25,6 @@ namespace UiTest.Functions.TestFunctions
         public override CancellationTokenSource Cts => functionBody.Cts;
 
         public override bool IsRunning => thread?.IsAlive == true || isRunning;
-
-        public override bool IsCanceled => functionBody.IsCanceled;
-
-        public override bool IsAcceptable => functionBody.IsAcceptable;
-
-
         public override void Run()
         {
             if (ItemSetting.IsMultiTask)
@@ -46,10 +40,7 @@ namespace UiTest.Functions.TestFunctions
         {
             Cancel($"*Attempt to cancel the process from the user*");
         }
-        public override void Stop()
-        {
-            Stop($"*Attempt to abort the process from the user*");
-        }
+
         private void Attack()
         {
             if (IsRunning || !coverManagement.TryAdd(this)) return;
@@ -58,7 +49,7 @@ namespace UiTest.Functions.TestFunctions
             {
                 int runTimes = ItemSetting.Retry + 1;
                 functionData.Start();
-                for (functionData.RetryTimes = 0; functionData.RetryTimes < runTimes && !functionBody.IsCanceled; functionData.RetryTimes++)
+                for (functionData.RetryTimes = 0; functionData.RetryTimes < runTimes && functionBody.Cts?.IsCancellationRequested == false; functionData.RetryTimes++)
                 {
                     try
                     {
@@ -83,12 +74,11 @@ namespace UiTest.Functions.TestFunctions
             catch (Exception ex)
             {
                 ProgramLogger.AddError(functionData.ToString(), ex.Message);
-                Stop(ex.Message);
+                Cancel(ex.Message);
             }
             finally
             {
                 functionData.End();
-                functionBody.Stop();
                 coverManagement.SetTestDone(this);
                 isRunning = false;
             }
@@ -102,7 +92,7 @@ namespace UiTest.Functions.TestFunctions
         }
         private void Stop(string mess)
         {
-            functionBody.Stop();
+            ((ITestFunction)functionBody).Stop();
             functionData.logger.AddErrorText(mess);
             thread?.Abort();
         }

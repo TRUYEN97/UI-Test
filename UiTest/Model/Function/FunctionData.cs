@@ -26,13 +26,13 @@ namespace UiTest.Model.Function
             resultModel = new FunctionResultModel(name);
         }
         public bool IsTested => stopTime != default;
-        public bool IsPassed => Result == TestStatus.PASSED;
-        public bool IsCancel => Result == TestStatus.CANCEL;
-        public bool IsFailed => Result == TestStatus.FAILED;
+        public bool IsPassed => Result == TestResult.PASSED;
+        public bool IsCancel => Result == TestResult.CANCEL;
+        public bool IsFailed => Result == TestResult.FAILED;
         public string ErrorCode  => resultModel.ErrorCode;
         public double CycleTime => startTime == null ? 0 : (DateTime.Now - startTime).TotalSeconds;
-        public (TestStatus status, string value) TestResult { get; internal set; }
-        public TestStatus Result { get; private set; }
+        public (TestResult status, string value) TestValue { get; internal set; }
+        public TestResult Result { get; private set; }
         public int RetryTimes { get; internal set; }
 
         public void SetTempErrorCode(string errorCode)
@@ -54,7 +54,7 @@ namespace UiTest.Model.Function
             resultModel.ErrorCode = string.Empty;
             resultModel.Result = string.Empty;
             tempErrorCode = string.Empty;
-            TestResult = (TestStatus.FAILED, "");
+            TestValue = (TestResult.FAILED, "");
         }
         public void Start()
         {
@@ -70,7 +70,7 @@ namespace UiTest.Model.Function
             resultModel.Spec = string.Empty;
             resultModel.Value = string.Empty;
             tempErrorCode = string.Empty;
-            TestResult = (TestStatus.FAILED, "");
+            TestValue = (TestResult.FAILED, "");
             cellData.AddFuntionData(this);
         }
 
@@ -81,10 +81,10 @@ namespace UiTest.Model.Function
             resultModel.CycleTime = (stopTime - startTime).TotalSeconds;
         }
 
-        public void SetResult(TestStatus status)
+        public void SetResult(TestResult status)
         {
             Result = status;
-            if (status == TestStatus.FAILED)
+            if (status == TestResult.FAILED)
             {
                 var errorCodeMapper = cellData.errorCodeMapper;
                 if (!string.IsNullOrWhiteSpace(tempErrorCode))

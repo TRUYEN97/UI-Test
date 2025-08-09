@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UiTest.ModelView.TabItemViewModel
 {
-    public abstract class BaseTabItemViewModel: BaseViewModel
+    public abstract class BaseTabItemViewModel: BaseModelView
     {
         public string Name {  get; protected set; }
     }

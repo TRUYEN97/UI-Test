@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading;
+using UiTest.Common;
 using UiTest.Functions.ActionEvents.Configs;
 using UiTest.Model.Cell;
 
@@ -10,7 +11,7 @@ namespace UiTest.Functions.ActionEvents.Events.InputEvents
     {
         public CheckInputLength(InputLengthConfig config, CellData cellData) : base(config, cellData) { }
 
-        protected override bool CheckInput(string input)
+        protected override TestResult CheckInput(string input)
         {
             int length = input?.Length ?? 0;
             if (Config.LowerLimit <= length && length <= Config.UpperLimit)
@@ -20,9 +21,9 @@ namespace UiTest.Functions.ActionEvents.Events.InputEvents
                 //{
                 //    CellData.TestMode = mode;
                 //}
-                return true;
+                return TestResult.PASSED;
             }
-            return false;
+            return TestResult.FAILED;
         }
     }
 }

@@ -5,7 +5,7 @@ using UiTest.Service.Relay;
 
 namespace UiTest.ModelView.ListBoxItems
 {
-    public class ActionToolModelView : BaseViewModel
+    public class ActionToolModelView : BaseModelView
     {
         public ActionToolModelView(ActionEventSetting actionEventSetting)
         {

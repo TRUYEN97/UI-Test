@@ -24,12 +24,13 @@ namespace UiTest.Functions.TestFunctions.Body
         public override void Cancel()
         {
             base.Cancel();
-            FunctionData.TestResult = (TestStatus.CANCEL, "");
+            FunctionData.TestValue = (TestResult.CANCEL, "");
         }
-        public override void Stop()
+
+        public void Stop()
         {
-            base.Stop();
-            FunctionData.TestResult = (TestStatus.FAILED, "");
+            base.Cancel();
+            FunctionData.TestValue = (TestResult.FAILED, "");
         }
         public override void Run()
         {
@@ -38,7 +39,7 @@ namespace UiTest.Functions.TestFunctions.Body
                 Logger.AddLog("----------------------[Begin]----------------------");
             else
                 Logger.AddLog($"---------------------[Retry-{RetryTimes}]---------------------");
-            FunctionData.TestResult = Test();
+            FunctionData.TestValue = Test();
         }
         protected int RetryTimes => FunctionData.RetryTimes;
         protected void SetErrorCode(string errorCode)
@@ -54,9 +55,8 @@ namespace UiTest.Functions.TestFunctions.Body
 
         public BasefunctionConfig BaseConfig => Config;
 
-        public bool IsAcceptable => !FunctionData.IsFailed || ItemSetting.IsSkipFailure;
+        public bool IsCancelled => FunctionData.IsCancel;
 
-        protected abstract (TestStatus status, string value) Test();
-
+        protected abstract (TestResult status, string value) Test();
     }
 }

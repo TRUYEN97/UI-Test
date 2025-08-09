@@ -1,8 +1,21 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:ModelViewlocal="clr-namespace:UiTest.ModelView.SubModelView"
-                    xmlns:Viewlocal="clr-namespace:UiTest.View.SubView">
-    <DataTemplate DataType="{x:Type ModelViewlocal:TestUnitViewModel}">
-        <Viewlocal:TestUnitView/>
+                    xmlns:TabViewModel="clr-namespace:UiTest.ModelView.TabItemViewModel"
+                    xmlns:TabView="clr-namespace:UiTest.View.TabItemView"
+                    xmlns:ListItemViewModel="clr-namespace:UiTest.ModelView.ListBoxItems"
+                    xmlns:ListBoxItemViews="clr-namespace:UiTest.View.ListBoxItemViews"
+                    xmlns:SubModelView="clr-namespace:UiTest.ModelView.SubModelView"
+                    xmlns:SubView="clr-namespace:UiTest.View.SubView">
+    <DataTemplate DataType="{x:Type SubModelView:TestUnitViewModel}">
+        <SubView:TestUnitView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type TabViewModel:TabLogViewModel}">
+        <TabView:TabLogView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type TabViewModel:TabMessageViewModel}">
+        <TabView:TabMessageView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ListItemViewModel:ActionToolModelView}">
+        <ListBoxItemViews:ActionToolView/>
     </DataTemplate>
 </ResourceDictionary>

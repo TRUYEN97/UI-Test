@@ -7,7 +7,7 @@ using UiTest.Model.Cell;
 
 namespace UiTest.Functions.Interface
 {
-    public interface IInputEvent: IActionEvent
+    public interface IInputEvent: IFunction<object>
     {
         CellData CellData { get; }
     }

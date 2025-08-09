@@ -13,11 +13,6 @@ namespace UiTest
     /// </summary>
     public partial class App : Application
     {
-        //protected override void OnStartup(StartupEventArgs e)
-        //{
-        //    var splash = new SplashScreen("./Resources/icons8-testing-64.png");
-        //    splash.Show(true);
-        //    base.OnStartup(e);
-        //}
+       
     }
 }

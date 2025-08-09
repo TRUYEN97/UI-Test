@@ -5,9 +5,9 @@ namespace UiTest.View.SubView
     /// <summary>
     /// Interaction logic for MultiUnitModelView.xaml
     /// </summary>
-    public partial class MultiUnitModelView : UserControl
+    public partial class MultiUnitView : UserControl
     {
-        public MultiUnitModelView()
+        public MultiUnitView()
         {
             InitializeComponent();
         }

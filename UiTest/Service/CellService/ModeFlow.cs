@@ -53,6 +53,10 @@ namespace UiTest.Service.CellService
         {
             return SetItemGroup(_itemGroup?.NextToFailGroup);
         }
+        public bool NextToCanceledFlow()
+        {
+            return SetItemGroup(_itemGroup?.NextToCancelGroup);
+        }
         private bool SetItemGroup(string groupName)
         {
             if (string.IsNullOrWhiteSpace(groupName))

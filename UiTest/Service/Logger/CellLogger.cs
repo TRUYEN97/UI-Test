@@ -62,7 +62,7 @@ namespace UiTest.Service.Logger
         private string GetListFailedItems()
         {
             var items = testData.FunctionFailedDatas;
-            if (items == null || items.Count == 0 ) 
+            if (items == null || items.Count == 0)
             {
                 return "[ ]";
             }
@@ -112,13 +112,14 @@ namespace UiTest.Service.Logger
         private string CreateFileName()
         {
             var setting = ConfigLoader.ProgramConfig.ProgramSetting;
-            if (testData.Result == TestStatus.PASSED)
+            string commonPartName = $"{testData.Result}_{testData.MAC}_{setting.Product}_{setting.Station}_{PcInfo.PcName}_{testData.StartDateTime:yyyy-MM-dd_HH-mm-ss}";
+            if (testData.Result == TestResult.PASSED || testData.Result == TestResult.CANCEL)
             {
-                return $"{testData.Result}_{testData.MAC}_{setting.Product}_{setting.Station}_{PcInfo.PcName}_{testData.StartDateTime:yyyy-MM-dd_HH-mm-ss}.log".ToUpper();
+                return $"{commonPartName}.log".ToUpper();
             }
             else
             {
-                return $"{testData.Result}_{testData.MAC}_{setting.Product}_{setting.Station}_{PcInfo.PcName}_{testData.StartDateTime:yyyy-MM-dd_HH-mm-ss}_{testData.ErrorCode}.log".ToUpper();
+                return $"{commonPartName}_{testData.ErrorCode}.log".ToUpper();
             }
         }
     }

@@ -23,16 +23,13 @@ D:\C#\UiTest\UiTest\obj\Debug\View\Component\MyListBox.g.cs
 D:\C#\UiTest\UiTest\obj\Debug\View\Component\LabeledStatusBox.baml
 D:\C#\UiTest\UiTest\obj\Debug\View\Component\MyCombobox.baml
 D:\C#\UiTest\UiTest\obj\Debug\View\Component\MyListBox.baml
-D:\C#\UiTest\UiTest\obj\Debug\Resources\TabItemDataTemplates.baml
 D:\C#\UiTest\UiTest\bin\Debug\Newtonsoft.Json.dll
 D:\C#\UiTest\UiTest\bin\Debug\Newtonsoft.Json.xml
 D:\C#\UiTest\UiTest\obj\Debug\UiTest.csproj.Up2Date
 D:\C#\UiTest\UiTest\obj\Debug\Style\Themes\Colors.baml
 D:\C#\UiTest\UiTest\obj\Debug\Style\Themes\Shadows.baml
 D:\C#\UiTest\UiTest\obj\Debug\Style\Themes\Generic.baml
-D:\C#\UiTest\UiTest\obj\Debug\View\SubView\MultiUnitModelView.g.cs
 D:\C#\UiTest\UiTest\obj\Debug\View\SubView\TestUnitView.g.cs
-D:\C#\UiTest\UiTest\obj\Debug\View\SubView\MultiUnitModelView.baml
 D:\C#\UiTest\UiTest\obj\Debug\View\SubView\TestUnitView.baml
 D:\C#\UiTest\UiTest\bin\Debug\BouncyCastle.Cryptography.dll
 D:\C#\UiTest\UiTest\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
@@ -97,3 +94,7 @@ D:\C#\UiTest\UiTest\obj\Debug\View\ListBoxItemViews\PropertyItemTemplate.g.cs
 D:\C#\UiTest\UiTest\obj\Debug\View\ListBoxItemViews\PropertyItemTemplate.baml
 D:\C#\UiTest\UiTest\obj\Debug\View\ListBoxItemViews\ActionToolView.g.cs
 D:\C#\UiTest\UiTest\obj\Debug\View\ListBoxItemViews\ActionToolView.baml
+D:\C#\UiTest\UiTest\obj\Debug\View\SettingView.g.cs
+D:\C#\UiTest\UiTest\obj\Debug\View\SubView\MultiUnitView.g.cs
+D:\C#\UiTest\UiTest\obj\Debug\View\SettingView.baml
+D:\C#\UiTest\UiTest\obj\Debug\View\SubView\MultiUnitView.baml

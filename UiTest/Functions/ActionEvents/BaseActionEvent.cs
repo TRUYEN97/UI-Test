@@ -1,5 +1,5 @@
 ﻿using System;
-using UiTest.Config.Events;
+using UiTest.Common;
 using UiTest.Functions.Interface;
 using UiTest.Service;
 using UiTest.Service.Logger;
@@ -14,22 +14,22 @@ namespace UiTest.Functions.ActionEvents
             core = Core.Instance;
         }
 
-        public bool IsAcceptable { get; private set; }
+        public object BaseConfig => BaseConfig;
 
-        public object BaseConfig => Config;
+        public bool IsCancelled => Cts.IsCancellationRequested;
 
         public override void Run()
         {
             try
             {
-                IsAcceptable = Test();
+                Result = Test();
             }
             catch (Exception ex)
             {
-                ProgramLogger.AddError(nameof(this.GetType), ex.Message);
+                ProgramLogger.AddError(GetType().Name, ex.Message);
             }
         }
 
-        protected abstract bool Test();
+        protected abstract TestResult Test();
     }
 }

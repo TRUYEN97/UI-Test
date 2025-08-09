@@ -22,14 +22,14 @@ namespace UiTest.Functions.TestFunctions
         {
             try
             {
-                var (status, value) = functionData.TestResult;
+                var (status, value) = functionData.TestValue;
                 switch (status)
                 {
-                    case TestStatus.PASSED:
+                    case TestResult.PASSED:
                         return CheckPassStatus(value);
-                    case TestStatus.FAILED:
+                    case TestResult.FAILED:
                         return SetFail();
-                    case TestStatus.CANCEL:
+                    case TestResult.CANCEL:
                         return SetCancel();
                     default:
                         return SetFail();
@@ -75,20 +75,20 @@ namespace UiTest.Functions.TestFunctions
         private bool SetCancel()
         {
             IsAcceptable = true;
-            functionData.SetResult(TestStatus.CANCEL);
+            functionData.SetResult(TestResult.CANCEL);
             return true;
         }
 
         private bool SetFail()
         {
             IsAcceptable = false;
-            functionData.SetResult(TestStatus.FAILED);
+            functionData.SetResult(TestResult.FAILED);
             return false;
         }
         private bool SetPass()
         {
             IsAcceptable = true;
-            functionData.SetResult(TestStatus.PASSED);
+            functionData.SetResult(TestResult.PASSED);
             return true;
         }
 

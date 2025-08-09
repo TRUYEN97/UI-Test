@@ -7,10 +7,7 @@
     "View": "TestUnitViewModel",
     "Local_log": "D:/UI Test logs",
     "ShowMissingErrorCode": true,
-    "Properties": {
-      "aaaa": "ggg",
-      "bbb": "hhhh"
-    }
+    "Properties": {}
   },
   "ErrorCode": {
     "LocalFilePath": "./Errorcodes.csv",
@@ -19,55 +16,10 @@
   },
   "ActionEvents": {
     "LauchEvents": [
-      {
-        "Name": "LoginAction",
-        "FunctionType": "LoginAction",
-        "Config": {
-          "$type": "UiTest.Functions.ActionEvents.Configs.LoginConfig, UiTest",
-          "User": null,
-          "Password": null
-        }
-      }
     ],
     "WindownClosingEvents": [
-      {
-        "Name": "LoginAction",
-        "FunctionType": "LoginAction",
-        "Config": {
-          "$type": "UiTest.Functions.ActionEvents.Configs.LoginConfig, UiTest",
-          "User": null,
-          "Password": null
-        }
-      },
-      {
-        "Name": "LoginAction",
-        "FunctionType": "LoginAction",
-        "Config": {
-          "$type": "UiTest.Functions.ActionEvents.Configs.LoginConfig, UiTest",
-          "User": null,
-          "Password": null
-        }
-      }
     ],
     "ActionTools": [
-      {
-        "Name": "Login",
-        "FunctionType": "LoginAction",
-        "Config": {
-          "$type": "UiTest.Functions.ActionEvents.Configs.LoginConfig, UiTest",
-          "User": null,
-          "Password": null
-        }
-      },
-      {
-        "Name": "Login",
-        "FunctionType": "LoginAction",
-        "Config": {
-          "$type": "UiTest.Functions.ActionEvents.Configs.LoginConfig, UiTest",
-          "User": null,
-          "Password": null
-        }
-      }
     ]
   },
   "Modes": {
@@ -82,106 +34,85 @@
           "FailColor": null,
           "NextToPassGroup": null,
           "NextToFailGroup": null,
-          "Items": []
+          "Items": [
+            {
+              "Name": "Sfis",
+              "FunctionConfig": "Sfis",
+              "Retry": 0,
+              "TimeOut": 10000,
+              "IsSkipFailure": false,
+              "IsMultiTask": false,
+              "IsDontWaitForMe": false
+            }
+          ]
         }
       },
       "InputEvents": [
-        {
-          "Name": "CheckInputLength",
-          "FunctionType": "CheckInputLength",
-          "Config": {
-            "$type": "UiTest.Functions.ActionEvents.Configs.InputLengthConfig, UiTest",
-            "LowerLimit": 1,
-            "UpperLimit": 3
-          }
-        },
-        {
-          "Name": "CheckInputLength",
-          "FunctionType": "CheckInputLength",
-          "Config": {
-            "$type": "UiTest.Functions.ActionEvents.Configs.InputLengthConfig, UiTest",
-            "LowerLimit": 1,
-            "UpperLimit": 3
-          }
-        }
       ],
-      "ModeChangeEvents": [
-        {
-          "Name": "LoginAction",
-          "FunctionType": "LoginAction",
-          "Config": {
-            "$type": "UiTest.Functions.ActionEvents.Configs.LoginConfig, UiTest",
-            "User": null,
-            "Password": null
-          }
-        },
-        {
-          "Name": "LoginAction",
-          "FunctionType": "LoginAction",
-          "Config": {
-            "$type": "UiTest.Functions.ActionEvents.Configs.LoginConfig, UiTest",
-            "User": null,
-            "Password": null
-          }
-        }
+      "ModeChangeEvents": [ 
       ]
     },
     "Production1": {
       "BeginGroup": "Test",
-      "LoopTimes": 1,
+      "LoopTimes": 2,
       "StandbyColor": null,
-      "Properties": {
-        "uuuu": "1111",
-        "bbb": "hhhh22"
-      },
+      "Properties": {},
       "ItemGroups": {
         "Test": {
           "IsFinalGroup": false,
           "FailColor": null,
+          "NextToPassGroup": "Test1",
+          "NextToFailGroup": "Test2",
+          "Items": [
+            {
+              "Name": "Sfis",
+              "FunctionConfig": "Sfis",
+              "Retry": 0,
+              "TimeOut": 10000,
+              "IsSkipFailure": false,
+              "IsMultiTask": false,
+              "IsDontWaitForMe": false
+            }
+          ]
+        },
+	"Test1": {
+          "IsFinalGroup": false,
+          "FailColor": null,
           "NextToPassGroup": null,
           "NextToFailGroup": null,
-          "Items": []
+          "Items": [
+            {
+              "Name": "Sfis1",
+              "FunctionConfig": "Sfis",
+              "Retry": 0,
+              "TimeOut": 10000,
+              "IsSkipFailure": false,
+              "IsMultiTask": false,
+              "IsDontWaitForMe": false
+            }
+          ]
+        },
+        "Test2": {
+          "IsFinalGroup": true,
+          "FailColor": null,
+          "NextToPassGroup": null,
+          "NextToFailGroup": null,
+          "Items": [
+            {
+              "Name": "Sfis2",
+              "FunctionConfig": "Sfis",
+              "Retry": 0,
+              "TimeOut": 10000,
+              "IsSkipFailure": false,
+              "IsMultiTask": false,
+              "IsDontWaitForMe": false
+            }
+          ]
         }
       },
       "InputEvents": [
-        {
-          "Name": "CheckInputLength",
-          "FunctionType": "CheckInputLength",
-          "Config": {
-            "$type": "UiTest.Functions.ActionEvents.Configs.InputLengthConfig, UiTest",
-            "LowerLimit": 1,
-            "UpperLimit": 3
-          }
-        },
-        {
-          "Name": "CheckInputLength",
-          "FunctionType": "CheckInputLength",
-          "Config": {
-            "$type": "UiTest.Functions.ActionEvents.Configs.InputLengthConfig, UiTest",
-            "LowerLimit": 1,
-            "UpperLimit": 3
-          }
-        }
       ],
       "ModeChangeEvents": [
-        {
-          "Name": "LoginAction",
-          "FunctionType": "LoginAction",
-          "Config": {
-            "$type": "UiTest.Functions.ActionEvents.Configs.LoginConfig, UiTest",
-            "User": null,
-            "Password": null
-          }
-        },
-        {
-          "Name": "LoginAction",
-          "FunctionType": "LoginAction",
-          "Config": {
-            "$type": "UiTest.Functions.ActionEvents.Configs.LoginConfig, UiTest",
-            "User": null,
-            "Password": null
-          }
-        }
       ]
     }
   },

@@ -22,8 +22,8 @@ namespace UiTest.Model.Interface
         string Input { get; }
         string ErrorCode { get; }
         string Mode { get; }
-        TestStatus Result { get; }
-        TestStatus FinalResult { get; }
+        TestResult Result { get; }
+        TestResult FinalResult { get; }
         double CycleTime { get; }
         double FinalCycleTime { get; }
     }

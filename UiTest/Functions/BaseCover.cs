@@ -1,32 +1,28 @@
 ﻿using System;
 using System.Threading;
-using System.Threading.Tasks;
+using UiTest.Common;
 using UiTest.Functions.Interface;
 namespace UiTest.Functions
 {
-    public abstract class BaseCover<T>
+    public abstract class BaseCover<T>: IFunction<T>
     {
         protected bool isRunning;
-        protected readonly IFucntion<T> functionBody;
+        protected readonly IFunction<T> functionBody;
         protected readonly CoverManagement<T> coverManagement;
-        protected BaseCover(IFucntion<T> functionBody, CoverManagement<T> coverManagement)
+        protected BaseCover(IFunction<T> functionBody, CoverManagement<T> coverManagement)
         {
             this.functionBody = functionBody;
             this.coverManagement = coverManagement;
         }
-        public virtual void Stop()
-        {
-            functionBody.Stop();
-        }
-
         public virtual void Cancel()
         {
             functionBody.Cancel();
         }
         public virtual CancellationTokenSource Cts { get; set; }
-        public virtual bool IsCanceled => Cts?.IsCancellationRequested == true;
         public virtual bool IsRunning => isRunning;
-        public virtual bool IsAcceptable { get; protected set; }
+        public TestResult Result => functionBody.Result;
+        public T BaseConfig => functionBody.BaseConfig;
+        public bool IsCancelled => functionBody.IsCancelled;
         public abstract void Run();
     }
 }

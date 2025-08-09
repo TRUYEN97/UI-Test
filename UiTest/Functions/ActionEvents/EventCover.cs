@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Threading.Tasks;
-using UiTest.Config.Events;
 using UiTest.Functions.Interface;
 using UiTest.Service.Logger;
 
@@ -8,7 +6,7 @@ namespace UiTest.Functions.ActionEvents
 {
     public class EventCover : BaseCover<object>
     {
-        public EventCover(IActionEvent actionEvent, CoverManagement<object> coverManagement) : base(actionEvent, coverManagement)
+        public EventCover(IFunction<object> actionEvent, CoverManagement<object> coverManagement) : base(actionEvent, coverManagement)
         {
         }
 
@@ -27,7 +25,6 @@ namespace UiTest.Functions.ActionEvents
             finally
             {
                 isRunning = false;
-                IsAcceptable= functionBody.IsAcceptable;
                 coverManagement.SetTestDone(this);
             }
         }
