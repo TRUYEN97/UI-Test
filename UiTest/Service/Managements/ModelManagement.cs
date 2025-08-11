@@ -7,6 +7,7 @@ using UiTest.Common;
 using UiTest.Config;
 using UiTest.Functions.ActionEvents;
 using UiTest.Model;
+using UiTest.ModelView.ListBoxItems;
 using UiTest.Service.Interface;
 using UiTest.Service.Logger;
 
@@ -25,13 +26,13 @@ namespace UiTest.Service.Managements
             _modes = new ObservableCollection<TestMode>();
             this.programConfig = programConfig;
             this.cellManagement = cellManagement;
-            Properties = new ObservableCollection<PropertyModel>();
+            Properties = new ObservableCollection<PropertyModelView>();
             actionEventRunner = new ActionEventRunner();
         }
         public ObservableCollection<TestMode> Modes => _modes;
         public TestMode SelectedMode => _selectedMode;
 
-        public ObservableCollection<PropertyModel> Properties { get; private set; }
+        public ObservableCollection<PropertyModelView> Properties { get; private set; }
         public event Action OnSelectedModeChanged;
         public bool Update()
         {
@@ -102,7 +103,7 @@ namespace UiTest.Service.Managements
         private void UpdateProperties(Dictionary<string, string> properties)
         {
             Properties.Clear();
-            properties?.Any(i => { Properties.Add(new PropertyModel(i.Key, i.Value)); return false; });
+            properties?.Any(i => { Properties.Add(new PropertyModelView(i.Key, i.Value)); return false; });
         }
     }
 }

@@ -38,7 +38,7 @@ namespace UiTest.Service.ErrorCode
                     return true;
                 }
                 errorcode = errorCodeAnalysis.CreateNewErrorcode(functionName);
-                if (ConfigLoader.ProgramConfig.ProgramSetting.ShowMissingErrorCode)
+                if (ConfigLoader.ProgramConfig.ErrorCode.ShowMissingErrorCode)
                 {
                     string mess = $"Missing errr code of item[{functionName}]\r\nAuto create a new error code is [{errorcode}]";
                     ProgramLogger.AddWarning(ToString(), mess);

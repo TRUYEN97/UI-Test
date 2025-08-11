@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="UiTest.View.TabItemView.TabSettingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UiTest.View.TabItemView"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="AliceBlue">
+        <StackPanel>
+            <Grid  Margin="10,10,10,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"  Text="Product"/>
+                <TextBox Grid.Column="1" Text="{Binding Product, Mode=TwoWay}" HorizontalContentAlignment="Center"/>
+            </Grid>
+            <Grid Margin="10,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"  Text="Station"/>
+                <TextBox Grid.Column="1" Text="{Binding Station, Mode=TwoWay}" HorizontalContentAlignment="Center"/>
+            </Grid>
+            <Grid Margin="10,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"  Text="Log path"/>
+                <TextBox Grid.Column="1" Text="{Binding LogPath, Mode=TwoWay}" HorizontalContentAlignment="Center"/>
+            </Grid>
+            <Grid Margin="10,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"  Text="Column"/>
+                <TextBox Grid.Column="1" Text="{Binding Column, Mode=TwoWay}" HorizontalContentAlignment="Center"/>
+            </Grid>
+            <Grid Margin="10,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"  Text="Row"/>
+                <TextBox Grid.Column="1" Text="{Binding Row, Mode=TwoWay}" HorizontalContentAlignment="Center"/>
+            </Grid>
+            <Grid Margin="10,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="60"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"  Text="View"/>
+                <ComboBox Grid.Column="1" ItemsSource="{Binding ViewNames}" SelectedItem="{Binding ViewSelected}"  HorizontalContentAlignment="Center"/>
+            </Grid>
+            <Grid Margin="10,5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"  Text="Properties" HorizontalAlignment="Left" FontSize="12" FontWeight="DemiBold"/>
+                <ListBox Grid.Row="1" Margin="5" Height="100" ItemsSource="{Binding Properties }">
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="FontWeight" Value="Heavy"/>
+                            <Setter Property="Margin" Value="0,5"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</UserControl>

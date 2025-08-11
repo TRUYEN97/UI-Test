@@ -6,18 +6,18 @@
     "Row": 1,
     "View": "TestUnitViewModel",
     "Local_log": "D:/UI Test logs",
-    "ShowMissingErrorCode": true,
     "Properties": {}
   },
   "ErrorCode": {
     "LocalFilePath": "./Errorcodes.csv",
     "LocalNewFilePath": "./NewErrorcodes.csv",
+    "ShowMissingErrorCode": true,
     "MaxLength": 6
   },
   "ActionEvents": {
-    "LauchEvents": [
+    "LauchEvents": [ 
     ],
-    "WindownClosingEvents": [
+    "WindownClosingEvents": [ 
     ],
     "ActionTools": [
     ]

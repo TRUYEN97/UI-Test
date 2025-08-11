@@ -32,7 +32,6 @@ namespace UiTest.Functions
         public bool IsPass => !IsHaveFailled && !IsHaveCancelled;
         public bool IsHaveFailled {  get; protected set; }
         public bool IsRunCancelled => cts?.IsCancellationRequested == true;
-        public bool IsEmpty => covers.Count == 0;
         public bool TryAdd(string name, BaseCover<T> functionCover)
         {
             if (string.IsNullOrEmpty(name)) return false;

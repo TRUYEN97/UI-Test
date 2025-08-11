@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using UiTest.ModelView.TabItemViewModel;
+using UiTest.ModelView.TabItemViewModel.ViewTabs;
 using UiTest.Service.CellService;
 
 namespace UiTest.ModelView.SubModelView
 {
     public class TestUnitViewModel : BaseSubModelView
     {
-        private readonly TabLogViewModel tabLogViewModel;
-        private readonly TabMessageViewModel tabMessageViewModel;
+        private readonly TabLogModelView tabLogViewModel;
+        private readonly TabMessageModelView tabMessageViewModel;
 
         public TestUnitViewModel() : base()
         {
-            tabLogViewModel = new TabLogViewModel();
-            tabMessageViewModel = new TabMessageViewModel();
-            Tabs = new ObservableCollection<BaseTabItemViewModel>()
+            tabLogViewModel = new TabLogModelView();
+            tabMessageViewModel = new TabMessageModelView();
+            Tabs = new ObservableCollection<BaseViewTabModelView>()
             {
                tabMessageViewModel,
                tabLogViewModel
@@ -24,8 +25,8 @@ namespace UiTest.ModelView.SubModelView
                 SelectedTab = Tabs[0];
             }
         }
-        public ObservableCollection<BaseTabItemViewModel> Tabs { get; }
-        public BaseTabItemViewModel SelectedTab { get; set; }
+        public ObservableCollection<BaseViewTabModelView> Tabs { get; }
+        public BaseViewTabModelView SelectedTab { get; set; }
         protected override void UpdateMessage()
         {
             base.UpdateMessage();

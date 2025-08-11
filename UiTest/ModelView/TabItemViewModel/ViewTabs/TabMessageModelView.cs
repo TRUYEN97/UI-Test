@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UiTest.ModelView.TabItemViewModel
+namespace UiTest.ModelView.TabItemViewModel.ViewTabs
 {
-    internal class TabMessageViewModel: BaseTabItemViewModel
+    internal class TabMessageModelView: BaseViewTabModelView
     {
         private string _message;
 
-        public TabMessageViewModel()
+        public TabMessageModelView()
         {
             Name = "View";
         }

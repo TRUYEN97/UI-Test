@@ -5,13 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace UiTest.ModelView.TabItemViewModel
+namespace UiTest.ModelView.TabItemViewModel.ViewTabs
 {
-    internal class TabLogViewModel : BaseTabItemViewModel
+    internal class TabLogModelView : BaseViewTabModelView
     {
         private string _log;
 
-        public TabLogViewModel()
+        public TabLogModelView()
         {
             Name = "Log";
         }

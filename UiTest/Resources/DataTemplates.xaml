@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:TabViewModel="clr-namespace:UiTest.ModelView.TabItemViewModel"
+                    xmlns:TabViewModel="clr-namespace:UiTest.ModelView.TabItemViewModel.ViewTabs"
+                    xmlns:TabSettingModel="clr-namespace:UiTest.ModelView.TabItemViewModel.SettingTabs"
                     xmlns:TabView="clr-namespace:UiTest.View.TabItemView"
                     xmlns:ListItemViewModel="clr-namespace:UiTest.ModelView.ListBoxItems"
                     xmlns:ListBoxItemViews="clr-namespace:UiTest.View.ListBoxItemViews"
@@ -9,13 +10,22 @@
     <DataTemplate DataType="{x:Type SubModelView:TestUnitViewModel}">
         <SubView:TestUnitView/>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type TabViewModel:TabLogViewModel}">
-        <TabView:TabLogView/>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type TabViewModel:TabMessageViewModel}">
-        <TabView:TabMessageView/>
-    </DataTemplate>
     <DataTemplate DataType="{x:Type ListItemViewModel:ActionToolModelView}">
         <ListBoxItemViews:ActionToolView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ListItemViewModel:PropertyModelView}">
+        <ListBoxItemViews:PropertyItemTemplate/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type TabViewModel:TabLogModelView}">
+        <TabView:TabLogView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type TabViewModel:TabMessageModelView}">
+        <TabView:TabMessageView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type TabSettingModel:TabErrorCodeSettingModelView}">
+        <TabView:TabErrorCodeSetting/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type TabSettingModel:TabSettingModelView}">
+        <TabView:TabSettingView/>
     </DataTemplate>
 </ResourceDictionary>

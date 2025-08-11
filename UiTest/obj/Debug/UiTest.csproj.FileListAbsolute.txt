@@ -98,3 +98,9 @@ D:\C#\UiTest\UiTest\obj\Debug\View\SettingView.g.cs
 D:\C#\UiTest\UiTest\obj\Debug\View\SubView\MultiUnitView.g.cs
 D:\C#\UiTest\UiTest\obj\Debug\View\SettingView.baml
 D:\C#\UiTest\UiTest\obj\Debug\View\SubView\MultiUnitView.baml
+D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\TabErrorCodeSetting.g.cs
+D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\TabErrorCodeSetting.baml
+D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\TabSettingView.g.cs
+D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\TabSettingView.baml
+D:\C#\UiTest\UiTest\obj\Debug\View\Input\InputPropertyView.g.cs
+D:\C#\UiTest\UiTest\obj\Debug\View\Input\InputPropertyView.baml

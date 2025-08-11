@@ -54,7 +54,7 @@ namespace UiTest.ModelView
         public ObservableCollection<TestMode> Modes => _modelManagement.Modes;
         public ObservableCollection<string> LogLines => ProgramLogger.Instance.MessageBox;
         public TestMode SelectedMode { get => _modelManagement.SelectedMode; set { _modelManagement.UpdateMode(value); } }
-        public ObservableCollection<PropertyModel> Properties => _modelManagement.Properties;
+        public ObservableCollection<PropertyModelView> Properties => _modelManagement.Properties;
         public ObservableCollection<ActionToolModelView> ActionTools { get; private set; }
         public string Title => $"{AppInfo.ProductName} - V{AppInfo.ProductVersion}";
         public string PcName => PcInfo.PcName;

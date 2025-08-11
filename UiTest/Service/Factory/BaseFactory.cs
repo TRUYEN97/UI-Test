@@ -41,9 +41,10 @@ namespace UiTest.Service.Factory
             }
             return false;
         }
+        public HashSet<string> ListName => types.Keys.ToHashSet();
         public bool Exists(string typeName)
         {
-            return types.ContainsKey(typeName);
+            return !string.IsNullOrWhiteSpace(typeName) && types.ContainsKey(typeName);
         }
 
         public T CreateInstanceWithTypeName(string typeName, params object[] args)
@@ -64,7 +65,7 @@ namespace UiTest.Service.Factory
             {
                 return default;
             }
-            return (T) Activator.CreateInstance(type, args);
+            return (T)Activator.CreateInstance(type, args);
         }
     }
 }

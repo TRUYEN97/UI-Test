@@ -3,28 +3,20 @@
   "WorkspaceRootPath": "D:\\C#\\UiTest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\managements\\cellmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\managements\\cellmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\modelview\\tabitemviewmodel\\settingtabs\\tabsettingmodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\modelview\\tabitemviewmodel\\settingtabs\\tabsettingmodelview.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\core.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\core.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\resources\\datatemplates.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\resources\\datatemplates.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\managements\\modelmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\managements\\modelmanagement.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\view\\input\\inputpropertyview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\view\\input\\inputpropertyview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\service\\cellservice\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\service\\cellservice\\cell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\view\\settingview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\view\\settingview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\view\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|d:\\c#\\uitest\\uitest\\view\\tabitemview\\tabsettingview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{CEB2CA3C-8553-416B-9B0E-0BF9E832441B}|UiTest\\UiTest.csproj|solutionrelative:uitest\\view\\tabitemview\\tabsettingview.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -34,82 +26,55 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CellManagement.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\Managements\\CellManagement.cs",
-              "RelativeDocumentMoniker": "UiTest\\Service\\Managements\\CellManagement.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\Managements\\CellManagement.cs",
-              "RelativeToolTip": "UiTest\\Service\\Managements\\CellManagement.cs",
-              "ViewState": "AgIAACgAAAAAAAAAAAAAwEsAAABEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T10:21:07.865Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Cell.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\CellService\\Cell.cs",
-              "RelativeDocumentMoniker": "UiTest\\Service\\CellService\\Cell.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\CellService\\Cell.cs",
-              "RelativeToolTip": "UiTest\\Service\\CellService\\Cell.cs",
-              "ViewState": "AgIAACQAAAAAAAAAAAAxwDwAAAAhAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T10:19:21.635Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ModelManagement.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\Managements\\ModelManagement.cs",
-              "RelativeDocumentMoniker": "UiTest\\Service\\Managements\\ModelManagement.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\Managements\\ModelManagement.cs",
-              "RelativeToolTip": "UiTest\\Service\\Managements\\ModelManagement.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAowCMAAAAUAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T10:15:02.296Z",
+              "Title": "InputPropertyView.xaml",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\View\\Input\\InputPropertyView.xaml",
+              "RelativeDocumentMoniker": "UiTest\\View\\Input\\InputPropertyView.xaml",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\View\\Input\\InputPropertyView.xaml",
+              "RelativeToolTip": "UiTest\\View\\Input\\InputPropertyView.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-11T09:55:38.719Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Core.cs",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Service\\Core.cs",
-              "RelativeDocumentMoniker": "UiTest\\Service\\Core.cs",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Service\\Core.cs",
-              "RelativeToolTip": "UiTest\\Service\\Core.cs",
-              "ViewState": "AgIAABkAAAAAAAAAAAAgwCUAAAAtAAAAAAAAAA==",
+              "Title": "DataTemplates.xaml",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\Resources\\DataTemplates.xaml",
+              "RelativeDocumentMoniker": "UiTest\\Resources\\DataTemplates.xaml",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\Resources\\DataTemplates.xaml",
+              "RelativeToolTip": "UiTest\\Resources\\DataTemplates.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-11T07:53:20.765Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TabSettingModelView.cs",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\ModelView\\TabItemViewModel\\SettingTabs\\TabSettingModelView.cs",
+              "RelativeDocumentMoniker": "UiTest\\ModelView\\TabItemViewModel\\SettingTabs\\TabSettingModelView.cs",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\ModelView\\TabItemViewModel\\SettingTabs\\TabSettingModelView.cs",
+              "RelativeToolTip": "UiTest\\ModelView\\TabItemViewModel\\SettingTabs\\TabSettingModelView.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAswFwAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-09T10:14:06.32Z",
+              "WhenOpened": "2025-08-11T09:00:19.218Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainWindow.xaml",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\View\\MainWindow.xaml",
-              "RelativeDocumentMoniker": "UiTest\\View\\MainWindow.xaml",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\View\\MainWindow.xaml",
-              "RelativeToolTip": "UiTest\\View\\MainWindow.xaml",
+              "DocumentIndex": 3,
+              "Title": "TabSettingView.xaml",
+              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\View\\TabItemView\\TabSettingView.xaml",
+              "RelativeDocumentMoniker": "UiTest\\View\\TabItemView\\TabSettingView.xaml",
+              "ToolTip": "D:\\C#\\UiTest\\UiTest\\View\\TabItemView\\TabSettingView.xaml",
+              "RelativeToolTip": "UiTest\\View\\TabItemView\\TabSettingView.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-09T10:04:51.041Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SettingView.xaml",
-              "DocumentMoniker": "D:\\C#\\UiTest\\UiTest\\View\\SettingView.xaml",
-              "RelativeDocumentMoniker": "UiTest\\View\\SettingView.xaml",
-              "ToolTip": "D:\\C#\\UiTest\\UiTest\\View\\SettingView.xaml",
-              "RelativeToolTip": "UiTest\\View\\SettingView.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-09T10:03:40.242Z",
+              "WhenOpened": "2025-08-11T08:16:40.1Z",
               "EditorCaption": ""
             }
           ]
