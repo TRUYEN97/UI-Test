@@ -4,13 +4,16 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UiTest.View.Input"
+        ResizeMode="NoResize"
+        WindowStyle="ToolWindow"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="Input" Height="180" Width="300">
-    <StackPanel Margin="20,20,20,21">
-        <TextBlock Text="Key" Margin="0,0,0,5"/>
-        <TextBox x:Name="Key" Margin="0,0,0,10"/>
-        <TextBlock Text="Value" Margin="0,0,0,5"/>
-        <TextBox x:Name="Value" Margin="0,0,0,10" />
-        <Button Content="Ok" MouseLeftButtonDown="Button_MouseLeftButtonDown" Width="50" HorizontalAlignment="Right" Margin="0,0,5,5"/>
+        Title="Input" Height="200" Width="300">
+    <StackPanel Margin="10">
+        <TextBlock Text="Key" Margin="0,0,0,2" HorizontalAlignment="Center"/>
+        <TextBox x:Name="Key" Text="{Binding Key, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" HorizontalContentAlignment="Center"/>
+        <TextBlock Text="Value" Margin="0,0,0,2" HorizontalAlignment="Center"/>
+        <TextBox x:Name="Value" Text="{Binding Value, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,10" HorizontalContentAlignment="Center" />
+        <Button Content="Ok" Command="{Binding Command}" Width="50" HorizontalAlignment="Right" Margin="0,0,5,5"/>
     </StackPanel>
 </Window>

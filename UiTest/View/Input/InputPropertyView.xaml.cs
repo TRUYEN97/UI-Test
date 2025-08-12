@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UiTest.ModelView.Input;
 
 namespace UiTest.View.Input
 {
@@ -19,21 +20,14 @@ namespace UiTest.View.Input
     /// </summary>
     public partial class InputPropertyView : Window
     {
-        public InputPropertyView(string key, string view)
+
+        public readonly InputPropertyModelView InputPropertyModelView;
+        public InputPropertyView(string key, string value)
         {
             InitializeComponent();
-            Key.Text = key;
-            Value.Text = view;
-        }
-
-        private void Button_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (string.IsNullOrWhiteSpace(Key.Text))
-            {
-                MessageBox.Show("Key == null!");
-                return;
-            }
-            DialogResult = true;
+            InputPropertyModelView = new InputPropertyModelView(key, value, () => { DialogResult = true; });
+            DataContext = InputPropertyModelView;
+            Key.Focus();
         }
     }
 }

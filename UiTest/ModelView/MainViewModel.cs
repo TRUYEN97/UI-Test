@@ -5,7 +5,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using UiTest.Common;
 using UiTest.Config;
-using UiTest.Functions.ActionEvents.Configs;
 using UiTest.Model;
 using UiTest.ModelView.ListBoxItems;
 using UiTest.ModelView.SubModelView;

@@ -44,6 +44,7 @@ namespace UiTest.ModelView
             Tabs.Clear();
             Tabs.Add(new TabErrorCodeSettingModelView(config.ErrorCode));
             Tabs.Add(new TabSettingModelView(config.ProgramSetting));
+            Tabs.Add(new ActionEventSettingModelView(config.ActionEvents));
             SelectedIndex = Tabs.Count > tabIndex ? tabIndex : 0;
         }
 

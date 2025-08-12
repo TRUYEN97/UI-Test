@@ -5,13 +5,19 @@
                     xmlns:TabView="clr-namespace:UiTest.View.TabItemView"
                     xmlns:ListItemViewModel="clr-namespace:UiTest.ModelView.ListBoxItems"
                     xmlns:ListBoxItemViews="clr-namespace:UiTest.View.ListBoxItemViews"
+                    xmlns:ComponentModelView="clr-namespace:UiTest.ModelView.Component"
+                    xmlns:ComponentlView="clr-namespace:UiTest.View.Component"
                     xmlns:SubModelView="clr-namespace:UiTest.ModelView.SubModelView"
+                    xmlns:mi="clr-namespace:UiTest.Model.Interface"
                     xmlns:SubView="clr-namespace:UiTest.View.SubView">
     <DataTemplate DataType="{x:Type SubModelView:TestUnitViewModel}">
         <SubView:TestUnitView/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type ListItemViewModel:ActionToolModelView}">
         <ListBoxItemViews:ActionToolView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ListItemViewModel:PropertySettingModelView}">
+        <ListBoxItemViews:PropertySettingTemplate/>
     </DataTemplate>
     <DataTemplate DataType="{x:Type ListItemViewModel:PropertyModelView}">
         <ListBoxItemViews:PropertyItemTemplate/>
@@ -27,5 +33,17 @@
     </DataTemplate>
     <DataTemplate DataType="{x:Type TabSettingModel:TabSettingModelView}">
         <TabView:TabSettingView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type TabSettingModel:ActionEventSettingModelView}">
+        <TabView:AcionEventSetting/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type TabSettingModel:ShowEventSettingModelView}">
+        <TabView:ShowEventSettingView/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ComponentModelView:ListBoxModelView}">
+        <ComponentlView:MyListBox/>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type ComponentModelView:TreeViewModelView}">
+        <ComponentlView:MyTreeView/>
     </DataTemplate>
 </ResourceDictionary>

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 using UiTest.Config;
+using UiTest.Model.Interface;
+using UiTest.ModelView.Component;
 using UiTest.ModelView.ListBoxItems;
 using UiTest.Service.Factory;
+using UiTest.Service.Relay;
 using UiTest.View.Input;
 
 namespace UiTest.ModelView.TabItemViewModel.SettingTabs
@@ -25,10 +26,20 @@ namespace UiTest.ModelView.TabItemViewModel.SettingTabs
         {
             this.programSetting = programSetting;
             ViewNames = new ObservableCollection<string>();
-            Properties = new ObservableCollection<PropertyModelView>();
+            ListBoxModelView = new ListBoxModelView("Properties");
             Reload();
-
+            AddProperty = new RelayCommand(_ =>
+            {
+                var newItem = new PropertySettingModelView(string.Empty, string.Empty, ListBoxModelView.Items);
+                ListBoxModelView.Add(newItem);
+                ListBoxModelView.SelectedItem = newItem;
+            });
+            DeleteProperty = new RelayCommand(_ => ListBoxModelView.Remove(ListBoxModelView.SelectedItem), _ => ListBoxModelView.SelectedItem is PropertySettingModelView);
+            ListBoxModelView.SelectedItemChangedEvent += i => { AddProperty.RaiseCanExecuteChanged(); DeleteProperty.RaiseCanExecuteChanged(); };
         }
+        public ListBoxModelView ListBoxModelView { get; set; }
+        public RelayCommand AddProperty { get; private set; }
+        public RelayCommand DeleteProperty { get; private set; }
         public string Product { get => _product; set { _product = value; } }
         public string Station { get => _station; set { _station = value; } }
         public string LogPath { get => _logPath; set { _logPath = value; } }
@@ -36,7 +47,6 @@ namespace UiTest.ModelView.TabItemViewModel.SettingTabs
         public string Row { get => _row.ToString(); set { if (int.TryParse(value, out int num)) _row = num; } }
         public ObservableCollection<string> ViewNames { get; private set; }
         public string ViewSelected { get => viewSelected; set { viewSelected = value; OnPropertyChanged(); } }
-        public ObservableCollection<PropertyModelView> Properties { get; private set; }
         public override void Reload()
         {
             Product = programSetting?.Product;
@@ -51,24 +61,13 @@ namespace UiTest.ModelView.TabItemViewModel.SettingTabs
 
         private void ReloadProperties()
         {
-            Properties.Clear();
+            ListBoxModelView.Clear();
             programSetting.Properties = programSetting.Properties ?? new Dictionary<string, string>();
+            ListBoxModelView.Add(new PropertyModelView("Name", "Value"));
             foreach (var item in programSetting.Properties)
             {
-                Properties.Add(new PropertyModelView(item.Key, item.Value, PropertyClick));
+                ListBoxModelView.Add(new PropertySettingModelView(item.Key, item.Value, ListBoxModelView.Items));
             }
-        }
-
-        private void PropertyClick(PropertyModelView propertyModelView)
-        {
-            if (string.IsNullOrWhiteSpace(propertyModelView?.Name))
-            {
-                return;
-            }
-            var inputView = new InputPropertyView(propertyModelView.Name, propertyModelView.Value);
-            inputView.ShowDialog();
-            propertyModelView.Name = inputView.Key.Text;
-            propertyModelView.Value = inputView.Value.Text;
         }
         private void ReloadViewName()
         {
@@ -96,9 +95,12 @@ namespace UiTest.ModelView.TabItemViewModel.SettingTabs
             programSetting.View = viewSelected;
             programSetting.Properties = programSetting.Properties ?? new Dictionary<string, string>();
             programSetting.Properties.Clear();
-            foreach (var item in Properties)
+            foreach (var item in ListBoxModelView.Items)
             {
-                programSetting.Properties.Add(item.Name, item.Value);
+                if (item is PropertySettingModelView settingModelView)
+                {
+                    programSetting.Properties.Add(settingModelView.Name, settingModelView.Value);
+                }
             }
         }
     }

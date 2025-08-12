@@ -53,7 +53,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>icons8-testing-64.ico</ApplicationIcon>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject>
@@ -182,6 +182,7 @@
     <Compile Include="Config\ActionEvents.cs" />
     <Compile Include="Config\ConfigLoader.cs" />
     <Compile Include="Config\Events\ActionEventSetting.cs" />
+    <Compile Include="Converter\NumberConverter.cs" />
     <Compile Include="Functions\ActionEvents\ActionEventCoverManagent.cs" />
     <Compile Include="Functions\ActionEvents\ActionEventRunner.cs" />
     <Compile Include="Config\Items\FunctionConfig.cs" />
@@ -216,10 +217,16 @@
     <Compile Include="Functions\Interface\ITestFunction.cs" />
     <Compile Include="Mapper\MyObjectMapper.cs" />
     <Compile Include="ModelView\BaseSubModelView.cs" />
+    <Compile Include="ModelView\Component\ListBoxModelView.cs" />
+    <Compile Include="ModelView\Component\TreeViewModelView.cs" />
+    <Compile Include="ModelView\Input\InputPropertyModelView.cs" />
     <Compile Include="ModelView\ListBoxItems\ActionToolModelView.cs" />
     <Compile Include="ModelView\ListBoxItems\PropertyModelView.cs" />
+    <Compile Include="ModelView\ListBoxItems\PropertySettingModelView.cs" />
     <Compile Include="ModelView\SettingModelView.cs" />
     <Compile Include="ModelView\TabItemViewModel\BaseTabSettingModelView.cs" />
+    <Compile Include="ModelView\TabItemViewModel\SettingTabs\ActionEventSettingModelView.cs" />
+    <Compile Include="ModelView\TabItemViewModel\SettingTabs\ShowEventSettingModelView.cs" />
     <Compile Include="ModelView\TabItemViewModel\SettingTabs\TabErrorCodeSettingModelView.cs" />
     <Compile Include="ModelView\TabItemViewModel\SettingTabs\TabSettingModelView.cs" />
     <Compile Include="ModelView\TabItemViewModel\ViewTabs\TabLogModelView.cs" />
@@ -230,7 +237,10 @@
     <Compile Include="Model\Function\FunctionData.cs" />
     <Compile Include="Model\Function\FunctionResultModel.cs" />
     <Compile Include="Model\Interface\IFunctionResult.cs" />
+    <Compile Include="Model\Interface\IKeyValue.cs" />
     <Compile Include="Model\Interface\ITestResult.cs" />
+    <Compile Include="Model\TreeView\LeafNode.cs" />
+    <Compile Include="Model\TreeView\TreeNode.cs" />
     <Compile Include="Service\CellService\Cell.cs" />
     <Compile Include="Functions\TestFunctions\FunctionTester.cs" />
     <Compile Include="Service\CellService\CellTimer.cs" />
@@ -294,6 +304,12 @@
     <Compile Include="View\Component\MyTextBox.xaml.cs">
       <DependentUpon>MyTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Component\MyTreeView.xaml.cs">
+      <DependentUpon>MyTreeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Component\ObjectEditor.xaml.cs">
+      <DependentUpon>ObjectEditor.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Input\InputPropertyView.xaml.cs">
       <DependentUpon>InputPropertyView.xaml</DependentUpon>
     </Compile>
@@ -303,6 +319,9 @@
     <Compile Include="View\ListBoxItemViews\PropertyItemTemplate.xaml.cs">
       <DependentUpon>PropertyItemTemplate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ListBoxItemViews\PropertySettingTemplate.xaml.cs">
+      <DependentUpon>PropertySettingTemplate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\SettingView.xaml.cs">
       <DependentUpon>SettingView.xaml</DependentUpon>
     </Compile>
@@ -311,6 +330,12 @@
     </Compile>
     <Compile Include="View\SubView\TestUnitView.xaml.cs">
       <DependentUpon>TestUnitView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TabItemView\AcionEventSetting.xaml.cs">
+      <DependentUpon>AcionEventSetting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\TabItemView\ShowEventSettingView.xaml.cs">
+      <DependentUpon>ShowEventSettingView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\TabItemView\TabErrorCodeSetting.xaml.cs">
       <DependentUpon>TabErrorCodeSetting.xaml</DependentUpon>
@@ -348,7 +373,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Component\MyListBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Component\MyTextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Component\MyTreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Component\ObjectEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -361,6 +398,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ListBoxItemViews\PropertyItemTemplate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ListBoxItemViews\PropertySettingTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -382,10 +423,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Component\MyListBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="View\SettingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -395,6 +432,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\SubView\TestUnitView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TabItemView\AcionEventSetting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\TabItemView\ShowEventSettingView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -445,9 +490,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="icons8-testing-64.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.8">
       <Visible>False</Visible>
       <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
@@ -459,7 +501,21 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FileIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\FolderIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\EditIcon.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets" Condition="Exists('..\packages\System.ValueTuple.4.6.1\build\net471\System.ValueTuple.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

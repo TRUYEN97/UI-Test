@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="UiTest.View.ListBoxItemViews.PropertySettingTemplate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UiTest.View.ListBoxItemViews"
+             xmlns:behaviors="clr-namespace:UiTest.Behaviors"
+             mc:Ignorable="d" 
+             Height="auto" Width="auto">
+    <Border Background="AliceBlue">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="25" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="25" />
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0"
+                    Background="Gray"
+                    CornerRadius="2" Margin="2"
+                    behaviors:MouseDoubleClickCommandBehavior.Command="{Binding DoubleClickCommand}"
+                    behaviors:MouseLeftClickCommandBehavior.Command="{Binding ClickCommand}">
+                <Image Source="{Binding IconPath}"/>
+            </Border>
+            <TextBox Grid.Column="1"  Text="{Binding Name}" IsReadOnly="{Binding IsNameReadOnly}" Margin="5,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Column="2" Text="{Binding Value}" IsReadOnly="{Binding IsValueReadOnly}" Margin="5,0"  HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Grid.Column="3" Margin="2" Command="{Binding DeleteCommand}" Content="X" Background="Red"/>
+        </Grid>
+    </Border>
+</UserControl>

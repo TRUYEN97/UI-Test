@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="UiTest.View.TabItemView.ShowEventSettingView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UiTest.View.TabItemView"
+             xmlns:Cm="clr-namespace:UiTest.View.Component"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="250"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <ContentControl Content="{Binding ActionListModelView }"/>
+            <Grid Grid.Column="1">
+                <ContentControl Content="{Binding TreeViewModelView}"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Cm:ObjectEditor TargetObject="{Binding SelectedItem }"/>
+        </Grid>
+    </Grid>
+</UserControl>

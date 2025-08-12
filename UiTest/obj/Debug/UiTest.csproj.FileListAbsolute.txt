@@ -104,3 +104,13 @@ D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\TabSettingView.g.cs
 D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\TabSettingView.baml
 D:\C#\UiTest\UiTest\obj\Debug\View\Input\InputPropertyView.g.cs
 D:\C#\UiTest\UiTest\obj\Debug\View\Input\InputPropertyView.baml
+D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\AcionEventSetting.g.cs
+D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\ShowEventSettingView.g.cs
+D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\AcionEventSetting.baml
+D:\C#\UiTest\UiTest\obj\Debug\View\TabItemView\ShowEventSettingView.baml
+D:\C#\UiTest\UiTest\obj\Debug\View\ListBoxItemViews\PropertySettingTemplate.g.cs
+D:\C#\UiTest\UiTest\obj\Debug\View\ListBoxItemViews\PropertySettingTemplate.baml
+D:\C#\UiTest\UiTest\obj\Debug\View\Component\MyTreeView.g.cs
+D:\C#\UiTest\UiTest\obj\Debug\View\Component\MyTreeView.baml
+D:\C#\UiTest\UiTest\obj\Debug\View\Component\ObjectEditor.g.cs
+D:\C#\UiTest\UiTest\obj\Debug\View\Component\ObjectEditor.baml

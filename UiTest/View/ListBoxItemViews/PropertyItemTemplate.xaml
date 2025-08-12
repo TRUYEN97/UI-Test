@@ -4,15 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UiTest.View.ListBoxItemViews"
+             xmlns:Behaviors="clr-namespace:UiTest.Behaviors"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Behaviors:MouseDoubleClickCommandBehavior.Command="{Binding Command}" >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-
-        <TextBlock Text="{Binding Name}" Margin="10,0" FontSize="14" HorizontalAlignment="Left"/>
-        <TextBlock Text="{Binding Value}" Grid.Column="1" Margin="0,0,10,0" FontSize="14" HorizontalAlignment="Right"/>
+        <TextBlock Text="{Binding Name}" Margin="10,0" FontSize="14" HorizontalAlignment="Center"/>
+        <TextBlock Text="{Binding Value}" Grid.Column="1" Margin="0,0,10,0" FontSize="14" HorizontalAlignment="Center"/>
     </Grid>
 </UserControl>

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\C#\UiTest\UiTest\App.xaml
-20478151189
+2523199648
 
-1411873051449
+1561195719188
 44-1603117090
-Resources\DataTemplates.xaml;Style\Themes\Colors.xaml;Style\Themes\Generic.xaml;Style\RoundedWindowButton.xaml;Style\Themes\Shadows.xaml;View\Component\LabeledStatusBox.xaml;View\Component\MyTextBox.xaml;View\Input\InputPropertyView.xaml;View\ListBoxItemViews\ActionToolView.xaml;View\ListBoxItemViews\PropertyItemTemplate.xaml;View\MainWindow.xaml;View\Component\MyCombobox.xaml;View\Component\MyListBox.xaml;View\SettingView.xaml;View\SubView\MultiUnitView.xaml;View\SubView\TestUnitView.xaml;View\TabItemView\TabErrorCodeSetting.xaml;View\TabItemView\TabLogView.xaml;View\TabItemView\TabMessageView.xaml;View\TabItemView\TabSettingView.xaml;
+Resources\DataTemplates.xaml;Style\Themes\Colors.xaml;Style\Themes\Generic.xaml;Style\RoundedWindowButton.xaml;Style\Themes\Shadows.xaml;View\Component\LabeledStatusBox.xaml;View\Component\MyListBox.xaml;View\Component\MyTextBox.xaml;View\Component\MyTreeView.xaml;View\Component\ObjectEditor.xaml;View\Input\InputPropertyView.xaml;View\ListBoxItemViews\ActionToolView.xaml;View\ListBoxItemViews\PropertyItemTemplate.xaml;View\ListBoxItemViews\PropertySettingTemplate.xaml;View\MainWindow.xaml;View\Component\MyCombobox.xaml;View\SettingView.xaml;View\SubView\MultiUnitView.xaml;View\SubView\TestUnitView.xaml;View\TabItemView\AcionEventSetting.xaml;View\TabItemView\ShowEventSettingView.xaml;View\TabItemView\TabErrorCodeSetting.xaml;View\TabItemView\TabLogView.xaml;View\TabItemView\TabMessageView.xaml;View\TabItemView\TabSettingView.xaml;
 
-False
+True
 

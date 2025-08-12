@@ -1,0 +1,41 @@
+﻿<UserControl x:Class="UiTest.View.Component.MyTreeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UiTest.View.Component"
+             xmlns:TreeView="clr-namespace:UiTest.Model.TreeView"
+             xmlns:Behaviors="clr-namespace:UiTest.Behaviors"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <TreeView ItemsSource="{Binding TreeItems}">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type TreeView:TreeNode}"
+                                   ItemsSource="{Binding Children}">
+                    <StackPanel 
+                        Orientation="Horizontal">
+                        <Image  Height="16" Width="16" Source="/UiTest;component/Resources/FolderIcon.png"/>
+                        <TextBlock Text="{Binding Name}"
+                                   Margin="5,0,0,0"/>
+                    </StackPanel>
+                </HierarchicalDataTemplate>
+
+                <DataTemplate DataType="{x:Type TreeView:LeafNode}">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Height="16" Width="16" Source="/UiTest;component/Resources/FileIcon.png"/>
+                        <TextBlock Text="{Binding Name}"
+                        Behaviors:MouseDoubleClickCommandBehavior.Command="{Binding OpenCommand}"
+                        Margin="5,0,0,0">
+                            <TextBlock.ContextMenu>
+                                <ContextMenu DataContext="{Binding PlacementTarget.DataContext, RelativeSource={RelativeSource Self}}">
+                                    <MenuItem Header="Open" Command="{Binding OpenCommand}" />
+                                </ContextMenu>
+                            </TextBlock.ContextMenu>
+                        </TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </TreeView.Resources>
+        </TreeView>
+    </Grid>
+</UserControl>

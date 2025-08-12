@@ -42,6 +42,7 @@ namespace UiTest.Service.Factory
             return false;
         }
         public HashSet<string> ListName => types.Keys.ToHashSet();
+        public IEnumerable<Type> Types => types.Values;
         public bool Exists(string typeName)
         {
             return !string.IsNullOrWhiteSpace(typeName) && types.ContainsKey(typeName);

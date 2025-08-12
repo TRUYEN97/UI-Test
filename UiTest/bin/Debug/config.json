@@ -9,17 +9,20 @@
     "Properties": {}
   },
   "ErrorCode": {
+    "ShowMissingErrorCode": true,
     "LocalFilePath": "./Errorcodes.csv",
     "LocalNewFilePath": "./NewErrorcodes.csv",
-    "ShowMissingErrorCode": true,
     "MaxLength": 6
   },
   "ActionEvents": {
-    "LauchEvents": [ 
+    "LauchEvents": [
+              
     ],
-    "WindownClosingEvents": [ 
+    "WindownClosingEvents": [
+      
     ],
     "ActionTools": [
+      
     ]
   },
   "Modes": {
@@ -34,6 +37,7 @@
           "FailColor": null,
           "NextToPassGroup": null,
           "NextToFailGroup": null,
+          "NextToCancelGroup": "",
           "Items": [
             {
               "Name": "Sfis",
@@ -48,8 +52,10 @@
         }
       },
       "InputEvents": [
+        
       ],
-      "ModeChangeEvents": [ 
+      "ModeChangeEvents": [
+        
       ]
     },
     "Production1": {
@@ -63,6 +69,7 @@
           "FailColor": null,
           "NextToPassGroup": "Test1",
           "NextToFailGroup": "Test2",
+          "NextToCancelGroup": "",
           "Items": [
             {
               "Name": "Sfis",
@@ -75,11 +82,12 @@
             }
           ]
         },
-	"Test1": {
+        "Test1": {
           "IsFinalGroup": false,
           "FailColor": null,
           "NextToPassGroup": null,
           "NextToFailGroup": null,
+          "NextToCancelGroup": "",
           "Items": [
             {
               "Name": "Sfis1",
@@ -97,6 +105,7 @@
           "FailColor": null,
           "NextToPassGroup": null,
           "NextToFailGroup": null,
+          "NextToCancelGroup": "",
           "Items": [
             {
               "Name": "Sfis2",
@@ -111,8 +120,10 @@
         }
       },
       "InputEvents": [
+        
       ],
       "ModeChangeEvents": [
+        
       ]
     }
   },
